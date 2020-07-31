@@ -1,0 +1,20 @@
+{
+    "short_name": "TecnoPresta",
+    "name": "TecnoPresta",
+    "icons": [
+    {
+      "src":"img/fondo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src":"img/sinconexion.png",
+      "sizes": "192x192",
+      "type": "image/png"
+      }    
+    ],
+    "start_url": "index.html",
+    "background_color": "#303030",
+    "theme_color": "#499bea",
+    "display": "standalone"
+  }

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Préstamo</title>        
+  </head>
+  <body>
+   
+    <nav class="navbar navbar-expand-sm navbar-expand-md navbar-expand-lg bg-dark navbar-dark">        
+        <span class="navbar-brand mb-0 h1">Préstamo</span>          
+    </nav>
+    <nav class="navbar navbar-expand-sm navbar-expand-md navbar-expand-lg bg-dark navbar-dark">         
+        <span class="navbar-brand mb-0 h1">
+            <img src="img/fondo.png" width="50" height="50" alt="" loading="lazy">
+            <a class="navbar-brand" href="formulario_menu_prestamo.html">Ir a Menú Préstamo</a>
+        </span>               
+    </nav>
+
+    <div class="container-sm container-md container-lg">
+      <div class="row justify-content-center"> 
+        <div id="mensaje" class="form-group row"></div>
+      </div>
+    </div>
+    
+    <!-- Contenedor Principal -->
+    <div class="container-sm container-md container-lg" style="padding-top: 1em;" id="contenedor">                    
+
+      <div class="form-group row">
+        <label for="date1" class="col-sm-2 col-form-label">Retiro</label>              
+        <div class="col-sm-8">            
+            <input class="form-control" id="fechaRetiro" type="text"/>                          
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="date" class="col-sm-2 col-form-label">Devolución</label>              
+        <div class="col-sm-8">            
+            <input class="form-control" id="fechaDevolución" type="text"/>                   
+        </div>
+      </div>   
+    
+    </div>  
+    
+    <!-- Titulo tabla -->
+    <div class="container-sm container-md container-lg">
+      
+      <div class="row justify-content-center p-1 bg-dark text-white"> 
+          <strong>Seleccione los artículos...</strong>
+      </div>
+
+      <div class="form-group row p-1 bg-secondary text-white">
+        <div class="col-1" id="check"></div>
+        <div class="col-4" id="nombre">Nombre</div>
+        <div class="col" id="marca">Marca</div>
+        <div class="col" id="numero_activo">Número</div>
+      </div>
+
+    </div>
+
+      <div class="container-sm container-md container-lg" id="plantilla">
+
+        <!-- Plantilla de cards se carga del js -->
+        <div class="form-group row" id="item">
+          <div class="col-1"> 
+            <div class="form-check">
+              <input class="form-check-input position-static" type="checkbox" aria-label="...">
+            </div>  
+          </div>
+          <div class="col-4" id="nombre">Parlante Amplificado Ericson</div>
+          <div class="col" id="marca">dji</div>
+          <div class="col" id="numero_activo">numero_activo</div>
+        </div>         
+
+      </div>      
+
+      <div class="d-flex justify-content-center">
+        <div class="row">            
+            <button id="btnGuardar" type="button" class="btn btn-dark">Guardar</button>             
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <div class="row">
+            <div class="col" style="width: 15rem;">
+              <img class="card-img-top" src="img/fondo.png">
+            </div>  
+        </div>
+      </div>
+
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>  
+    <script src="js/formulario_prestamo.js"></script>
+   
+  </body>
+</html>
