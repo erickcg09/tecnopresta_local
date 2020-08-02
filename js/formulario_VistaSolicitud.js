@@ -1,4 +1,11 @@
 
+ window.onload = function() {
+  
+  cargaDatosBd();  
+  return false;
+
+  }
+
  function cargaDatosBd() {
   
   fetch('sql/selectSolicitudGestor.php').then(function(response) {
@@ -127,10 +134,3 @@ function cargaDatosPantalla(rs) {
     
     return false;
 }
-
-window.onload = function() {
-  
-  cargaDatosBd();  
-  return false;
-
-};
