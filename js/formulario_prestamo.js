@@ -21,7 +21,7 @@ $(document).ready(function() {
     if (booGuardar) {
       let contenedorError = document.getElementById("mensaje");
       contenedorError.innerHTML='<div class="alert alert-danger">' +
-                            '<strong>La información se registró satisfacoriamente</strong>' +
+                            '<strong>La información se registró satisfactoriamente</strong>' +
                             '</div>';
     }               
       return false;
@@ -42,10 +42,15 @@ window.onload = function() {
 
 }
 
-function validaFechas(prestamo_fechaRetiro,prestamo_fechaDevolucion) {
+function validaFechas(prestamo_fechaRetiroY, 
+                      prestamo_fechaRetiroM, 
+                      prestamo_fechaRetiroD, 
+                      prestamo_fechaDevolucionY,
+                      prestamo_fechaDevolucionM,
+                      prestamo_fechaDevolucionD) {
 
-  let fechaInicio = new Date(prestamo_fechaRetiro);
-  let fechaFin = new Date(prestamo_fechaDevolucion);
+  let fechaInicio = new Date(prestamo_fechaRetiroY, prestamo_fechaRetiroM, prestamo_fechaRetiroD);
+  let fechaFin = new Date(prestamo_fechaDevolucionY, prestamo_fechaDevolucionM, prestamo_fechaDevolucionD);
 
   if (fechaInicio > fechaFin) {
     return true;
@@ -54,27 +59,72 @@ function validaFechas(prestamo_fechaRetiro,prestamo_fechaDevolucion) {
   return false;
 }
 
-function isValidDate(value) {
-  var dateWrapper = new Date(value);
+function isValidDate(valueY, valueM, valueD) {
+  var dateWrapper = new Date(valueY, valueM, valueD);
   return !isNaN(dateWrapper.getDate());
 }
 
 function guardar() {
   
+  let btnIngresar = document.getElementById("btnGuardar");
+  btnIngresar.disabled = true;
+  btnIngresar.innerHTML = '<span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+  let spinner = document.getElementById("spinner");
+
   let prestamo_fechaRetiro = $('#fechaRetiro').val();
   let prestamo_fechaDevolucion = $('#fechaDevolución').val();
 
-  if (isValidDate(prestamo_fechaRetiro)!==true) {
+  if (prestamo_fechaRetiro.trim()=="") {
 
+    spinner.style.visibility = 'hidden';
+    btnIngresar.innerText="Guardar";
+    btnIngresar.disabled = false;
     let contenedorError = document.getElementById("mensaje");
     contenedorError.innerHTML='<div class="alert alert-danger">' +
                             '<strong>Error! Ingrese una fecha de retiro válida </strong>' +                          
                             '</div>';
+     
+    return false;
+  }
+  
+  if (prestamo_fechaDevolucion.trim()=="") {
+
+    spinner.style.visibility = 'hidden';
+    btnIngresar.innerText="Guardar";
+    btnIngresar.disabled = false;
+    let contenedorError = document.getElementById("mensaje");
+    contenedorError.innerHTML='<div class="alert alert-danger">' +
+                            '<strong>Error! Ingrese una fecha de devolución válida </strong>' +                          
+                            '</div>';
+     
+    return false;
+  }
+  let prestamo_fechaRetiroY = prestamo_fechaRetiro.substr(6, 4);
+  let prestamo_fechaRetiroM = prestamo_fechaRetiro.substr(3, 2);
+  let prestamo_fechaRetiroD = prestamo_fechaRetiro.substr(0, 2);
+  
+  let prestamo_fechaDevolucionY = prestamo_fechaDevolucion.substr(6, 4);
+  let prestamo_fechaDevolucionM = prestamo_fechaDevolucion.substr(3, 2);
+  let prestamo_fechaDevolucionD = prestamo_fechaDevolucion.substr(0, 2);
+  
+  if (isValidDate((prestamo_fechaRetiroY, prestamo_fechaRetiroM, prestamo_fechaRetiroD)!==true)) {
+
+    spinner.style.visibility = 'hidden';
+    btnIngresar.innerText="Guardar";
+    btnIngresar.disabled = false;
+    let contenedorError = document.getElementById("mensaje");
+    contenedorError.innerHTML='<div class="alert alert-danger">' +
+                            '<strong>Error! Ingrese una fecha de retiro válida </strong>' +                          
+                            '</div>';
+     
     return false;
   }
 
-  if (isValidDate(prestamo_fechaDevolucion)!==true) {
+  if (isValidDate(prestamo_fechaDevolucionY, prestamo_fechaDevolucionM, prestamo_fechaDevolucionD)!==true) {
 
+    spinner.style.visibility = 'hidden';
+    btnIngresar.innerText="Guardar";
+    btnIngresar.disabled = false;
     let contenedorError = document.getElementById("mensaje");
     contenedorError.innerHTML='<div class="alert alert-danger">' +
                             '<strong>Error! Ingrese una fecha de devolución válida </strong>' +                          
@@ -82,8 +132,12 @@ function guardar() {
     return false;
   }
 
-  if (validaFechas(prestamo_fechaRetiro, prestamo_fechaDevolucion)) {
+  if (validaFechas(prestamo_fechaRetiroY, prestamo_fechaRetiroM, prestamo_fechaRetiroD,
+                    prestamo_fechaDevolucionY, prestamo_fechaDevolucionM, prestamo_fechaDevolucionD)) {
 
+    spinner.style.visibility = 'hidden';
+    btnIngresar.innerText="Guardar";
+    btnIngresar.disabled = false;
     let contenedorError = document.getElementById("mensaje");
     contenedorError.innerHTML='<div class="alert alert-danger">' +
                             '<strong>Error! Rango de fechas inválido. </strong>' +
@@ -117,10 +171,13 @@ function guardar() {
       if(response.ok) {
                   
           response.text().then(function(data) {  
-                 console.log(data);                 
+                 //console.log(data);                 
           
         }).catch(function(error) {
                   
+                  spinner.style.visibility = 'hidden';
+                  btnIngresar.innerText="Guardar";
+                  btnIngresar.disabled = false;
                   let contenedorError = document.getElementById("mensaje");
                   contenedorError.innerHTML='<div class="alert alert-danger">' +
                                           '<strong>Error! </strong>' +
@@ -130,6 +187,9 @@ function guardar() {
   
       } else {
               
+              spinner.style.visibility = 'hidden';
+              btnIngresar.innerText="Guardar";
+              btnIngresar.disabled = false;
               let contenedorError = document.getElementById("mensaje");
               contenedorError.innerHTML='<div class="alert alert-danger">' +
                                       '<strong>Error! </strong>' +
@@ -140,6 +200,9 @@ function guardar() {
     })
     .catch(function(error) {
       
+            spinner.style.visibility = 'hidden';
+            btnIngresar.innerText="Guardar";
+            btnIngresar.disabled = false;
             let contenedorError = document.getElementById("mensaje");
             contenedorError.innerHTML='<div class="alert alert-danger">' +
                                     '<strong>Error! </strong>' +
@@ -150,13 +213,19 @@ function guardar() {
   
   } else {
 
+    spinner.style.visibility = 'hidden';
+    btnIngresar.innerText="Guardar";
+    btnIngresar.disabled = false;
     let contenedorError = document.getElementById("mensaje");    
     contenedorError.innerHTML='<div class="alert alert-danger">' +
                                     '<strong>Error! </strong>' +
                                         'Seleccione los artículos ...' +
-                                    '</div>';    
+                                    '</div>';
+    return false;   
   }
 
+spinner.style.visibility = 'hidden';
+btnIngresar.innerText="Guardar";
 
 return true;
 }

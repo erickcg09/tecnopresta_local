@@ -34,15 +34,40 @@ class insertPrestamo {
             ':prestamo_fechaRetiro' => $prestamo_fechaRetiro,
             ':seccion_Id' => 1,
             ':software_Id' => 1,
-            ':prestamo_uso' => "prueba."        
+            ':prestamo_uso' => "por definir..."        
             ]);
-        $last = $this->pdo->lastInsertId();        
+
+        $prestamo_Id = $this->pdo->lastInsertId();
+
         $this->pdo->commit();     
-                                    
+        
+        if(!empty($arrayArticulos)) {
+            $i=0;
+            $this->pdo->beginTransaction();
+            foreach($arrayArticulos as $key => $articulos) {
+                $prestamo_detalle_id_activo = $articulos;
+                $i=$i+1;
+                $sql = 'INSERT INTO t_prestamo_detalle (prestamo_Id, prestamo_detalle_id_activo, 
+                        prestamo_detalle_devuelto, prestamo_detalle_irregularidad, prestamo_detalle_observacion, 
+                        prestamo_detalle_fechaDevolucion) 
+                        VALUES (:prestamo_Id, :prestamo_detalle_id_activo, :prestamo_detalle_devuelto, 
+                        :prestamo_detalle_irregularidad, :prestamo_detalle_observacion, :prestamo_detalle_fechaDevolucion)';
+                        $stmt = $this->pdo->prepare($sql);
+                        $stmt->execute([
+                            ':prestamo_Id' => $prestamo_Id,
+                            ':prestamo_detalle_id_activo' => $prestamo_detalle_id_activo,
+                            ':prestamo_detalle_devuelto' => 0,
+                            ':prestamo_detalle_irregularidad' => 0,
+                            ':prestamo_detalle_observacion' => "registrado mediante solicitud",
+                            ':prestamo_detalle_fechaDevolucion' => $prestamo_fechaDevolucion        
+                            ]);
+            }
+            $this->pdo->commit(); 
+        }
         $stmt = null;
         $this->pdo = null;
                 
-        return "ok"; 
+        return true; 
         
     } catch (\Throwable $th) {
                 echo "Error al enviar email: " . $th->getMessage() . "\n";				
