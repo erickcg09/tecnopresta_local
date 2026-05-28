@@ -1,0 +1,4 @@
+Array
+(
+    [data] => {"Id_Nombramiento_Fecha":2101403000000068400,"EMPCED":"0109990651","Nombre":"ERICK","Apellido1":"CERDAS","Apellido2":"GONZALEZ","Sexo":"Masculino","Correo_Electronico_Oficial":"erick.cerdas.gonzalez@mep.go.cr","ClasesDePuestoQueTiene":"11458","Clase_Puesto":"Profesional en Informática 1 C ( G.de E.)","EspecialidadesQueTiene":"172142","Especialidad":"GTIC / GESTION DE INFRAESTRUCTURA","Grupo_Profesional":null,"DireccionesRegionales":"75","NombreRegional":"DIRECCION REGIONAL GRANDE DE TERRABA","CentrosEducativosDondeTrabaja":"4006","Dependencia":"LICEO YOLANDA OREAMUNO UNGER","Circuito":"02","Id_Empleado":1403000000018506,"Codigo_Presupuestario":"210-573-02-75-4006","ESTRATO":"Profesional"}
+)

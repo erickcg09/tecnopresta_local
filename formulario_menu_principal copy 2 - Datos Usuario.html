@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Alpine js -- Defer es para utilizar alpine antes de definrlo -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+         <link rel="stylesheet" href="css/style.css">
+         <link rel="stylesheet" href="css/formulario_menu_principal.css">
+          <!-- <link rel="stylesheet" type="text/css" href="/css_reportes/ico_reportes.css"> -->
+         <link rel="stylesheet" href="css_reportes/ico_reportes.css">  
+    <link rel="stylesheet" href="css/loader.css">
+          
+    <title>TecnoPresta// Menú Principal</title>
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="carrusel/css/font-awesome.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+        a { color: #FFFFFF; text-decoration: none;} /* CSS link color */
+    </style>
+
+  </head>
+  <!-- x-data="menuApp()" Esto es para asegurar que que menuAPP exista -->
+  <!-- <body x-data="menuApp()" x-init="init()"> -->
+    <body x-data="menuApp()">
+  <div x-text="'Alpine Funcionando'"> </div>  
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="#">TecnoPresta</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="portal_perfil.php"><span class="icon icon-profile"></span> Mi Perfil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="portal_soporte_tecnico.php"><span class="icon icon-envelop"></span> Cont&aacute;ctenos o solicitar cita</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tarjetero.php"><span class="icon icon-lifebuoy"></span> Ayuda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gameover.php"><span class="icon icon-enter"></span> <b>Cerrar Sesi&oacute;n </b></a>
+              </li> 
+            </ul>
+          </div>
+    </nav>
+
+    <!-- MENSAJES -->
+     <div class="container mt-3">
+        <div x-show="error" class="alert alert-danger" x-text="error"></div>
+     </div>
+
+     <!-- LOADER -->
+     <div class="text-center mt-5" x-show="loading">
+        <div class="spinner-border text-primary"></div>
+        <p class="mt-2">Cargando módulos...</p>
+     </div>
+   
+<!-- Contenedor Principal -->
+ <div class="container mt-4" x-show="!loading">
+    <div class="row">
+        <template x-for="subsistema in subsistemas" :key="subsistema.nombre">
+            <div class="col-md-6 col-lg-6 col-sm-12 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <!-- <div class="row no-gutters"> -->
+                        <div class="card-body text-center">
+                            <img :src="subsistema.imagen" width="80" height="80" class="card-img" alt="Imagen del subsistema">
+                            <h5 class="card-title font-weight-bold" x-text="subsistema.nombre"></h5>
+                            <p class="text-muted small" x-text="subsistema.descripcion"></p>
+                            <!-- <a :href="subsistema.modulos[0].ruta" class="btn btn-primary btn-block mt-3">Ingresar</a> -->
+                            <a :href="subsistema.modulos.length ? subsistema.modulos[0].ruta : '#'" class="btn btn-primary btn-block mt-3">Ingresar</a> 
+                        </div>
+                        
+                </div>
+            </div> 
+        </template>
+    </div>
+ </div>
+
+<!-- FOOTER -->
+
+<nav id="statusBar" 
+      class="navbar fixed-bottom bg-dark navbar-dark justify-content-between">
+    <div class="col-md-6">        
+        <i><a href="ed.html">Conocer el Equipo Desarrollador de TecnoPresta </a></i>           
+    </div> 
+
+</nav>
+
+   <!-- SCRIPT -->         
+    <script>
+        //function menuApp() {
+        window.menuApp = function() {
+            return {
+                usuario: '',
+                loading: true,
+                error: '',
+                subsistemas: [],
+
+                init() {
+                    console.log("INIT Ejecutando");
+                    //this.cargaSesion();
+                    this.cargaModulos();
+                },
+
+                /*async cargaSesion() {
+                    //const sesion = sessionStorage.getItem('sesion'); // simulación de verificación de sesión
+                    const response = await fetch('sql/formulario_principal.php', {
+                    credentials: 'include' // IMPORTANTE
+                    });
+
+                    if (!sesion) { //Si no hay session, redirige al login
+                        window.location.href = "index.html";
+                        return;
+                    }
+
+                    const data = JSON.parse(sesion);
+                    console.log("Datos: ", data);
+                    this.usuario = data.nombre || data.correo || 'Usuario';
+                },
+                */
+                async cargaModulos() {
+                   console.log("Iniciando CargaModulos");
+                    try {
+                        const sesion = sessionStorage.getItem('sesion'); // simulación de verificación de sesión
+                        const dataAzure = JSON.parse(sesion);
+                        console.log("Datos: ", dataAzure);
+                        const response = await fetch('sql/formulario_principal.php', {
+                            credentials: 'include'
+                        }); // Endpoint para obtener los módulos desde la BD
+                         
+                        
+                        //console.log("Response: ", response);
+
+                        const data = await response.json(); // se espera un JSON con la estructura [{id, nombre, descripción, imagen, url}, ...]
+                        console.log("Data: ", data);
+
+                        console.log("RESPUESTA COMPLETA:", data);
+                        //console.log("SESSION:", data.debug?.session);
+                        // VALIDACION DE ERRORES EN LA RESPUESTA
+                        if (data.error) {
+                            this.error = data.error;
+                            //Redirigir si no hay sesión
+                            /*if (data.error === 'Sesión no válida') {
+                                setTimeout(() => {
+                                window.location.href = "index.html";
+                                }, 1500);
+                            }
+                            return;*/
+                        } 
+                         
+                        //Asignación correcta
+                        this.subsistemas = data; //asigna los Subsistemas obtenidos a la variable del estado
+                        
+                    } catch (e) {
+                        this.error = "Error al cargar los módulos";
+                        console.error("Error", e);
+                    } finally {
+                        this.loading = false; //oculta el loader independientemente del resultado
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+

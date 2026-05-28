@@ -1,0 +1,6 @@
+<?php
+//const DB_Str = "mysql:host=localhost;dbname=tecnopre_pntm";
+const DB_Str = "mysql:host=localhost;dbname=ltecnopre";
+const DB_USER = "tecnopre_rootbd";
+const DB_PASS = "2020*tecnopresta";
+?>

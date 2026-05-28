@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">    
+    <title>Mantenimiento Roles</title>      
+  </head>
+  <body>
+         
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="formulario_menu_principal.html">Tecnopresta</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="formulario_roles.html"><span class="icon icon-undo2"></span>Regresar</a>
+        </li>       
+      </ul>
+    </div>  
+  </nav>
+ 
+    <div class="container-sm container-md container-lg">
+      <div class="row justify-content-center"> 
+        <div id="mensaje" class="form-group row"></div>
+      </div>
+    </div>
+           
+    <div class="container-sm container-md container-lg" id="plantilla">
+
+      <div class="form-group row">
+        <label for="codigo" class="col-2 col-form-label">Código:</label>              
+        <div class="col-6 col-md-3">            
+            <input class="form-control" id="codigo"/>                          
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="cboRol" class="col-2 col-form-label">Rol:</label>              
+        <div class="col-8 col-md-3">            
+          <select class="selectpicker" placeholder="Seleccione el Rol"
+                  id="cboRol" 
+                  data-show-subtext="true" 
+                  data-live-search="false"
+                  required="required">
+                  <option value=""></option>
+          </select> 
+        </div>
+      </div>
+     
+      <div class="form-group row">
+        <label for="correo" class="col-2 col-form-label">Correo:</label>              
+        <div class="col-10 col-md-5">            
+            <input class="form-control" id="correo"/>                          
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="cedula" class="col-2 col-form-label">Cédula:</label>                     
+        <div class="col-8 col-md-3"> 
+          <small id="passwordHelpBlock" 
+                class="form-text text-info align-self-center"
+              >Con un cero adelante. Ejemplo: 0109670570
+          </small>            
+          <input class="form-control" id="cedula"/>                          
+        </div>
+      </div>
+
+    </div>             
+
+    <span class="navbar justify-content-center" style="padding-top: 1em; padding-bottom: 2em;">            
+        <button id="btnGuardar" onclick="guardar();" type="button" class="btn btn-dark">Guardar</button>
+      </span>  
+  
+    <div class="modal fade" id="modalMensaje" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">       
+          
+          <div class="modal-body"> 
+
+              <div class="row justify-content-center">                    
+                  <div class="alert alert-secondary">
+                      <h1><strong class="font-italic" id="tituloMensaje"></strong></h1>
+                      <p class="font-weight-bold font-italic text-center" id="mensajeModal"></p>
+                  </div>                        
+                  <p class="font-italic text-center" id="mensajeModalParrafo"></p>                                                                                                                                                   
+              </div> 
+
+              <div class="d-flex justify-content-center">
+                  <div class="row">
+                      <div class="col" style="width: 5rem;">
+                        <img class="card-img-top" src="img/mensaje.png">
+                      </div>  
+                  </div>
+                </div>    
+          </div>       
+              
+          <div class="modal-footer">            
+            <button type="button" class="btn btn-secondary" onclick="salir();">Aceptar</button>              
+          </div> 
+  
+        </div>
+         
+      </div>
+    </div>  
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="css/popper.min.js"></script> 
+    <script src="js/bootstrap.min.js"></script> 
+
+    <script src="css/bootstrap-select.min.js"></script>    
+
+    <!-- js del formulario -->
+    <script src="js/formulario_roles_mantenimiento.js"></script>
+   
+  </body>
+</html>

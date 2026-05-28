@@ -22,8 +22,9 @@ function login() {
             if (Object.keys(data).length>0) {
               
               // sesion de php iniciada...
-              console.log(data);
-  
+              
+               console.log(data);
+             
             }
   
             else  { //Array vacío []

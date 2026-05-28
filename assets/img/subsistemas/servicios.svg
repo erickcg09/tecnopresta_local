@@ -1,0 +1,109 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+  <linearGradient id="blueMain" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#2E3E5C"></stop>
+    <stop offset="100%" stop-color="#1F2C45"></stop>
+  </linearGradient>
+
+  <linearGradient id="grayMain" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#94A3B8"></stop>
+    <stop offset="100%" stop-color="#64748B"></stop>
+  </linearGradient>
+
+  <linearGradient id="screenMain" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#334155"></stop>
+    <stop offset="100%" stop-color="#0F172A"></stop>
+  </linearGradient>
+
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.14"></feDropShadow>
+  </filter>
+</defs>
+
+<!-- Central Service Panel -->
+<g filter="url(#shadow)">
+  <rect x="135" y="90" width="240" height="185" rx="18" fill="white" stroke="#24324A" stroke-width="6"></rect>
+  <rect x="205" y="62" width="100" height="38" rx="12" fill="url(#blueMain)"></rect>
+  <circle cx="255" cy="81" r="7" fill="white"></circle>
+</g>
+
+<!-- Ticket rows -->
+<g>
+  <rect x="165" y="128" width="38" height="38" rx="8" fill="url(#blueMain)"></rect>
+  <rect x="165" y="182" width="38" height="38" rx="8" fill="#3B82F6"></rect>
+  <rect x="165" y="236" width="38" height="38" rx="8" fill="#64748B"></rect>
+
+  <g stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M175 147L182 154L192 140"></path>
+    <path d="M175 201L182 208L192 194"></path>
+    <path d="M175 255L182 262L192 248"></path>
+  </g>
+
+  <g fill="#CBD5E1">
+    <rect x="220" y="136" width="120" height="10" rx="5"></rect>
+    <rect x="220" y="154" width="90" height="10" rx="5"></rect>
+    <rect x="220" y="190" width="120" height="10" rx="5"></rect>
+    <rect x="220" y="208" width="75" height="10" rx="5"></rect>
+    <rect x="220" y="244" width="120" height="10" rx="5"></rect>
+    <rect x="220" y="262" width="82" height="10" rx="5"></rect>
+  </g>
+</g>
+
+<!-- Support Chat Bubble -->
+<g filter="url(#shadow)">
+  <path d="M90 315C90 280 118 255 152 255H195C230 255 258 280 258 315C258 350 230 375 195 375H155L125 398V375C104 366 90 344 90 315Z" fill="url(#blueMain)"></path>
+  <rect x="128" y="298" width="90" height="10" rx="5" fill="white"></rect>
+  <rect x="128" y="320" width="70" height="10" rx="5" fill="white"></rect>
+  <rect x="128" y="342" width="82" height="10" rx="5" fill="white"></rect>
+</g>
+
+<!-- Flow arrows -->
+<g stroke="#3B82F6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M392 150H438"></path>
+  <path d="M428 140L438 150L428 160"></path>
+
+  <path d="M392 190H438"></path>
+  <path d="M428 180L438 190L428 200"></path>
+
+  <path d="M392 230H438"></path>
+  <path d="M428 220L438 230L428 240"></path>
+</g>
+
+<!-- Technician Tools - Gear -->
+<g filter="url(#shadow)">
+  <circle cx="390" cy="315" r="34" fill="url(#blueMain)"></circle>
+  
+  <circle cx="390" cy="315" r="12" fill="white"></circle>
+  <circle cx="390" cy="315" r="5" fill="url(#blueMain)"></circle>
+
+  <rect x="387" y="288" width="6" height="12" rx="2" fill="white"></rect>
+  <rect x="387" y="330" width="6" height="12" rx="2" fill="white"></rect>
+  <rect x="363" y="312" width="12" height="6" rx="2" fill="white"></rect>
+  <rect x="405" y="312" width="12" height="6" rx="2" fill="white"></rect>
+
+  <rect x="403" y="296" width="6" height="12" rx="2" transform="rotate(45 406 302)" fill="white"></rect>
+  <rect x="371" y="328" width="6" height="12" rx="2" transform="rotate(45 374 334)" fill="white"></rect>
+
+  <rect x="371" y="296" width="6" height="12" rx="2" transform="rotate(-45 374 302)" fill="white"></rect>
+  <rect x="403" y="328" width="6" height="12" rx="2" transform="rotate(-45 406 334)" fill="white"></rect>
+</g>
+
+<!-- Laptop -->
+<g filter="url(#shadow)">
+  <rect x="265" y="350" width="130" height="78" rx="10" fill="url(#screenMain)"></rect>
+  <rect x="245" y="426" width="170" height="18" rx="9" fill="#64748B"></rect>
+  <rect x="327" y="356" width="6" height="6" rx="3" fill="#64748B"></rect>
+</g>
+
+<!-- Government badge -->
+<g filter="url(#shadow)">
+  <circle cx="432" cy="410" r="34" fill="url(#blueMain)" stroke="white" stroke-width="4"></circle>
+  <path d="M432 392L414 401H450L432 392Z" fill="white"></path>
+  <rect x="420" y="404" width="6" height="16" rx="2" fill="white"></rect>
+  <rect x="430" y="404" width="6" height="16" rx="2" fill="white"></rect>
+  <rect x="440" y="404" width="6" height="16" rx="2" fill="white"></rect>
+  <rect x="416" y="422" width="32" height="4" rx="2" fill="white"></rect>
+</g>
+
+</svg>

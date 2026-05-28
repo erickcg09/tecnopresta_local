@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">    
+    <title>Administrar Roles</title>      
+  </head>
+  <body>
+         
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="formulario_menu_principal.html">Tecnopresta</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="formulario_menu_principal.html"><span class="icon icon-undo2"></span>Regresar</a>
+        </li>       
+      </ul>
+    </div>  
+  </nav>
+ 
+    <div class="container-sm container-md container-lg">
+      <div class="row justify-content-center"> 
+        <div id="mensaje" class="form-group row"></div>
+      </div>
+    </div>
+
+    <div class="container-sm container-md container-lg">
+      <!-- Input Buscar -->
+      <div class="row justify-content-center">          
+          <div class="input-group col-md-6">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Código:</span>
+              </div>                             
+              <input id="txtBuscar" type="text"  class="form-control" placeholder="Digite el Código Presupuestario..." aria-label="" aria-describedby="basic-addon1">
+              <div class="input-group-append">
+                  <button id="btnBuscar" onclick="buscar();" type="button" class="btn btn-primary">
+                       <img src="img/buscar.png" width="25" height="25" alt="" loading="lazy">
+                  </button>
+              </div>    
+          </div>                        
+      </div>       
+
+    </div>
+
+    <span class="navbar justify-content-center" style="padding-top: 1em; padding-bottom: 2em;">            
+      <button id="btnGuardar" onclick="//guardar();" type="button" class="btn btn-dark">Nuevo</button>
+    </span>  
+        
+    <div class="container-sm container-md container-lg" id="plantilla">
+
+        <!-- Plantilla de cards se carga del js -->
+        <!-- 
+        <div class="form-group row">
+
+          <div class="col-md-1">
+            <img src="img/buscar.png" width="40" height="40" alt="" loading="lazy">
+          </div>
+
+          <div class="col-md-6">maurcio.bxxxxermudgdgdg.dgdsgdsg.sdg.dez.vargas@mep.go.cr</div>
+        
+        </div>
+
+        <div class="form-group row">           
+        
+          <div class="col-md-1">Código 5300</div>
+          <div class="col-md-2">Cédula: 0109670579</div>
+          <div class="col-md-2">Administrador</div>
+          <div class="col-md-2">Tiene todos los permisos.</div>          
+          
+          <div class="col-6 col-md-2"> 
+            <button type="button" class="btn btn-secondary">Modificar</button>
+          </div>
+          
+          <div class="col-6 col-md-2"> 
+            <button type="button" class="btn btn-danger">Borrar</button>
+          </div>
+
+        </div> 
+               -->       
+    </div>             
+
+    <div class="modal fade" id="modalMensajeCerrar" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">       
+          
+          <div class="modal-body"> 
+
+              <div class="row justify-content-center">                    
+                  <div class="alert alert-secondary">
+                      <h1><strong class="font-italic" id="tituloMensaje"></strong></h1>
+                      <p class="font-weight-bold font-italic text-center" id="mensajeModal"></p>
+                  </div>                        
+                  <p class="font-italic text-center" id="mensajeModalParrafo"></p>                                                                                                                                                   
+              </div> 
+
+              <div class="d-flex justify-content-center">
+                  <div class="row">
+                      <div class="col" style="width: 5rem;">
+                        <img class="card-img-top" src="img/mensaje.png">
+                      </div>  
+                  </div>
+                </div>    
+          </div>       
+              
+          <div class="modal-footer">            
+            <button type="button" class="btn btn-secondary" onclick="cerrar();">Aceptar</button>              
+          </div> 
+  
+        </div>
+         
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalMensajeSiNo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+        
+      <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">       
+          
+          <div class="modal-body">           
+
+              <div class="row justify-content-center"> 
+                  <div class="form-group row">
+                      <div class="alert alert-secondary">
+                          <h1><strong class="font-italic" id="tituloMensajeSiNo"></strong></h1>
+                          <p class="font-weight-bold font-italic text-center" id="mensajeModalSiNo"></p>                                                    
+                      </div>                   
+                  </div>
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <div class="row">
+                    <div class="col" style="width: 5rem;">
+                      <img class="card-img-top" src="../img/mensaje.png">
+                    </div>  
+                </div>
+              </div>    
+
+          </div>       
+              
+          <div class="modal-footer">            
+            <button type="button"  onclick="borrar();" class="btn btn-primary">Sí</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>              
+          </div> 
+    
+        </div>
+         
+      </div>
+
+    </div>        
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+    <script src="js/jquery-3.5.1.min.js"></script> 
+    <script src="js/bootstrap.min.js"></script>    
+
+    <!-- js del formulario -->
+    <script src="js/formulario_roles.js?version=5"></script>
+   
+  </body>
+</html>

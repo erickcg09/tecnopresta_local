@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/formulario_menu_prestamo.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>TecnoPresta Menú Préstamo</title>
+    <link rel="shortcut icon" href="ico/favicon.png">
+  </head>
+  <body>
+              
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="formulario_menu_principal.html">Tecnopresta</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="formulario_menu_principal.html"><span class="icon icon-undo2"></span> Principal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gameover.php"><span class="icon icon-enter"></span> Cerrar Sesi&oacute;n</a>
+            </li>        
+          </ul>
+        </div>  
+      </nav>
+      
+      <div class="container"> 
+        <p></p> 
+        <h3><b>  Men&uacute; de Pr&eacute;stamo</b> </h3><a href="ayuda.html#5">[ <span class="icon icon-lifebuoy"></span> Ayuda ]</a><a>&nbsp;&nbsp;</a> <a href="contactenos.php?rep=Error en formulario menu prestamo html">[ <span class="icon icon-envelop"></span> Reportar Incidencia / Error ]</a>
+        <br><br>
+      </div>
+       
+      <div class="container-sm container-md container-lg">
+        <div class="row justify-content-center"> 
+          <div id="mensaje" class="form-group row"></div>
+        </div>
+      </div>
+
+    <!-- Contenedor Principal -->
+    <div class="container" style="padding-top: 1em;">
+     
+        <div class="row">
+
+            <div class="col-md-8">
+
+                <div class="form-group row ">           
+
+                    <div class="row col-md-8">
+                    
+                            <div class="col-2"> 
+                                <img src="img/Botones de prestamo-03.png" width="50" height="50" alt="" loading="lazy">        
+                            
+                            </div>
+                    
+                            <div class="col"> 
+                                <button id="btnNuevaSolicitud" type="button" 
+                                    class="btn btn-dark btn-lg btn-block" 
+                                    style="border: none;"
+                                    onclick="window.location.assign('formulario_buscar_alias.html');">                            
+                                    <span class="font-weight-bold">Prestar Equipos a Funcionarios(as) &#128187;</span>                                    
+                                </button>
+                        </div>
+
+                    
+                    </div>
+
+                </div>
+                
+                <div class="form-group row ">           
+
+                  <div class="row col-md-8">
+                  
+                          <div class="col-2"> 
+                              <img src="img/Botones de prestamo-03.png" width="50" height="50" alt="" loading="lazy">        
+                          
+                          </div>
+                  
+                          <div class="col"> 
+                              <button id="btnNuevaSolicitud" type="button" 
+                                  class="btn btn-dark btn-lg btn-block" 
+                                  style="border: none;"
+                                  onclick="creaSesionPHP_y_Envia_a_Formulario('beneficiarios_programa_3.php');">                            
+                                  <span class="font-weight-bold">Prestar Equipos a Estudiantes &#128187;</span>                                    
+                              </button>
+                      </div>
+
+                  
+                  </div> 
+
+                </div>
+                                              
+                <div class="form-group row ">           
+
+                    <div class="row col-md-8">
+
+                        <div class="col-2"> 
+                            <img src="img/Botones de prestamo_Mesa de trabajo 1.png" width="50" height="50" alt="" loading="lazy">        
+                            
+                        </div>
+
+                        <div class="col">
+                            <button id="btnVistaSolicitud" type="button" 
+                                class="btn btn-dark btn-lg btn-block" 
+                                style="border: none;" 
+                                onclick="obtieneRolEnvio_a_Formulario('formulario_VistaSolicitud.html');">                                                            
+                                <span class="font-weight-bold">Solicitudes Pendientes de Revisión</span>
+                                <span id="solicitudes" class="badge badge-pill badge-primary"></span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>  
+                
+                <div class="form-group row"> 
+                            
+                    <div class="row col-md-8">
+                    
+                            <div class="col-2"> 
+                                <img src="img/Botones de prestamo-03.png" width="50" height="50" alt="" loading="lazy">        
+                            
+                            </div>
+                    
+                            <div class="col">
+                                <button id="btnVistaSolicitud" type="button" 
+                                        class="btn btn-dark btn-lg btn-block" 
+                                        style="border: none;" 
+                                        onclick="obtieneRolEnvio_a_Formulario('formulario_VistaDevolucion.html');">                                                            
+                                        <span class="font-weight-bold">Ver Artículos Prestados y Recibirlos</span> 
+                                        <span id="prestamos" class="badge badge-pill badge-primary"></span>                                  
+                                </button>
+                            </div>
+                    </div>  
+
+                </div>
+
+            </div>
+            
+            <div class="col-md-2">
+                <div class="row justify-content-center">
+                    <img id="imagen" src="img/imagengeneralsolicitud-14.png" loading="lazy">                            
+                </div>
+            </div> 
+
+        </div>
+                
+    </div> 
+    
+    <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">       
+          
+          <div class="modal-body"> 
+
+              <div class="row justify-content-center">                    
+                  <div class="alert alert-secondary">
+                      <h1><strong class="font-italic" id="tituloMensaje"></strong></h1>
+                      <p class="font-weight-bold font-italic text-center" id="mensajeModal"></p>
+                  </div>                        
+                  <p class="font-italic text-center" id="mensajeModalParrafo"></p>                                                                                                                                                   
+              </div> 
+
+              <div class="d-flex justify-content-center">
+                  <div class="row">
+                      <div class="col" style="width: 5rem;">
+                        <img class="card-img-top" src="img/mensaje.png">
+                      </div>  
+                  </div>
+                </div>    
+          </div>       
+              
+          <div class="modal-footer">            
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>              
+          </div> 
+  
+        </div>
+         
+      </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/formulario_menu_prestamo.js?version=2"></script>
+    
+  </body>
+
+</html>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+ 
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h5 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i> <b>TecnoPresta</b>
+          </h5>
+          <p>
+            Sistema de Administración del Inventario Tecnológico y el Préstamo de Equipos del Ministerio de Educación Publica de Costa Rica. Desarrollado con la ayuda de la gente de nuestro Ministerio.
+.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h5 class="text-uppercase fw-bold mb-4">
+            <b>Relacionados</b>
+          </h5>
+          <p>
+            <a href="/formulario_menu_prestamo.html" class="text-reset">Solicitar Activos </a>
+          </p>
+          <p>
+            <a href="plataforma_clientes.php" class="text-reset">Centro de Soporte
+Educativo</a>
+          </p>
+          <p>
+            <a href="formulario_menu_inventario.html" class="text-reset">Módulo de Inventario</a>
+          </p>
+          <p>
+            <a href="formacion.php" class="text-reset">Manuales y Webinarios</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h5 class="text-uppercase fw-bold mb-4">
+            <b>Accesos Rápidos </b>
+          </h5>
+          <p>
+            <a href="/formulario_beneficiario.php" class="text-reset">Editor de Contratos Programa N°3 Fonatel</a>
+          </p>
+          <p>
+            <a href="/formulario_informe_beneficiarios_programa_dos.php" class="text-reset">Beneficiarios Reportados Programa N°2</a>
+          </p>
+          <p>
+            <a href="/formulario_informe_activos.php" class="text-reset">Lista de todos sus Activos Inventariados</a>
+          </p>
+          <p>
+            <a href="/formulario_informe_solicitudes.php" class="text-reset">Reporte de préstamos realizados en su Institución</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h5 class="text-uppercase fw-bold mb-4"> <b> Contactos </b>  </h5>
+          <p><i class="fas fa-home me-3"></i> San Francisco de Calle Blancos, San José de Costa Rica</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            tecnopresta@mep.go.cr
+          </p>
+          <p><i class="fas fa-phone me-3"></i> </p>
+          <p><i class="fas fa-print me-3"></i></p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+  <b>Ministerio de Educación Pública de la República de Costa Rica --2022 </b>
+   
+  </div>
+  <!-- -->
+</footer>
+<!-- Footer -->

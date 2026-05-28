@@ -1,0 +1,117 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+  <linearGradient id="blueMain" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#2E3E5C"></stop>
+    <stop offset="100%" stop-color="#1F2C45"></stop>
+  </linearGradient>
+
+  <linearGradient id="screenDark" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#334155"></stop>
+    <stop offset="100%" stop-color="#0F172A"></stop>
+  </linearGradient>
+
+  <linearGradient id="graySoft" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#F8FAFC"></stop>
+    <stop offset="100%" stop-color="#E2E8F0"></stop>
+  </linearGradient>
+
+  <linearGradient id="cardSoft" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FFFFFF"></stop>
+    <stop offset="100%" stop-color="#EEF2F7"></stop>
+  </linearGradient>
+
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.14"></feDropShadow>
+  </filter>
+</defs>
+
+<!-- MONITOR -->
+<g filter="url(#shadow)">
+  <rect x="72" y="42" width="368" height="286" rx="24" fill="url(#screenDark)"></rect>
+  <rect x="92" y="62" width="328" height="246" rx="14" fill="white"></rect>
+</g>
+
+<!-- TOP BAR -->
+<rect x="108" y="76" width="296" height="22" rx="11" fill="#EEF2F7"></rect>
+<circle cx="124" cy="87" r="5" fill="#3B82F6"></circle>
+<circle cx="140" cy="87" r="5" fill="#64748B"></circle>
+<circle cx="156" cy="87" r="5" fill="#CBD5E1"></circle>
+
+<!-- LEFT INSTITUTION REQUEST -->
+<g filter="url(#shadow)">
+  <rect x="112" y="118" width="92" height="136" rx="14" fill="url(#graySoft)"></rect>
+  
+  <!-- Building -->
+  <rect x="138" y="142" width="40" height="56" rx="6" fill="url(#blueMain)"></rect>
+  <path d="M158 128L132 142H184L158 128Z" fill="#3B82F6"></path>
+  <rect x="146" y="154" width="6" height="8" fill="white"></rect>
+  <rect x="158" y="154" width="6" height="8" fill="white"></rect>
+  <rect x="146" y="168" width="6" height="8" fill="white"></rect>
+  <rect x="158" y="168" width="6" height="8" fill="white"></rect>
+  <rect x="152" y="184" width="12" height="14" fill="white"></rect>
+
+  <!-- Ticket -->
+  <rect x="128" y="214" width="60" height="18" rx="9" fill="#3B82F6"></rect>
+  <rect x="144" y="220" width="28" height="6" rx="3" fill="white"></rect>
+</g>
+
+<!-- CENTER SERVICE HUB -->
+<g filter="url(#shadow)">
+  <rect x="220" y="110" width="136" height="152" rx="16" fill="url(#graySoft)"></rect>
+
+  <!-- Headset Agent -->
+  <circle cx="288" cy="146" r="23" fill="url(#blueMain)"></circle>
+  <circle cx="288" cy="141" r="8" fill="white"></circle>
+  <rect x="276" y="152" width="24" height="11" rx="5.5" fill="white"></rect>
+
+  <path d="M270 145C270 130 280 122 288 122C296 122 306 130 306 145" stroke="#3B82F6" stroke-width="4" fill="none"></path>
+  <rect x="266" y="141" width="6" height="12" rx="3" fill="#3B82F6"></rect>
+  <rect x="304" y="141" width="6" height="12" rx="3" fill="#3B82F6"></rect>
+  <path d="M306 154H314V162" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"></path>
+
+  <!-- Ticket sorting lanes -->
+  <rect x="244" y="192" width="88" height="8" rx="4" fill="#CBD5E1"></rect>
+  <rect x="244" y="210" width="74" height="8" rx="4" fill="#E2E8F0"></rect>
+  <rect x="244" y="228" width="96" height="8" rx="4" fill="#CBD5E1"></rect>
+</g>
+
+<!-- RIGHT RESULT PANEL -->
+<g filter="url(#shadow)">
+  <rect x="372" y="118" width="38" height="136" rx="14" fill="url(#graySoft)"></rect>
+</g>
+
+<!-- Solve admin -->
+<circle cx="391" cy="146" r="13" fill="#3B82F6"></circle>
+<path d="M385 146L390 151L397 142" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+
+<!-- Escalate technical -->
+<circle cx="391" cy="188" r="13" fill="url(#blueMain)"></circle>
+<path d="M384 188H397" stroke="white" stroke-width="3" stroke-linecap="round"></path>
+<path d="M392 182L398 188L392 194" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+
+<!-- Call -->
+<circle cx="391" cy="230" r="13" fill="#64748B"></circle>
+<path d="M386 226C388 232 392 236 398 238" stroke="white" stroke-width="3" stroke-linecap="round"></path>
+
+<!-- FLOW CONNECTIONS -->
+<path d="M204 186H214" stroke="#3B82F6" stroke-width="5" stroke-linecap="round"></path>
+<path d="M356 186H364" stroke="#3B82F6" stroke-width="5" stroke-linecap="round"></path>
+
+<!-- LOWER DOCUMENT / INVENTORY REVIEW -->
+<g filter="url(#shadow)">
+  <rect x="112" y="274" width="298" height="24" rx="12" fill="url(#cardSoft)"></rect>
+</g>
+
+<!-- document -->
+<rect x="130" y="281" width="40" height="8" rx="4" fill="#CBD5E1"></rect>
+<!-- inventory -->
+<rect x="184" y="281" width="56" height="8" rx="4" fill="#E2E8F0"></rect>
+<!-- director contact -->
+<rect x="256" y="281" width="48" height="8" rx="4" fill="#CBD5E1"></rect>
+
+<!-- confirmation -->
+<rect x="340" y="278" width="52" height="14" rx="7" fill="url(#blueMain)"></rect>
+<path d="M356 285L362 290L374 276" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+
+</svg>

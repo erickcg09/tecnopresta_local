@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">     
+    <!-- Bootstrap CSS -->
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Boleta de Servicio Técnico</title>
+    <style>
+      input[type=checkbox] {
+	      transform: scale(1.5);
+      }
+      input[type=radio] {
+	      transform: scale(1.4);
+      }
+    </style>
+    <style>
+      .custom-radio .custom-control-label::before,
+      .custom-radio .custom-control-label::after {
+          margin-right: 10px; /* Ajusta este valor */
+      }
+    </style>
+    
+  </head>
+  <body>
+       
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="formulario_menu_principal.html">Tecnopresta</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="administracion_plataforma_soporte.php">
+            <i class="bi bi-arrow-left-circle"></i> 
+            Regresar
+          </a>
+        </li>
+      </ul>
+    </div>  
+  </nav>
+
+  <div class="container-sm container-md container-lg mt-3">
+
+    <div class="row">
+      <div class="col text-center">
+        <h1 style="font-family: 'Lucida Console', Monaco, monospace;
+            font-weight: bold;"
+            >
+            Boleta de Servicio Técnico  
+        </h1>
+      </div>
+     
+    </div>    
+
+    <div class="row justify-content-center mt-2"> 
+        <div id="mensaje" class="form-group row"></div>
+    </div>
+
+    <div class="row justify-content-center mt-2">
+
+        <div class="col-auto text-center m-1 p-1">                            
+            <button id="nuevo" type="submit" class="btn btn-secondary btn-lg" 
+                    onclick="location.reload(); return false;"
+                    >                                       
+                <i class="bi bi-plus-lg fs-4"
+                    style="font-family: 'Lucida Console', Monaco, monospace;
+                            font-weight: bold;"
+                    > Nuevo
+                </i>
+            </button>           
+        </div>
+
+        <div class="col-auto text-center m-1 p-1">
+            <button id="btnGuardar" 
+                    onclick="guardar(); return false;" 
+                    type="button" 
+                    class="btn btn-primary btn-lg"                    
+                    >
+                    <i class="bi bi-check-lg fs-4"
+                        style="font-family: 'Lucida Console', Monaco, monospace;
+                                font-weight: bold;"
+                        > Guardar
+                    </i>                                        
+            </button>
+        </div>
+
+        <div class="col-auto text-center m-1 p-1">
+            <button id="btnImprimir" 
+                    onclick="imprimir(); return false;" 
+                    type="button" 
+                    class="btn btn-success btn-lg"                    
+                    >
+                    <i class="bi bi-printer fs-4"
+                        style="font-family: 'Lucida Console', Monaco, monospace;
+                                font-weight: bold;"
+                        > Imprimir
+                    </i>                                        
+            </button>
+        </div>
+
+        <div class="col-auto text-center m-1 p-1">
+            <button id="btnEliminar" 
+                    onclick="borrar(); return false;" 
+                    type="button" 
+                    class="btn btn-danger btn-lg"                    
+                    >
+                    <i class="bi bi-trash fs-4  "
+                        style="font-family: 'Lucida Console', Monaco, monospace;
+                                font-weight: bold;"
+                        > Eliminar
+                    </i>                                        
+            </button>
+        </div>        
+
+    </div>    
+    
+    <section id="datosBoleta" class="container mt-4">
+        <div class="row justify-content-center input-group mb-2">
+            <label for="institucion" class="col-md-3 col-form-label fs-4"
+                style="font-family: 'Gill Sans', sans-serif;"
+                >Institución:
+            </label>                
+            <div class="col-md-7"> 
+                <div class="input-group">
+                    <input id="institucion" class="form-control fs-4" type="text" 
+                    value="Liceo Las Esperanzas kjhkjh hhk uyguy  gff jj" 
+                    style="font-family: Georgia, serif;" readonly>
+                    <span class="input-group-text">
+                        <button id="institucion" onclick="buscarInstitucion(); return false;" 
+                                type="button" class="bi  btn btn-primary"
+                                >
+                            <i class="bi bi-binoculars-fill text-dark fs-3"></i>
+                        </button>
+                    </span>
+                </div>                                           
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-group">       
+                <label class="col-md-3 fs-4"
+                    style="font-family: 'Gill Sans', sans-serif;"
+                    >
+                    Código Presupuestario:
+                </label>
+                <div class="col-md-7">
+                    <p style="font-family: 'Lucida Console', Monaco, monospace; font-weight: bold;"
+                        class="fs-4 mt-1 ms-2"
+                        >
+                        5300
+                    </p>                    
+                </div>                  
+        </div>
+
+        <div class="row justify-content-center input-group mb-2">
+            <label for="dre" class="col-md-3 col-form-label fs-4"
+                style="font-family: 'Gill Sans', sans-serif;"
+                >Dirección Regional:
+            </label>
+            <div class="col-md-7">
+                <input type="text" id="dre" 
+                        class="form-control fs-4" 
+                        aria-label="Dirección Regional"
+                        value="Pérez Zeledón"
+                        style="font-family: Georgia, serif;">
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-group mb-2">
+            <label for="circuito" class="col-md-3 col-form-label fs-4"
+                style="font-family: 'Gill Sans', sans-serif;"
+                >Circuito:
+            </label>
+            <div class="col-md-7">
+                <input type="text" id="circuito" 
+                        class="form-control fs-4" 
+                        aria-label="Circuito"
+                        value="10"
+                        maxlength ="2"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        style="font-family: Georgia, serif;">
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-group mb-2">
+            <label for="director" class="col-md-3 col-form-label fs-4"
+                style="font-family: 'Gill Sans', sans-serif;"
+                >Nombre del Director:
+            </label>
+            <div class="col-md-7">
+                <input type="text" id="director" 
+                        class="form-control fs-4" 
+                        aria-label="Nombre del Director"
+                        style="font-family: Georgia, serif;">
+            </div>
+        </div>
+        
+        <div class="row justify-content-center input-group mb-2">
+            <label for="correoDirector" class="col-md-3 col-form-label fs-4"
+                style="font-family: 'Gill Sans', sans-serif;"
+                >Correo del Director:
+            </label>
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-text fs-4" id="basic-addon5"><i class="bi bi-envelope"></i></span>
+                    <input type="text" id="correoDirector" 
+                            class="form-control fs-4" 
+                            aria-label="Correo del Director" aria-describedby="basic-addon5"
+                            style="font-family: Georgia, serif;">
+                    <span class="input-group-text fs-3" id="basic-addon2">@mep.go.cr</span>
+                </div>                
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-group mb-2">
+            <label for="correoInstitucion" class="col-md-3 col-form-label fs-4"
+                style="font-family: 'Gill Sans', sans-serif;"
+                >Correo de la Institución:
+            </label>
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-text fs-4" id="basic-addon4"><i class="bi bi-envelope"></i></span>
+                    <input type="text" id="correoInstitucion" 
+                            class="form-control fs-4" 
+                            aria-label="Correo de la Institución" aria-describedby="basic-addon4"
+                            style="font-family: Georgia, serif;">
+                    <span class="input-group-text fs-3" id="basic-addon2">@mep.go.cr</span>
+                </div>                
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-group mb-2">
+            <label for="telefonoInstitucion" class="col-md-3 col-form-label fs-4"
+                style="font-family: 'Gill Sans', sans-serif;"
+                >Teléfono de la Institución:
+            </label>
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-text fs-4" id="basic-addon3"><i class="bi bi-telephone"></i></span>
+                    <input type="tel" pattern="[0-9]{8}"
+                            maxlength ="8"
+                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                            id="telefonoInstitucion" 
+                            class="form-control fs-4" 
+                            aria-label="Correo de la Institución"
+                            aria-describedby="basic-addon3"
+                            style="font-family: sans-serif;">                    
+                </div>                
+            </div>
+        </div>        
+    </section>    
+</div>
+
+<div class="modal fade" id="modalMensajeGuardar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">               
+        <div class="modal-body"> 
+            <div class="row justify-content-center">                    
+                <div class="alert alert-secondary">
+                    <h1><strong class="font-italic" id="tituloMensajeGuardar"></strong></h1>
+                    <p class="font-weight-bold font-italic text-center" id="mensajeModalGuardar"></p>
+                </div>                        
+                <p class="font-italic text-center" id="mensajeModalParrafoGuardar"></p>                                                                                                                                                   
+            </div> 
+            <div class="d-flex justify-content-center">
+                <div class="row">
+                    <div class="col" style="width: 5rem;">
+                    <img class="card-img-top" src="img/listo.png">
+                    </div>  
+                </div>
+            </div>    
+        </div>                   
+        <div class="modal-footer">            
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+        onclick="window.location.reload();"
+        >
+            Aceptar
+        </button>
+        </div> 
+    </div>        
+    </div>
+</div>
+
+<div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">               
+        <div class="modal-body"> 
+            <div class="row justify-content-center">                    
+                <div class="alert alert-secondary">
+                    <h1><strong class="font-italic" id="tituloMensaje"></strong></h1>
+                    <p class="font-weight-bold font-italic text-center" id="mensajeModal"></p>
+                </div>                        
+                <p class="font-italic text-center" id="mensajeModalParrafo"></p>                                                                                                                                                   
+            </div> 
+            <div class="d-flex justify-content-center">
+                <div class="row">
+                    <div class="col" style="width: 5rem;">
+                    <img class="card-img-top" src="img/mensaje.png">
+                    </div>  
+                </div>
+            </div>    
+        </div>                   
+        <div class="modal-footer">            
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"              
+            >
+            Aceptar
+        </button>              
+        </div> 
+    </div>        
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- js del formulario -->
+<script src="js/formulario_indicadores_tecnicos_del_servicio.js"></script>
+</body>
+</html>

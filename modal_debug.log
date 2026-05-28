@@ -1,0 +1,34 @@
+[2025-03-24 15:36:24] Datos recibidos:
+Array
+(
+    [asunto] => 1
+    [fondos] => 2
+    [tema] => <br />
+<b>Warning</b>:  Undefined variable $tema in <b>/home/tecnopresta/public_html/plataforma_clientes_n.php</b> on line <b>289</b><br />
+
+    [incidencia] => Esto es lo que el usuario quiere
+)
+
+
+[2025-03-24 15:37:36] Datos recibidos:
+Array
+(
+    [asunto] => 2
+    [fondos] => 4
+    [tema] => <br />
+<b>Warning</b>:  Undefined variable $tema in <b>/home/tecnopresta/public_html/plataforma_clientes_n.php</b> on line <b>289</b><br />
+
+    [incidencia] => Esto es lo que el usuario quiere de la plataforma
+)
+
+
+[2025-03-24 15:44:56] Datos recibidos:
+Array
+(
+    [asunto] => 2
+    [fondos] => 2
+    [tema] => Técnico
+    [incidencia] => Esto es lo que un usuario desea de una plataforma de servicios del MEP
+)
+
+

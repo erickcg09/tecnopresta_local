@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .splash-screen {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #25D36612;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        h1 {
+            position: relative;
+            z-index: 1;
+            color: #660808; /* Color dorado champán */
+            animation: blink 1s step-start infinite;
+        }
+        h1::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background-image: url('wsapp.png'); /* Reemplaza con la ruta de tu imagen */
+            background-size: cover;
+            background-position: center;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 1; /* Ajusta la opacidad según sea necesario */
+            background-color: transparent; /* Asegura que el fondo sea transparente */
+        }
+        p {
+            position: relative;
+            z-index: 1;
+            color: rgb(16, 16, 17);
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-screen">
+        <div class="text-center">
+            <h1 class="display-3">¡Alerta!</h1>
+            <p class="display-6"><b>En este momento estamos con dificultades para abordar consultas vía WhatsApp. Agradecemos que direccionen todas sus consultas en el Centro de Soporte Educativo de esta plataforma.</b></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                window.location.href = 'formulario_menu_principal.html'; // URL de la página a la que deseas redirigir
+            }, 10000); // Duración de la pantalla de inicio en milisegundos (10 segundos)
+        });
+    </script>
+</body>
+</html>
+
+
+
+

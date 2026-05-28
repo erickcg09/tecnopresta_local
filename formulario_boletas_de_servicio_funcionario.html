@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">     
+    <!-- Bootstrap CSS -->
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Boletas de Servicio Técnico</title>
+    <style>
+      input[type=checkbox] {
+	      transform: scale(1.5);
+      }
+      input[type=radio] {
+	      transform: scale(1.4);
+      }
+    </style>
+    <style>
+      .custom-radio .custom-control-label::before,
+      .custom-radio .custom-control-label::after {
+          margin-right: 10px; /* Ajusta este valor */
+      }
+    </style>
+    
+  </head>
+  <body>
+         
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="formulario_menu_principal.html">
+            <i class="bi bi-laptop"></i> Tecnopresta
+        </a>
+        <!-- Botón para móviles (actualizado a BS5) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Menú colapsable -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="formulario_boletas_de_servicio.html">
+                        <i class="bi bi-arrow-left-circle"></i> Regresar
+                    </a>
+                </li>   
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  <div class="container-sm container-md container-lg mt-3">
+
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-sm-10 col-md-10 col-lg-10 text-center"> 
+            <span id="nombreEstudiante" class="h1" style="font-family: 'Lucida Console', Monaco, monospace;
+                        font-weight: bold;">
+                        Javier Mauricio Bermudez Vargas
+            </span>                                    
+        </div>                
+    </div>        
+    
+    <div class="row justify-content-center mt-2"> 
+        <div id="mensaje" class="form-group row"></div>
+    </div>
+    
+    <section id="filas-datos" class="container mt-3">
+        <div class="row">                            
+            <div class="col-2 text-end"> 
+                <i class="rounded-0 bi bi-file-medical fs-1"></i>
+            </div>            
+            <div class="col-6 col-md-4">
+                <a class="icon-link rounded-2 link-dark link-offset-3 
+                                    link-underline-opacity-0 link-underline-opacity-75-hover
+                                    font-weight-bold fs-3" href="#"
+                                    onclick="window.location.assign('formulario_boleta_de_servicio.html');">
+                    <p class="fs-3">Liceo Unesco</p>
+                </a>              
+            </div>
+            <div class="col-4">
+                <p class="fs-3">MAntenimiento preventivo laboratorio informatica</p>                                                     
+            </div>                                                
+        </div>
+
+        <div class="row">                            
+            <div class="col-2 text-end"> 
+                <i class="rounded-0 bi bi-file-medical fs-1"></i>
+            </div>            
+            <div class="col-6 col-md-4">
+                <a class="icon-link rounded-2 link-dark link-offset-3 
+                                    link-underline-opacity-0 link-underline-opacity-75-hover
+                                    font-weight-bold fs-3" href="#"
+                                    onclick="sessionStorageBoleta();">
+                    <p class="fs-3">Liceo Las Esperanzas</p>
+                </a>              
+            </div>
+            <div class="col-4">
+                <p class="fs-3">Reparación de equipo de Computo y red</p>                                                     
+            </div>                                                
+        </div>
+
+        <div class="row">                            
+          <div class="col-2 text-end"> 
+              <i class="rounded-0 bi bi-file-medical fs-1"></i>
+          </div>            
+          <div class="col-6 col-md-4">
+              <a class="icon-link rounded-2 link-dark link-offset-3 
+                                  link-underline-opacity-0 link-underline-opacity-75-hover
+                                  font-weight-bold fs-3" href="#"
+                                  onclick="sessionStorageBoleta();">
+                  <p class="fs-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis</p>
+              </a>              
+          </div>
+          <div class="col-4">
+              <p class="fs-3">Lorem ipsum dolor sit aunt similique squam minus reprehenderit officiis maiores, reiciendis, blanditiis at esse doloremque expedita. In sunt voluptate commodi repudiandae.</p>                                                     
+          </div>                                                
+        </div>
+
+    </section>
+
+</div>    
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- js del formulario -->
+<script src="js/formulario_indicadores_tecnicos_del_servicio.js"></script>
+</body>
+</html>

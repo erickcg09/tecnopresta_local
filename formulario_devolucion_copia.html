@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">    
+    <title>Devolución</title>
+    <style>
+      input[type=checkbox] {
+	      transform: scale(1.5);
+      }
+    </style>        
+  </head>
+  <body>
+         
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="formulario_menu_principal.html">Tecnopresta</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="formulario_VistaDevolucion.html"><span class="icon icon-undo2"></span>Ver Artículos Prestados</a>
+        </li>       
+      </ul>
+    </div>  
+  </nav>
+
+  <div class="container">        
+    <h3>Recibir Equipo</h3><a href="ayuda.html#aan">[ <span class="icon icon-lifebuoy"></span> Ayuda ]</a><a>&nbsp;&nbsp;</a> <a href="contactenos.php?rep=Error en formulario devolucion html">[ <span class="icon icon-envelop"></span> Reportar Incidencia / Error ]</a>
+    <br><br>
+  </div>  
+
+    <div class="container-sm container-md container-lg">
+      <div class="row justify-content-center"> 
+        <div id="mensaje" class="form-group row"></div>
+      </div>
+    </div>
+    
+    <!-- Contenedor Principal -->
+    <div class="container-sm container-md container-lg" style="padding-top: 1em;" id="contenedor">                    
+
+      <div class="form-group row">
+        <label for="fechaRetiro" class="col-sm-3 col-form-label">Fecha y hora Retiro del equipo:</label>              
+        <div class="col-5 col-sm-4 col-md-3 col-lg-3 col-xl-2">            
+            <input class="form-control" id="fechaRetiro" readonly>            
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="fechaDevolución" class="col-sm-3 col-form-label">Fecha y hora Devolución del equipo:</label>              
+        <div class="col-5 col-sm-4 col-md-3 col-lg-3 col-xl-2">            
+            <input class="form-control" id="fechaDevolución" readonly>
+        </div>
+      </div>   
+    
+      <div class="form-group row">
+        <label for="txtUso" class="col-sm-3 col-form-label">Uso para el que se prestó el equipo:</label>              
+        <div class="col-sm-8">            
+          <textarea class="form-control" rows="3" cols="38"
+              placeholder="Describa el uso que se le dará al equipo solicitado"
+              maxlength="255" id="txtUso" readonly></textarea>                
+        </div>                      
+      </div>
+
+      <div class="form-group row">                    
+        <div class="col-sm-3 col-form-label">
+          <div class="custom-control custom-switch">
+              <input type="checkbox" 
+                      class="custom-control-input" 
+                      id="chkIncidencia"
+              >
+              <label class="custom-control-label" 
+                      for="chkIncidencia"
+                      id="lblIncidencia"
+                  >Registrar Incidencia 
+              </label>            
+          </div> 
+        </div>                      
+        <div class="col-sm-8">            
+          <textarea class="form-control" rows="3" cols="38"
+              placeholder="Registrar incidencia..."
+              maxlength="255" id="txtIncidencia"
+              readonly></textarea>                
+        </div>                      
+      </div>
+     
+    </div>
+    
+    <!-- Titulo tabla -->
+    <div class="container-sm container-md container-lg">
+      
+      <div class="row justify-content-center p-1"> 
+          <h4>Seleccione los artículos que va a devolver</h4>
+      </div>
+
+      <div class="form-group row  ">
+        <div class="col-1" id="check">
+          <div class="form-check">
+            <input id="chkTodos" 
+                  class="form-check-input position-static" 
+                  type="checkbox"
+                  onclick="checkAll(this);"
+                >
+          </div> 
+        </div>
+        <div class="col-4" id="lblnombre"><h5 class="font-weight-bold text-info">Artículo</h5></div>
+        <div class="col" id="marca"><h5 class="font-weight-bold text-info">Modelo</h5></div>
+        <div class="col" id="numero_activo"><h5 class="font-weight-bold text-info">Etiqueta</h5></div>
+      </div>
+
+    </div>
+
+      <div class="container-sm container-md container-lg" id="plantilla">
+
+        <!-- Plantilla de cards se carga del js -->
+        <div class="form-group row" id="item">
+          <!-- <div class="col-1"> 
+            <div class="form-check">
+              <input class="form-check-input position-static" type="checkbox" aria-label="...">
+            </div>  
+          </div>
+          <div class="col-4" id="nombre">Parlante Amplificado Ericson</div>
+          <div class="col" id="marca">dji</div>
+          <div class="col" id="numero_activo">numero_activo</div> -->
+        </div>         
+
+      </div>      
+
+      <span class="navbar justify-content-center" style="padding-bottom: 6em;">            
+        <button id="btnGuardar" onclick="guardar();" type="button" class="btn btn-dark">Registrar devolución de equipo</button>
+      </span>       
+
+    <nav class="navbar fixed-bottom bg-dark navbar-dark justify-content-between">
+        <span id="nombre" class="font-italic text-light "></span>
+        <span id="codigo" class="font-italic text-light"></span>
+    </nav>
+
+    <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">       
+          
+          <div class="modal-body"> 
+
+              <div class="row justify-content-center">                    
+                  <div class="alert alert-secondary">
+                      <h1><strong class="font-italic" id="tituloMensaje"></strong></h1>
+                      <p class="font-weight-bold font-italic text-center" id="mensajeModal"></p>
+                  </div>                        
+                  <p class="font-italic text-center" id="mensajeModalParrafo"></p>                                                                                                                                                   
+              </div> 
+
+              <div class="d-flex justify-content-center">
+                  <div class="row">
+                      <div class="col" style="width: 5rem;">
+                        <img class="card-img-top" src="img/mensaje.png">
+                      </div>  
+                  </div>
+                </div>    
+          </div>       
+              
+          <div class="modal-footer">            
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>              
+          </div> 
+  
+        </div>
+         
+      </div>
+    </div>
+    
+     <!-- Modal -->
+     <div class="modal fade" id="devolucionModal" tabindex="-1" role="dialog" 
+        data-backdrop="static" data-keyboard="false" 
+        aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabelTipo">Devolución de equipo...</h5>            
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>  
+            </div>
+            <div class="modal-body">
+              <h5 class="card-title">Nombre del equipo</h5>            
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="chkEntregado">
+                <label class="custom-control-label" for="chkEntregado">Equipo devuelto</label>
+              </div>
+            
+              <div class="custom-control custom-switch" id="contenedorAlerta" style="display: block;">
+                <input type="checkbox" class="custom-control-input" id="chkAlerta">
+                <label class="custom-control-label" for="chkAlerta">Registrar 
+                    incidente
+                </label>
+              </div>
+            
+              <div class="input-group mb-3" id="contenedorObservacion" style="display: none;">
+                <textarea class="form-control" rows="3" cols="38"
+                        placeholder="Registrar irregularidades en el equipo devuelto..."
+                        maxlength="255"></textarea>
+              </div>
+            
+            </div>
+
+            <div class="modal-footer">            
+              <button type="button" class="btn btn-dark">Aceptar</button>
+            </div>
+
+          </div>
+        </div>
+  </div> 
+
+  <div class="modal fade" id="modalMensajeGuardar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">       
+        
+        <div class="modal-body"> 
+
+            <div class="row justify-content-center">                    
+                <div class="alert alert-secondary">
+                    <h1><strong class="font-italic" id="tituloMensajeGuardar"></strong></h1>
+                    <p class="font-weight-bold font-italic text-center" id="mensajeModalGuardar"></p>
+                </div>                        
+                <p class="font-italic text-center" id="mensajeModalParrafoGuardar"></p>                                                                                                                                                   
+            </div> 
+
+            <div class="d-flex justify-content-center">
+                <div class="row">
+                    <div class="col" style="width: 5rem;">
+                      <img class="card-img-top" src="img/listo.png">
+                    </div>  
+                </div>
+              </div>    
+        </div>       
+            
+        <div class="modal-footer">            
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="salir();">Aceptar</button>              
+        </div> 
+
+      </div>
+       
+    </div>
+  </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+    <script src="js/jquery-3.5.1.min.js"></script> 
+    <script src="js/bootstrap.min.js"></script>    
+
+    <!-- js del formulario -->
+    <script src="js/formulario_devolucion.js"></script>
+   
+  </body>
+</html>

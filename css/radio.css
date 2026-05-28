@@ -1,0 +1,31 @@
+/* Centra el input personalizado con el texto */
+.custom-radio-checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: arial;
+}
+
+/* Modificador para dar la imagen de radio */
+.custom-radio-checkbox__show--radio {
+    background-image: url(/revi/radio-uncheck.png);
+}
+
+/* Oculta input original */
+.custom-radio-checkbox > .custom-radio-checkbox__input {
+    display: none;
+}
+
+/* Radio personalizado usando <span> */
+.custom-radio-checkbox > .custom-radio-checkbox__show {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: .5rem;
+    background-size: cover;
+}
+
+/* Cambia el radio personalizado cuando es pulsado */
+.custom-radio-checkbox > .custom-radio-checkbox__input:checked + .custom-radio-checkbox__show--radio {
+    background-image: url(/revi/radio-check.png);
+}

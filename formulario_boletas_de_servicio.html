@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">     
+    <!-- Bootstrap CSS -->
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Boletas de Servicio Técnico</title>
+    <style>
+      input[type=checkbox] {
+	      transform: scale(1.5);
+      }
+      input[type=radio] {
+	      transform: scale(1.4);
+      }
+    </style>
+    <style>
+      .custom-radio .custom-control-label::before,
+      .custom-radio .custom-control-label::after {
+          margin-right: 10px; /* Ajusta este valor */
+      }
+    </style>
+    
+  </head>
+  <body>
+         
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="formulario_menu_principal.html">
+            <i class="bi bi-laptop"></i> Tecnopresta
+        </a>
+        <!-- Botón para móviles (actualizado a BS5) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Menú colapsable -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="administracion_plataforma_soporte.php">
+                        <i class="bi bi-arrow-left-circle"></i> Regresar
+                    </a>
+                </li>   
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  <div class="container-sm container-md container-lg mt-3">
+
+    <div class="row">
+      <div class="col text-center">
+        <h1 style="font-family: 'Lucida Console', Monaco, monospace;
+            font-weight: bold;"
+            >
+            Atención de Servicio Técnico  
+        </h1>
+      </div>
+     
+    </div>    
+
+    <div class="row justify-content-center mt-2"> 
+        <div id="mensaje" class="form-group row"></div>
+    </div>
+
+    <div class="row justify-content-center mt-2">
+        <div class="col-auto text-center">               
+            <button id="btnNuevo" onclick="window.location.assign('formulario_boleta_de_servicio.html'); return false;" 
+                    type="button" class="btn btn-primary">                   
+                    <i class="bi bi-plus-lg fs-4"
+                        style="font-family: 'Gill Sans', sans-serif; font-weight: bold;"
+                        > Crear Nuevo Caso
+                    </i>    
+                    </span>                          
+            </button>
+        </div>     
+    </div>
+
+    <section id="filas-datos" class="container mt-3">
+        <div class="row justify-content-center input-group mb-3">
+            <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col-2 col-md-2 text-end">                         
+                        <i class="rounded-0 bi bi-file-medical fs-1"></i>        
+                    </div>            
+                    <div class="col-8 col-md-8">
+                        <a class="icon-link rounded-2 link-dark link-offset-3 
+                                    link-underline-opacity-0 link-underline-opacity-75-hover
+                                    font-weight-bold h5 mt-2 me-1 fs-4" href="formulario_boletas_de_servicio_funcionario.html"
+                                    onclick="sessionStorageBoletasEstudiante();"
+                            >
+                            Javier Mauricio Bermudez Vargas
+                            <span id="contadorBoleta fs-2" 
+                                class="badge badge-pill bg-danger text-dark rounded-5"
+                            >2
+                            </span>                                                          
+                        </a>                                            
+                    </div>                  
+                </div>        
+            </div>    
+        </div>
+
+        <div class="row justify-content-center input-group mb-3">
+            <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col-2 col-md-2 text-end">                         
+                        <i class="rounded-0 bi bi-file-medical fs-1"></i>        
+                    </div>            
+                    <div class="col-8 col-md-8">
+                        <a class="icon-link rounded-2 link-dark link-offset-3 
+                                    link-underline-opacity-0 link-underline-opacity-75-hover
+                                    font-weight-bold h5 mt-2 me-1 fs-4" href="#"
+                                    onclick="sessionStorageBoletasEstudiante();"
+                            >
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            <span id="contadorBoleta fs-2" 
+                                class="badge badge-pill bg-danger text-dark rounded-5"
+                            >14
+                            </span>                                                          
+                        </a>                                            
+                    </div>                  
+                </div>        
+            </div>    
+        </div>
+
+        <div class="row justify-content-center input-group mb-3">
+            <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col-2 col-md-2 text-end">                         
+                        <i class="rounded-0 bi bi-file-medical fs-1"></i>        
+                    </div>            
+                    <div class="col-8 col-md-8">
+                        <a class="icon-link rounded-2 link-dark link-offset-3 
+                                    link-underline-opacity-0 link-underline-opacity-75-hover
+                                    font-weight-bold h5 mt-2 me-1 fs-4" href="#"
+                                    onclick="sessionStorageBoletasEstudiante();"
+                            >
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            <span id="contadorBoleta fs-2" 
+                                class="badge badge-pill bg-danger text-dark rounded-5"
+                            >20
+                            </span>                                                          
+                        </a>                                            
+                    </div>                  
+                </div>        
+            </div>    
+        </div>
+
+    </section>
+
+</div>    
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- js del formulario -->
+<script src="js/formulario_boleta_de_servicio.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">   
+    <title>Inventario de Equipo Tecnológico</title>    
+  </head>
+  <body>
+       
+    <nav id="menu" class="navbar navbar-expand-md bg-dark navbar-dark">
+        <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="formulario_menu_principal.html">Tecnopresta</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link" href="in_panel_reporte_ministra.php"><span class="icon icon-undo2"></span></a>
+            </li>
+        </ul>
+        </div>  
+    </nav>    
+    <div class="container mt-5">       
+          <div class="col text-center">
+              <h3>Inventario de Equipo Tecnológico por Origen Presupuestario</h3>
+          </div>
+        </div>
+    </div>
+    
+    <form action="sql/selectActivos_Consolidado_por_Fondos_Gestor.php" method="post">
+    <!-- Contenedor Principal -->
+      <div class="container mt-3" id="contenedor">                          
+        <div class="form-group row">            
+          <div class="col text-center">            
+            <select class="form-select p-2"
+                    id="cboFondos"
+                    name="id_fondos"                                                                     
+                    style="font-size: 1.2em;">
+                    <option value="0">Seleccione el Origen Presupuestario</option>                  
+            </select>                                  
+          </div>                          
+        </div>             
+      </div>  
+
+      <div class="container-sm container-md container-lg mt-2">
+        <div class="row justify-content-center"> 
+          <div id="mensaje" class="form-group row"></div>
+        </div>
+      </div>
+    
+      <div class="container-sm container-md container-lg mt-3" id="boton">
+        <div class="row justify-content-center"> 
+          <div class="col-md-6  text-center">  
+            <button id="btnGuardar"                     
+                    type="submit" 
+                    class="btn btn-primary btn-lg btn-block f-5"                    
+                    >
+                    Descargar información en archivo Excel (.xls)
+              </button>
+          </div>   
+        </div>
+      </div>
+  </form>       
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="css/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="css/bootstrap-select.min.js"></script>    
+    <script src="css/defaults-es_ES.min.js"></script>
+
+    <!-- js del formulario -->
+    <script src="js/formulario_inventario_reporte_consolidado_por_fuente_financiamiento.js?version=5"></script>
+   
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,oDAAoD;AACpD,MAAM,EAAE,SAAS,EAAE,KAAK;EACpB,AAAA,OAAO,CAAC;IACJ,KAAK,EAAE,KAAK;GACf;;;AAGL,yFAAyF;AACzF,MAAM,EAAE,SAAS,EAAE,KAAK;EACpB,AAAA,OAAO,CAAC;IACJ,KAAK,EAAE,KAAK;GACf;;;AAGL,4CAA4C;AAC5C,MAAM,EAAE,SAAS,EAAE,KAAK;EACpB,AAAA,OAAO,CAAC;IACJ,KAAK,EAAE,KAAK;GACf;;;AAGL,yDAAyD;AACzD,MAAM,EAAE,SAAS,EAAE,MAAM;EACrB,AAAA,OAAO,CAAC;IACJ,KAAK,EAAE,KAAK;GACf",
+    "sources": [
+        "formulario_menu_prestamo.scss"
+    ],
+    "names": [],
+    "file": "formulario_menu_prestamo.css"
+}

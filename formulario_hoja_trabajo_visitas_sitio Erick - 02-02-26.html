@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">     
+    <!-- Bootstrap CSS -->
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Hoja de Trabajo de Visitas</title>
+    <style>
+        canvas {
+          border: 2px solid #000;
+          background-color: #fff;
+          touch-action: none;         
+        }        
+      </style>    
+  </head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="formulario_menu_principal.html">
+            <i class="bi bi-laptop"></i> Tecnopresta
+        </a>
+        <!-- Botón para móviles (actualizado a BS5) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Menú colapsable -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="formulario_panel_visitas_sitio.html">
+                        <i class="bi bi-arrow-left-circle"></i> Regresar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!-- <a class="nav-link" href="e_v_editar_analista.php" onclick="return envia_id_visita();"> -->
+                    <!-- <a href="#" class="nav-link" onclick="return envia_id_visita();">    
+                        Editar funcionarios asignados
+                    </a> -->
+                    <a href="#" class="nav-link" onclick="return irEditarFuncionarios();">
+                        Editar funcionarios asignados
+                    </a>
+                    <form id="formEditar" method="post" action="e_v_editar_analista.php" style="display:none;">
+                        <input type="hidden" name="id_visita" id="id_visita_form">
+                    </form>
+
+                </li>                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-1">        
+    <div class="row justify-content-center"> 
+        <div id="mensaje" class="col-10 col-md-6 text-center fs-5"></div>
+    </div>    
+</div>
+
+<!-- <section id="spinner" class="container mt-1 d-none">            
+    <div class="row justify-content-center">                
+        <div class="col-auto text-center"> 
+            <div class="spinner-border text-dark" role="status"></div>
+        </div>                                  
+    </div>
+    <div class="row justify-content-center">                
+        <div class="col-auto text-center"> 
+            <h5 class="card-title">Procesando ...</h5>
+        </div>                                  
+    </div>             
+</section> -->
+
+<section  class="container mt-1"> 
+    <div class="row justify-content-center">                
+        <div class="col-auto text-center"> 
+            <div id="spinner"class="spinner-border text-dark d-none" role="status"></div>
+        </div>                                  
+    </div>
+</section>
+
+<div class="container mt-2">    
+    <div class="row justify-content-center g-3">
+        <div class="col-auto text-center">
+            <button class="btn btn-primary fs-5 fw-bold"
+              onclick="obtiene_visitas_sitio_hoja_trabajo_id_para_guardar(); return false;"
+              >
+                <i class="bi bi-save"                                    
+                    > Guardar
+                </i>                                                                
+            </button>
+        </div>           
+        <div class="col-auto text-center">
+
+            <button class="btn btn-secondary fs-5 fw-bold"
+                onclick="descargarPDF(); return false;"
+                >
+                  <i class="bi bi-filetype-pdf"
+                      > Descargar
+                  </i>                                                                
+            </button>  
+
+        </div>           
+        <div class="col-auto text-center">
+            <button class="btn btn-info fs-5 fw-bold"
+              onclick="ir_a_hoja_visita();"
+              >
+                <i class="bi bi-ui-checks"                                    
+                    > Ir a Hoja de Visita
+                </i>                                                                
+            </button>
+        </div>               
+    </div>
+</div>
+        
+<div class="container mt-3">    
+
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="input-group mb-3" style="font-family: Georgia, serif;">
+                <label class="input-group-text fs-5" for="cboEstado">Estado:</label>
+                <select class="form-select fs-5" id="cboEstado"></select>
+            </div>
+        </div>
+    </div>
+       
+</div>
+
+<section>
+    <div class="container mb-2">    
+        <div class="row justify-content-center m-1 g-2">
+            <div class="col-auto text-center">
+                <button class="btn btn-outline-primary fs-5 fw-bold"  
+                        data-bs-toggle="modal" 
+                        data-bs-target="#modalAgregar_Indicador"
+                        onclick="cargaDatosBd_Procedimiento(); return true;"
+                  >
+                    <i class="bi bi-plus-lg"                                    
+                        > Procedimiento
+                    </i>                                                                
+                </button>
+            </div>                       
+        </div>
+    </div>
+
+    <div class="container mb-2">
+
+        <div class="row justify-content-center">
+            <div id="datosIndicadores" class="col-md-10 col-lg-8 font-monospace fs-5"></div>
+        </div>
+
+        <div id="spinnerProcedimiento" class="row justify-content-center d-none" >                
+            <div class="col-auto text-center"> 
+                <div class="spinner-border text-dark" role="status"></div>
+            </div>                                  
+        </div>
+
+    </div>
+</section>
+
+<section>
+
+    <div class="container">
+
+        <div class="row justify-content-center mb-2">
+            
+            <div class="col-md-10 col-lg-8 ">
+                <label for="visitas_sitio_hoja_trabajo_observaciones" 
+                    class="form-label font-monospace fs-5"
+                    >
+                    Resultado Final de los Procedimientos Realizados:
+                </label>
+                <textarea type="text" 
+                    id="visitas_sitio_hoja_trabajo_resultado" 
+                    class="form-control font-monospace fw-medium fs-5" 
+                    rows="15"
+                    maxlength="65000"></textarea>
+            </div>
+            
+        </div>
+
+    </div>    
+
+</section>
+
+<section>
+
+    <div class="container">       
+
+        <div class="row justify-content-center mb-2">
+            
+            <div class="col-md-10 col-lg-8">
+                <label for="visitas_sitio_hoja_trabajo_indicaciones" 
+                    class="form-label font-monospace fs-5"
+                    >
+                    Indicaciones Adicionales y/o Recomendaciones:
+                </label>
+                <textarea type="text" 
+                    id="visitas_sitio_hoja_trabajo_indicaciones" 
+                    class="form-control font-monospace fw-medium fs-5" 
+                    rows="15"
+                    maxlength="65000"></textarea>
+            </div>
+            
+        </div>        
+
+    </div>    
+ 
+</section>
+
+<section>
+    <div class="container mb-2">    
+        <div class="row justify-content-center m-1 g-2">
+            <div class="col-auto text-center">
+                <button class="btn btn-outline-primary fs-5 fw-bold"
+                  onclick="buscar(); return false;"
+                  >
+                    <i class="bi bi-plus-lg"                                    
+                        > Equipos Atendidos
+                    </i>                                                                
+                </button>
+            </div>                       
+        </div>
+    </div>
+
+    <div class="container mb-2">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="row mb-2 fs-5 text-warning-emphasis"
+                    style="font-family: Georgia, serif;">                
+                    <div class="col-4 col-md-3 text-center">
+                        Artículo
+                    </div>
+                    <div class="col-4 col-md-3 text-center">
+                        Placa
+                    </div>
+                    <div class="col-4 col-md-3 text-center">
+                        Serie
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-2">
+        <div class="row justify-content-center"> 
+            <div id="datos" class="col-md-10 col-lg-8 font-monospace fw-medium fs-5"></div>
+        </div>
+    </div>    
+
+</section>
+
+
+<!--No se muestran estos datos porque no estoy seguro de que sea necesario-->
+<section class="d-none">
+    <div class="container">
+       
+        <div class="row justify-content-center mb-1">
+            <div class="col-auto">
+                <label for="telefono" class="form-label fs-5 fst-italic"
+                >
+                <i class="bi bi-clock-history"
+                    style="font-family: Georgia, serif;"
+                    > Tiempo total de atención
+                </i>
+            </label>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mb-1">
+                       
+            <div class="col-4 col-md-3 col-lg-2">
+                                                           
+                <input type="number" id="tiempo_atencion_hora" class="row form-control fs-5"                           
+                        style="font-family: 'Gill Sans', sans-serif;">
+                
+                <label for="tiempo_atencion_hora" 
+                        class="row justify-content-center font-monospace"
+                    >horas
+                </label>                                                                      
+            </div>        
+
+            <div class="col-4 col-md-3 col-lg-2">
+                                                           
+                <input type="number" id="tiempo_atencion_minuto" class="row form-control fs-5"                           
+                        style="font-family: 'Gill Sans', sans-serif;">
+                
+                <label for="tiempo_atencion" 
+                        class="row justify-content-center font-monospace"
+                    >minutos
+                </label>                                                                      
+            </div>
+
+        </div>  
+
+        <div class="row justify-content-center m-2 p-2">
+            <div class="col-auto form-check">
+                <input class="form-check-input fs-4" type="checkbox" value="" id="segundavisita">
+                <label class="form-check-label fs-5" for="segundavisita"
+                >
+                    Se recomienda asignar una segunda visita
+                </label>
+            </div>
+        </div>
+               
+        <section class="d-none">
+            <div class="row justify-content-center">
+                <h5 class="col-auto">Firmar aquí:</h5>
+            </div>                
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12 text-center">                
+                    <canvas id="signature-pad"></canvas>        
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-auto">                
+                    <button id="clear" class="btn btn-warning m-2 p-2">
+                        <i class="bi bi-eraser"                                    
+                            > Limpiar
+                        </i>  
+                    </button>
+                </div>
+            </div>                       
+        </section>
+
+    </div>
+</section>
+
+<!-- Modal Aviso al Guardar-->
+<div class="modal fade" id="modalGuardar" tabindex="-1" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">TecnoPresta</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="mensajeModal"></span>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <span id="mensajeModalDescripcion"></span>
+                        </div> 
+                    </div>
+                </div>                        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>                
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="buscarModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">       
+        <div class="modal-header">
+            <div class="container">
+                <div class="row gx-2">
+                    <div class="col">
+                        <button type="button" onclick="cerrarModal(); return true;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>                
+                </div>            
+                <div class="row">
+                    <div class="col">
+                        <div id="mensajeModalBuscar"></div>
+                    </div>                 
+                </div>           
+            </div>    
+            </div>
+        <div class="row justify-content-center">          
+            <div class="input-group col-md-10">                
+              <input id="txtBuscar" type="text" class="form-control" placeholder="buscar..." aria-label="" aria-describedby="basic-addon1">
+              <div class="input-group-append">
+                  <button id="btnBuscar" onclick="buscar();" type="button" class="btn btn-primary"></button>
+              </div>    
+            </div>                        
+        </div>
+        
+        <div class="row justify-content-center mb-2 mt-2">
+            <div class="col-md-10 text-center">
+                <button id="btnBuscar" type="button" 
+                class="btn btn-primary fs-5"
+                onclick="btn_gregarArticulo(); return true;"
+                >Agregar Artículos Seleccionados
+            </button>
+            </div>            
+        </div>
+
+        <div class="modal-body border-top">                       
+            <!-- Plantilla que se carga en js -->
+            <div id="spinnerBuscar" class="spinner-border text-dark d-none" role="status"></div> 
+            <ul class="list-unstyled"> 
+                <li class="row justify-content-center" id="fila">
+                    <div class="col" id="colCardsBuscar"></div>
+                </li>            
+            </ul>
+        </div>          
+      </div>       
+    </div>
+</div>
+
+<div class="modal fade" id="modalMensajeSiNoArticulo" tabindex="-1" role="dialog" 
+    aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">               
+        <div class="modal-body">           
+            <div class="row justify-content-center"> 
+                <div class="form-group row">
+                    <div class="alert alert-secondary">
+                        <h1><strong class="font-italic" id="tituloMensajeSiNoArticulo"></strong></h1>
+                        <p class="font-weight-bold font-italic text-center" id="mensajeModalSiNoArticulo"></p>                                                    
+                    </div>                   
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <div class="row">
+                  <div class="col" style="width: 5rem;">
+                    <img class="card-img-top" src="img/mensaje.png">
+                  </div>  
+              </div>
+            </div>    
+        </div>                   
+        <div class="modal-footer">            
+          <button type="button"  onclick="quitarElementoArrayArticulo();" class="btn btn-primary">Sí</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>              
+        </div> 
+      </div>       
+    </div>
+</div>
+
+<div class="modal fade" id="modalMensajeSiNoIndicador" tabindex="-1" role="dialog" 
+    aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">               
+        <div class="modal-body">           
+            <div class="row justify-content-center"> 
+                <div class="form-group row">
+                    <div class="alert alert-secondary">
+                        <h1><strong class="font-italic" id="tituloMensajeSiNoIndicador"></strong></h1>
+                        <p class="font-weight-bold font-italic text-center" id="mensajeModalSiNoIndicador"></p>
+                    </div>                   
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <div class="row">
+                  <div class="col" style="width: 5rem;">
+                    <img class="card-img-top" src="img/mensaje.png">
+                  </div>  
+              </div>
+            </div>    
+        </div>                   
+        <div class="modal-footer">            
+          <button type="button"  onclick="quitarElementoArrayIndicador();" class="btn btn-primary">Sí</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>              
+        </div> 
+      </div>       
+    </div>
+</div>
+
+<div class="modal fade" id="modalAgregar_Indicador" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">       
+        <div class="modal-header">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <button type="button" onclick="cerrarModal(); return true;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>                
+            </div>            
+            <div class="row justify-content-center"> 
+                <div id="mensajeModalBuscarAgregar_Indicador" class="col form-group"></div>
+            </div>           
+        </div>
+        <div class="row justify-content-center">          
+            <div class="input-group col-md-10">                
+              <input id="txtBuscarAgregar_Indicador" type="text" 
+                    class="form-control" 
+                    placeholder="buscar..." 
+                    aria-label="" 
+                    aria-describedby="basic-addon1">
+              <div class="input-group-append">
+                  <button id="btnBuscarAgregar_Indicador" 
+                        onclick="cargaDatosBd_Buscar_Indicador(); return true;" 
+                        type="button" class="btn btn-primary">
+                    </button>
+              </div>    
+            </div>                        
+        </div>                                       
+        <div class="modal-body">                         
+            <!-- Plantilla que se carga en js -->
+            <div id="spinnerBuscarIndicador" class="spinner-border text-dark d-none" role="status"></div> 
+            <ul class="list-unstyled"> 
+                <li class="row justify-content-center" id="fila">
+                    <div class="col" id="colCardsBuscarIndicadores"></div>
+                </li>            
+            </ul>
+        </div>          
+      </div>       
+    </div>
+</div>
+
+<script>
+function irEditarFuncionarios() {
+    const id = sessionStorage.getItem('id_visita');
+
+    if (!id) {
+        alert('No se ha seleccionado ninguna visita.');
+        return false;
+    }
+
+    document.getElementById('id_visita_form').value = id;
+    document.getElementById('formEditar').submit();
+    return false;
+}
+</script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- js del formulario -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/signature_pad@5.0.10/dist/signature_pad.umd.min.js"></script> -->
+<script src="js/formulario_hoja_trabajo_visitas_sitio.js?version=207"></script>
+</body>
+</html>

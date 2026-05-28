@@ -1,0 +1,91 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+  <linearGradient id="blueMain" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#2E3E5C"></stop>
+    <stop offset="100%" stop-color="#1F2C45"></stop>
+  </linearGradient>
+
+  <linearGradient id="grayMain" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#94A3B8"></stop>
+    <stop offset="100%" stop-color="#64748B"></stop>
+  </linearGradient>
+
+  <linearGradient id="screenMain" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#334155"></stop>
+    <stop offset="100%" stop-color="#0F172A"></stop>
+  </linearGradient>
+
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.14"></feDropShadow>
+  </filter>
+</defs>
+
+<!-- Main Dashboard -->
+<g filter="url(#shadow)">
+  <rect x="116" y="92" width="280" height="188" rx="18" fill="white" stroke="#24324A" stroke-width="6"></rect>
+  <rect x="205" y="62" width="102" height="38" rx="12" fill="url(#blueMain)"></rect>
+  <circle cx="256" cy="81" r="7" fill="white"></circle>
+</g>
+
+<!-- Header Stats -->
+<g>
+  <rect x="145" y="122" width="52" height="52" rx="10" fill="url(#blueMain)"></rect>
+  <path d="M160 157L170 145L178 151L188 136" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <rect x="214" y="122" width="52" height="52" rx="10" fill="#3B82F6"></rect>
+  <rect x="229" y="142" width="8" height="16" rx="2" fill="white"></rect>
+  <rect x="241" y="136" width="8" height="22" rx="2" fill="white"></rect>
+
+  <rect x="283" y="122" width="52" height="52" rx="10" fill="#64748B"></rect>
+  <circle cx="309" cy="148" r="12" stroke="white" stroke-width="4"></circle>
+  <path d="M317 156L325 164" stroke="white" stroke-width="4" stroke-linecap="round"></path>
+</g>
+
+<!-- Chart Area -->
+<g>
+  <rect x="145" y="200" width="220" height="10" rx="5" fill="#CBD5E1"></rect>
+  <rect x="145" y="224" width="185" height="10" rx="5" fill="#E2E8F0"></rect>
+  <rect x="145" y="248" width="205" height="10" rx="5" fill="#CBD5E1"></rect>
+</g>
+
+<!-- National Globe -->
+<g filter="url(#shadow)">
+  <circle cx="100" cy="340" r="52" fill="url(#blueMain)"></circle>
+  <circle cx="100" cy="340" r="32" stroke="white" stroke-width="3"></circle>
+  <path d="M68 340H132" stroke="white" stroke-width="3"></path>
+  <path d="M100 308V372" stroke="white" stroke-width="3"></path>
+  <path d="M78 320C92 330 108 330 122 320" stroke="white" stroke-width="3" fill="none"></path>
+  <path d="M78 360C92 350 108 350 122 360" stroke="white" stroke-width="3" fill="none"></path>
+</g>
+
+<!-- Shield Audit -->
+<g filter="url(#shadow)">
+  <path d="M256 314L304 332V368C304 394 284 414 256 424C228 414 208 394 208 368V332L256 314Z" fill="url(#blueMain)"></path>
+  <path d="M238 368L250 380L276 350" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+</g>
+
+<!-- Risk Alert -->
+<g filter="url(#shadow)">
+  <circle cx="412" cy="340" r="52" fill="url(#blueMain)"></circle>
+  <path d="M412 312L438 360H386L412 312Z" fill="white"></path>
+  <rect x="408" y="332" width="8" height="16" rx="3" fill="url(#blueMain)"></rect>
+  <rect x="408" y="352" width="8" height="8" rx="3" fill="url(#blueMain)"></rect>
+</g>
+
+<!-- Bottom Laptop -->
+<g filter="url(#shadow)">
+  <rect x="176" y="438" width="160" height="32" rx="10" fill="url(#screenMain)"></rect>
+</g>
+
+<!-- Government Badge -->
+<g filter="url(#shadow)">
+  <circle cx="432" cy="438" r="30" fill="url(#blueMain)" stroke="white" stroke-width="4"></circle>
+  <path d="M432 422L416 430H448L432 422Z" fill="white"></path>
+  <rect x="422" y="433" width="5" height="14" rx="2" fill="white"></rect>
+  <rect x="430" y="433" width="5" height="14" rx="2" fill="white"></rect>
+  <rect x="438" y="433" width="5" height="14" rx="2" fill="white"></rect>
+  <rect x="418" y="449" width="28" height="4" rx="2" fill="white"></rect>
+</g>
+
+</svg>

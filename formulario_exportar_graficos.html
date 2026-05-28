@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <title>Inventario de Equipo Tecnológico</title>    
+  </head>
+  <body>
+       
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="formulario_menu_principal.html">Tecnopresta</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link" href="in_panel_reporte_ministra.php"><span class="icon icon-undo2"></span></a>
+            </li>
+        </ul>
+        </div>  
+    </nav>
+
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col text-center">
+                <h3>Exportar Gráficos</h3>
+            </div>   
+        </div>
+    </div>  
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+            <a href="ayuda.html#aan">[ <span class="icon icon-lifebuoy"></span> Ayuda ]</a><a>&nbsp;&nbsp;</a> <a href="contactenos.php?rep=Error en formulario prestamo html">[ <span class="icon icon-envelop"></span> Reportar Incidencia / Error ]</a>
+            </div>         
+        </div>
+    </div>
+    <div class="container-sm container-md container-lg mt-2">
+        <div class="row justify-content-center"> 
+        <div id="mensaje" class="form-group row"></div>
+        </div>
+    </div>
+
+    <div class="container-sm container-md container-lg">
+      <div class="row justify-content-center"> 
+        <div class="col-md-3  text-center">  
+            <button id="btnGuardar"                     
+                onclick="guardar(); return false;" 
+                class="btn btn-primary btn-lg btn-block f-5"                
+            >
+            Exportar Gráficos a Microsoft Excel
+      </button>
+        </div>   
+      </div>
+    </div>
+
+    <div id="spreadsheet"></div>
+     
+    <nav class="navbar fixed-bottom bg-dark navbar-dark justify-content-between mt-5">
+        <span id="nombre" class="font-italic text-light "></span>
+        <span id="codigo" class="font-italic text-light"></span>
+    </nav>
+
+    <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelTipo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">       
+          
+          <div class="modal-body"> 
+
+              <div class="row justify-content-center">                    
+                  <div class="alert alert-secondary">
+                      <h1><strong class="font-italic" id="tituloMensaje"></strong></h1>
+                      <p class="font-weight-bold font-italic text-center" id="mensajeModal"></p>
+                  </div>                        
+                  <p class="font-italic text-center" id="mensajeModalParrafo"></p>                                                                                                                                                   
+              </div> 
+
+              <div class="d-flex justify-content-center">
+                  <div class="row">
+                      <div class="col" style="width: 5rem;">
+                        <img class="card-img-top" src="img/mensaje.png">
+                      </div>  
+                  </div>
+                </div>    
+          </div>       
+              
+          <div class="modal-footer">            
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"              
+              >
+              Aceptar
+            </button>              
+          </div> 
+  
+        </div>
+         
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="css/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- js del formulario -->
+    <script src="js/formulario_exportar_graficos.js?version=2"></script>
+
+<script src="https://jspreadsheet.com/v11/jspreadsheet.js"></script>
+<script src="https://jsuites.net/v5/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v11/jspreadsheet.css" type="text/css" />
+<link rel="stylesheet" href="https://jsuites.net/v5/jsuites.css" type="text/css" />
+ 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons" />
+ 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jspreadsheet/formula-charts@4.0.0/dist/index.min.js"></script>    
+<script>
+        jspreadsheet.setLicense('YjI3NjgzODg2N2ZhMjhhNGNlZTk3ZDBjYzljMGVjY2E1ZWRiODU1M2I2NmMzMzk0NDY2M2U5MDA4OGFhZTc5MjZlOWYyMTg1Zjc2NDUyMTJmOTMwMDY0YTRhZGEzNDk2ODUzNzdlNDdhYmY2ODZkMDI1YTYwYmUwN2FiMjVlZDMsZXlKamJHbGxiblJKWkNJNklpSXNJbTVoYldVaU9pSktjM0J5WldGa2MyaGxaWFFpTENKa1lYUmxJam94TnpNd016VTVNRGt4TENKa2IyMWhhVzRpT2xzaWFuTndjbVZoWkhOb1pXVjBMbU52YlNJc0ltTnZaR1Z6WVc1a1ltOTRMbWx2SWl3aWFuTm9aV3hzTG01bGRDSXNJbU56WWk1aGNIQWlMQ0ozWldJaUxDSnNiMk5oYkdodmMzUWlYU3dpY0d4aGJpSTZJak0wSWl3aWMyTnZjR1VpT2xzaWRqY2lMQ0oyT0NJc0luWTVJaXdpZGpFd0lpd2lkakV4SWl3aVkyaGhjblJ6SWl3aVptOXliWE1pTENKbWIzSnRkV3hoSWl3aWNHRnljMlZ5SWl3aWNtVnVaR1Z5SWl3aVkyOXRiV1Z1ZEhNaUxDSnBiWEJ2Y25SbGNpSXNJbUpoY2lJc0luWmhiR2xrWVhScGIyNXpJaXdpYzJWaGNtTm9JaXdpY0hKcGJuUWlMQ0p6YUdWbGRITWlMQ0pqYkdsbGJuUWlMQ0p6WlhKMlpYSWlMQ0p6YUdGd1pYTWlYU3dpWkdWdGJ5STZkSEoxWlgwPQ==');
+         
+        jspreadsheet(document.getElementById('spreadsheet'), {
+            worksheets: [
+                {
+                    data: [
+                        ['=CHART("pie", A4:A6, B4:B6)'],
+                        [],
+                        ['Proposals', 'Votes (%)'],
+                        ['Proposal 1', 0.36],
+                        ['Proposal 2', 0.29],
+                        ['Proposal 3', 0.35],
+                    ],
+                    minDimensions: [5, 1],
+                    mergeCells: {
+                        'A1': [5, 1],
+                    },
+                    defaultColWidth: '40px',
+                    columns: [
+                        {width: '100px'},
+                        {width: '100px'},
+                    ],
+                    rows: {0: {height: '380px'}},
+                }
+            ]
+        });
+    </script>    
+   
+  </body>
+</html>

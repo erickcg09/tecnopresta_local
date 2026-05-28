@@ -1,0 +1,107 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+  <linearGradient id="blueMain" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#2E3E5C"></stop>
+    <stop offset="100%" stop-color="#1F2C45"></stop>
+  </linearGradient>
+
+  <linearGradient id="screenDark" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#334155"></stop>
+    <stop offset="100%" stop-color="#0F172A"></stop>
+  </linearGradient>
+
+  <linearGradient id="graySoft" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#F8FAFC"></stop>
+    <stop offset="100%" stop-color="#E2E8F0"></stop>
+  </linearGradient>
+
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.14"></feDropShadow>
+  </filter>
+</defs>
+
+<!-- COMPUTER -->
+<g filter="url(#shadow)">
+  <rect x="86" y="58" width="340" height="258" rx="20" fill="url(#screenDark)"></rect>
+  <rect x="104" y="76" width="304" height="222" rx="12" fill="white"></rect>
+  <rect x="214" y="322" width="84" height="16" rx="8" fill="#64748B"></rect>
+  <rect x="180" y="338" width="152" height="16" rx="8" fill="#94A3B8"></rect>
+</g>
+
+<!-- TOP BAR -->
+<rect x="118" y="90" width="276" height="24" rx="12" fill="#EEF2F7"></rect>
+<circle cx="134" cy="102" r="5" fill="#3B82F6"></circle>
+<circle cx="150" cy="102" r="5" fill="#64748B"></circle>
+<circle cx="166" cy="102" r="5" fill="#CBD5E1"></circle>
+
+<!-- MODULE GRID -->
+
+<!-- USERS / ACCESS -->
+<g filter="url(#shadow)">
+  <rect x="124" y="126" width="82" height="74" rx="12" fill="url(#graySoft)"></rect>
+  <circle cx="150" cy="150" r="10" fill="url(#blueMain)"></circle>
+  <rect x="140" y="162" width="20" height="12" rx="6" fill="url(#blueMain)"></rect>
+  <circle cx="178" cy="152" r="8" fill="#64748B"></circle>
+  <path d="M186 178H170V164" stroke="#64748B" stroke-width="4" stroke-linecap="round"></path>
+</g>
+
+<!-- EDUCATIONAL CENTERS -->
+<g filter="url(#shadow)">
+  <rect x="216" y="126" width="82" height="74" rx="12" fill="url(#graySoft)"></rect>
+  <path d="M257 142L236 152H278L257 142Z" fill="url(#blueMain)"></path>
+  <rect x="242" y="156" width="6" height="18" rx="2" fill="url(#blueMain)"></rect>
+  <rect x="254" y="156" width="6" height="18" rx="2" fill="url(#blueMain)"></rect>
+  <rect x="266" y="156" width="6" height="18" rx="2" fill="url(#blueMain)"></rect>
+  <rect x="236" y="178" width="42" height="4" rx="2" fill="#64748B"></rect>
+</g>
+
+<!-- SUPPORT STAFF -->
+<g filter="url(#shadow)">
+  <rect x="308" y="126" width="82" height="74" rx="12" fill="url(#graySoft)"></rect>
+  <path d="M330 160C330 145 341 136 350 136C359 136 370 145 370 160" stroke="url(#blueMain)" stroke-width="5" stroke-linecap="round"></path>
+  <rect x="326" y="158" width="8" height="18" rx="3" fill="url(#blueMain)"></rect>
+  <rect x="366" y="158" width="8" height="18" rx="3" fill="url(#blueMain)"></rect>
+  <circle cx="350" cy="182" r="6" fill="#3B82F6"></circle>
+</g>
+
+<!-- CATALOGS -->
+<g filter="url(#shadow)">
+  <rect x="124" y="214" width="128" height="72" rx="12" fill="url(#graySoft)"></rect>
+  <circle cx="148" cy="238" r="10" fill="url(#blueMain)"></circle>
+  <rect x="164" y="230" width="22" height="16" rx="4" fill="#64748B"></rect>
+  <rect x="194" y="230" width="18" height="16" rx="4" fill="#3B82F6"></rect>
+  <circle cx="224" cy="238" r="8" fill="#94A3B8"></circle>
+  <rect x="142" y="258" width="90" height="6" rx="3" fill="#CBD5E1"></rect>
+</g>
+
+<!-- AUDIT LOGS -->
+<g filter="url(#shadow)">
+  <rect x="264" y="214" width="126" height="72" rx="12" fill="url(#graySoft)"></rect>
+  <rect x="286" y="228" width="34" height="40" rx="6" fill="url(#blueMain)"></rect>
+  <rect x="334" y="230" width="34" height="6" rx="3" fill="#CBD5E1"></rect>
+  <rect x="334" y="244" width="28" height="6" rx="3" fill="#CBD5E1"></rect>
+  <rect x="334" y="258" width="34" height="6" rx="3" fill="#CBD5E1"></rect>
+</g>
+
+<!-- CENTRAL GEAR OVERLAY -->
+<g filter="url(#shadow)">
+  <circle cx="256" cy="250" r="26" fill="url(#blueMain)"></circle>
+  <circle cx="256" cy="250" r="9" fill="white"></circle>
+  <rect x="253" y="218" width="6" height="10" rx="2" fill="white"></rect>
+  <rect x="253" y="272" width="6" height="10" rx="2" fill="white"></rect>
+  <rect x="224" y="247" width="10" height="6" rx="2" fill="white"></rect>
+  <rect x="278" y="247" width="10" height="6" rx="2" fill="white"></rect>
+</g>
+
+<!-- GOVERNMENT BADGE -->
+<g filter="url(#shadow)">
+  <circle cx="426" cy="390" r="34" fill="url(#blueMain)" stroke="white" stroke-width="4"></circle>
+  <path d="M426 372L408 381H444L426 372Z" fill="white"></path>
+  <rect x="414" y="384" width="6" height="16" rx="2" fill="white"></rect>
+  <rect x="424" y="384" width="6" height="16" rx="2" fill="white"></rect>
+  <rect x="434" y="384" width="6" height="16" rx="2" fill="white"></rect>
+  <rect x="410" y="402" width="32" height="4" rx="2" fill="white"></rect>
+</g>
+
+</svg>

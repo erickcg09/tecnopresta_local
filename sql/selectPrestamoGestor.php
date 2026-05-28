@@ -4,10 +4,10 @@ require_once("select.php");
 
 try {
 
-    $alias_id = $_GET['alias_id'];
+    $solicitud_Id = $_GET['solicitud_Id'];
 
 	$db = new sql();		
-	$rs = $db->conActivoPrestamoAliasId($alias_id);
+	$rs = $db->conActivoPrestamoAliasId($solicitud_Id);
 	
 	echo json_encode($rs);
    

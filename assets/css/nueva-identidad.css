@@ -1,0 +1,358 @@
+/**
+ * MEP Institutional Styles
+ * TecnoPresta - Ministerio de Educación Pública
+ * Basado en la guía de estilos de la nueva identidad gráfica del Gobierno de Costa Rica
+ * Version 1.2 - Compatibilidad Bootstrap 5
+ */
+
+/* ============================================
+   1. VARIABLES GLOBALES
+   ============================================ */
+:root {
+    --mep-primary:   #192952;
+    --mep-secondary: #0035A0;
+    --mep-accent:    #CFAC65;
+    --mep-light:     #F2DAB1;
+    --mep-bg:        #FFFFFF;
+    --mep-text:      #2C3E50;
+    --mep-border:    #D9D9D9;
+
+    /*
+        FIX TIPOGRAFÍA BOOTSTRAP 5:
+        Bootstrap 5 define --bs-body-font-family en :root y la aplica
+        al body via su propio CSS. Sobreescribimos esa variable aquí
+        para que TODOS los componentes de Bootstrap también usen
+        Henderson Sans sin necesidad de !important en cada selector.
+    */
+    --bs-body-font-family: 'Henderson Sans', Arial, sans-serif;
+    --bs-font-sans-serif:  'Henderson Sans', Arial, sans-serif;
+}
+
+/* ============================================
+   2. FUENTES TIPOGRÁFICAS
+   Rutas absolutas desde la raíz del servidor Apache
+   ============================================ */
+@font-face {
+    font-family: 'Henderson Sans';
+    src: url('/assets/fuentes/HendersonSansW00-BasicLight.woff2') format('woff2'),
+         url('/assets/fuentes/HendersonSansW00-BasicLight.woff')  format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Variante Regular (400) — ajusta el nombre si tu kit usa otro */
+@font-face {
+    font-family: 'Henderson Sans';
+    src: url('/assets/fuentes/HendersonSansW00-BasicRegular.woff2') format('woff2'),
+         url('/assets/fuentes/HendersonSansW00-BasicRegular.woff')  format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Henderson Sans';
+    src: url('/assets/fuentes/HendersonSansW00-BasicSmBd.woff2') format('woff2'),
+         url('/assets/fuentes/HendersonSansW00-BasicSmBd.woff')  format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Henderson Sans';
+    src: url('/assets/fuentes/HendersonSansW00-BasicBold.woff2') format('woff2'),
+         url('/assets/fuentes/HendersonSansW00-BasicBold.woff')  format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============================================
+   3. TIPOGRAFÍA GLOBAL
+   Bootstrap 5 aplica su fuente con:
+       body { font-family: var(--bs-body-font-family) }
+   Como nosotros sobreescribimos --bs-body-font-family en :root
+   (ver sección 1), esto debería ser suficiente.
+   La declaración directa en body actúa como respaldo.
+   ============================================ */
+body {
+    font-family: 'Henderson Sans', Arial, sans-serif;
+    color: var(--mep-text);
+}
+
+/*
+   Asegura que headings, labels, inputs y botones
+   usen la fuente aunque Bootstrap los defina aparte.
+*/
+h1, h2, h3, h4, h5, h6,
+.form-label,
+.form-control,
+.btn,
+.alert,
+.card,
+.nav,
+.navbar,
+.dropdown-menu {
+    font-family: 'Henderson Sans', Arial, sans-serif;
+    will-change: transform, opacity;
+    /* z-index: 1055; */
+}
+
+/* ============================================
+   4. HEADER
+   ============================================ */
+.mep-header {
+    background: var(--mep-primary);
+    color: white;
+    padding: 18px 0;
+    border-bottom: 4px solid var(--mep-accent);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.mep-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.mep-logo-box {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+}
+
+.mep-logo-icon {
+    width: 48px;
+    height: auto;
+    display: block;
+    background: transparent;
+
+    /*
+        FIX LOGO FONDO BLANCO:
+        Si el archivo SVG o PNG tiene un rectángulo blanco
+        embebido y no puedes editarlo, activa esta línea.
+        Funciona porque el header tiene fondo de color sólido:
+        el blanco del logo se "multiplica" con el azul y desaparece.
+
+        Descomenta si el logo sigue con fondo blanco:
+    */
+    /* mix-blend-mode: multiply; */
+}
+
+/* ============================================
+   5. FOOTER
+   ============================================ */
+.mep-footer {
+    background: #f8f9fa;
+    border-top: 4px solid var(--mep-accent);
+    padding: 20px 0 15px;
+    color: var(--mep-primary);
+    margin-top: 50px;
+}
+
+.mep-footer small {
+    font-size: 0.8rem;
+    color: var(--mep-primary);
+    opacity: 0.85;
+}
+
+/*
+    FIX: Selector específico para íconos (Bootstrap Icons / Font Awesome).
+    Antes ".mep-footer i" coloreaba también texto en cursiva <i> semántico.
+*/
+.mep-footer .bi,
+.mep-footer [class^="bi-"],
+.mep-footer [class*=" bi-"],
+.mep-footer .fas,
+.mep-footer .far,
+.mep-footer .fab,
+.mep-footer .fa {
+    color: var(--mep-accent);
+}
+
+.mep-footer-divider {
+    height: 1px;
+    background: rgba(25, 41, 82, 0.15);
+    margin: 12px 0;
+}
+
+/* ============================================
+   6. TEXTOS AUXILIARES
+   ============================================ */
+.gov-text {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    border-left: 3px solid var(--mep-accent);
+    padding-left: 12px;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+.unit-text {
+    font-size: 0.75rem;
+    opacity: 0.75;
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===============================
+   LAYOUT PROFESIONAL STICKY FOOTER
+================================= */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body.layout-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Área principal crece */
+.contenido-principal {
+    flex: 1;
+}
+
+/* Footer elegante */
+.mep-footer {
+    margin-top: auto;
+}
+
+/* ================================
+   DROPDOWN --- BOOTSTRAP 5
+================================ */
+/*MENÚ DESPLEGABLE*/
+/* Estado inicial (cerrado) */
+.user-dropdown{
+    min-width: 320px;
+    border: none;
+    border-radius: 16px;/*18px;*/
+    padding: 10px; /*12*/
+    
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px); /*efecto cristal 14*/
+    -webkit-backdrop-filter: blur(16px); /*14*/
+    
+    /* Sombra elegante */
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.08),
+        0 8px 18px rgba(0,0,0,0.05);
+
+    /* Animación inicial */
+    opacity: 0;
+    transform: scale(0.98);
+
+    transition:
+        opacity 0.22s ease,
+        transform 0.22s cubic-bezier(.21,1,.35,1);
+}
+
+/* Cuando Bootstrap lo abre, hace que espere y se muestra más suave */
+.dropdown-menu.show.user-dropdown {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+        opacity .15s ease,
+        transform .15s cubic-bezier(.2,.8,.2,1);
+}
+
+/* CABECERA DEL USUARIO */
+.dropdown-user-info{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+}
+
+/* AVATAR */
+.user-mini-avatar{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e8eef5;
+}
+
+/*NOMBRE*/
+.user-name{
+    font-weight: 600; /*700*/
+    color: #1f3b57;
+    font-size: 0.9rem;
+}
+
+/* ITEMS */
+.user-item{
+    display: flex;
+    align-items: center;
+    gap: 10px; /*12*/
+
+    padding: 10px 12px; /*12 14*/
+    border-radius: 10px; /*12*/
+    margin-bottom: 4px;
+
+    color: #24324A !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+
+    transition: all 0.25s ease;
+}
+
+/* HOVER */
+.user-item:hover{
+    background: rgba(0, 53, 160, 0.06);
+    transform: translateX(3px);
+    color: #0035A0 !important;
+}
+
+/* ICONOS */
+.user-item i{
+    font-size: 1.05rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* SALIR */
+.logout-item{
+    color: #c0392b !important;
+}
+
+.logout-item:hover{
+   background: #fff4f4;
+    color: #a93226 !important;
+}
+
+/* DIVISOR */
+.dropdown-divider{
+    margin: 6px 0;
+    opacity: 0.2;
+}
+
+/* Animación */
+.fadeIn{
+    animation: fadeDropdown 0.22s ease;
+}
+
+@keyframes fadeDropdown{
+    from{
+        opacity:0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}

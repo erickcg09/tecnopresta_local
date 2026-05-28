@@ -1,0 +1,128 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?bfqkgn');
+  src:  url('fonts/icomoon.eot?bfqkgn#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?bfqkgn') format('truetype'),
+    url('fonts/icomoon.woff?bfqkgn') format('woff'),
+    url('fonts/icomoon.svg?bfqkgn#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home3:before {
+  content: "\e902";
+}
+.icon-pencil2:before {
+  content: "\e906";
+}
+.icon-books:before {
+  content: "\e920";
+}
+.icon-barcode:before {
+  content: "\e937";
+}
+.icon-envelop:before {
+  content: "\e945";
+}
+.icon-location2:before {
+  content: "\e948";
+}
+.icon-calendar:before {
+  content: "\e953";
+}
+.icon-printer:before {
+  content: "\e954";
+}
+.icon-drawer:before {
+  content: "\e95c";
+}
+.icon-floppy-disk:before {
+  content: "\e962";
+}
+.icon-database:before {
+  content: "\e964";
+}
+.icon-undo2:before {
+  content: "\e967";
+}
+.icon-search:before {
+  content: "\e986";
+}
+.icon-equalizer:before {
+  content: "\e992";
+}
+.icon-cog:before {
+  content: "\e994";
+}
+.icon-stats-bars:before {
+  content: "\e99c";
+}
+.icon-bin:before {
+  content: "\e9ac";
+}
+.icon-tree:before {
+  content: "\e9bc";
+}
+.icon-cloud-download:before {
+  content: "\e9c2";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-minus:before {
+  content: "\ea0b";
+}
+.icon-enter:before {
+  content: "\ea13";
+}
+.icon-loop2:before {
+  content: "\ea2e";
+}
+.icon-sort-alpha-asc:before {
+  content: "\ea48";
+}
+.icon-sort-alpha-desc:before {
+  content: "\ea49";
+}
+.icon-radio-checked:before {
+  content: "\ea54";
+}
+.icon-table:before {
+  content: "\ea70";
+}
+.icon-share2:before {
+  content: "\ea82";
+}
+.icon-flickr2:before {
+  content: "\eaa4";
+}
+.icon-dropbox:before {
+  content: "\eaae";
+}
+.icon-file-pdf:before {
+  content: "\eadf";
+}
+.icon-file-excel:before {
+  content: "\eae2";
+}
+
+
+
+
+

@@ -4,8 +4,10 @@ require_once("select.php");
 
 try {
 
+	$codigo = $_GET['codigo'];
+
 	$db = new sql();		
-	$rs = $db->conSolicitud();
+	$rs = $db->conSolicitud($codigo);
 	
 	echo json_encode($rs);
    

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="manifest.json">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+         <link rel="stylesheet" href="css/formulario_menu_principal.css">
+          <link rel="stylesheet" type="text/css" href="/css_reportes/ico_reportes.css">
+    <link rel="stylesheet" href="css/loader.css">
+          
+    <title>TecnoPresta// Menú Principal</title>
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="carrusel/css/font-awesome.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+        a { color: #FFFFFF; text-decoration: none;} /* CSS link color */
+    </style>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#hide").on('click', function() {
+        $("#element").hide();
+        return false;
+    });
+
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+    setTimeout(function() {
+        $(".content2").fadeIn(1500);
+    },2000);
+});
+</script>
+
+
+  </head>
+  <body>
+    
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="#">TecnoPresta</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="portal_perfil.php"><span class="icon icon-profile"></span> Mi Perfil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="portal_soporte_tecnico.php"><span class="icon icon-envelop"></span> Cont&aacute;ctenos o solicitar cita</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tarjetero.php"><span class="icon icon-lifebuoy"></span> Ayuda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gameover.php"><span class="icon icon-enter"></span> <b>Cerrar Sesi&oacute;n </b></a>
+              </li> 
+            </ul>
+          </div>
+    </nav>
+	<div class="contenedor_loader">
+		<div class="loader"></div>
+	</div>    
+    <div class="container-sm container-md container-lg">
+        <div class="row justify-content-center"> 
+          <div id="mensaje" class="form-group row"></div>
+        </div>
+    </div>
+   
+<!-- Contenedor Principal -->
+<div class="container" style="padding-top: 2em; padding-bottom: 5em;" id="contenedor">                    
+    <div class="row"> <!-- div row 1 -->
+        <div class="col-md-6 col-lg-6 col-sm-12 mb-4" id="colCards">
+            <div class="card">  
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="img/Boton_5.png" class="card-img">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title"><b>Actualización de Inventario Nacional ↴</b></h4>
+                            <p class="card-text"><small class="text-muted"></small></p>
+                            <a href="gate_inventario_nacional.php" class="btn btn-success btn-lg btn-block"><b>Ingresar</b></a>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 mb-4" id="colCards">
+            <div class="card">  
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="img/Boton2.png" class="card-img">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title"><b>Solicitar Activos ↴</b></h4>
+                            <p class="card-text"><small class="text-muted"></small></p>
+                            <a href="formulario_menu_prestamo.html" class="btn btn-dark btn-lg btn-block"><b>Ingresar</b></a>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 mb-4" id="colCards">
+            <div class="card">  
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="img/Boton1.png" class="card-img">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title"><b>Inventario</b></h4>
+                            <h4 class="card-title"><b>de Activos Prestables ↴</b></h4>
+                            <p class="card-text"><small class="text-muted"></small></p>
+                            <a href="formulario_menu_inventario.html" class="btn btn-dark btn-lg btn-block"><b>Ingresar</b></a>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 mb-4" id="colCards">
+            <div class="card">  
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="img/Boton_3.png" class="card-img">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title"><b>Centro de Consultas</b></h4> 
+                            <h4 class="card-title"><b>DRTE ↴ <span class="badge bg-secondary">Nuevo</span></b></h4>
+                            <p class="card-text"><small class="text-muted"></small></p>
+                            <a href="portal_soporte_tecnico.php" class="btn btn-dark btn-lg btn-block"><b>Ingresar</b></a>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 mb-4" id="colCards">
+            <div class="card">  
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="img/Boton_4.png" class="card-img">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title"><b>Recursos de apoyo para</b></h4>
+                            <h4 class="card-title"><b>uso de la plataforma ↴</b></h4>
+                            <p class="card-text"><small class="text-muted"></small></p>
+                            <a href="portal_formacion.php" class="btn btn-dark btn-lg btn-block"><b>Ingresar</b></a>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Cierre del div del row 1 -->
+</div> <!-- Cierre del div con id contenedor -->
+
+
+
+
+<nav id="statusBar" 
+      class="navbar fixed-bottom bg-dark navbar-dark justify-content-between">
+    <div class="col-md-6">        
+        <i><a href="ed.html">Conocer el Equipo Desarrollador de TecnoPresta </a></i>           
+    </div> 
+    <!-- <div class="col-md-4">
+        <span id="codigo" class="font-italic text-light"></span>        
+    </div>
+    <div class="col-md-2">
+        <i><a href="atribuciones.php">Atribuciones</a></i>         
+    </div>
+    -->
+
+
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Citas Tecnopresta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Escr&iacute;benos al correo tecnopresta@mep.go.cr o ingrse a Cont&aacute;ctenos 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!-- <nav class="navbar fixed-bottom bg-dark navbar-dark justify-content-between">
+    <H2><span id="nombre" class="font-italic text-light "></span></H2>
+    <H3><span id="codigo" class="font-italic text-light"></span></H3>
+     <i><a href="atribuciones.php">Atribuciones</a></i> 
+</nav> -->
+            
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.5.1.min.js"></script> 
+    <script src="js/bootstrap.min.js"></script>    
+    <!-- <script src="js/formulario_menu_principal.js?version=4"></script> -->  
+    <script src="js/muestra.js"></script>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <script src="js/loader.js"></script>
+  </body>
+</html>
+
+

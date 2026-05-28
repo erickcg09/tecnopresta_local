@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>PNTM Principal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="/css/jquery.min.js"></script>
+  <script src="css/jquery-ui.js"></script>
+  <link rel="stylesheet" href="css/jquery-ui.css" />
+  <script src="/css/popper.min.js"></script>
+  <script src="/css/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+            <style>
+        a:link, a:visited, a:active {
+            text-decoration:none;
+            color: #000000;
+        }
+         p { color: #000000; 
+             font-size: 30px;
+        }
+#lista3 {
+    counter-reset: li; 
+    list-style: none; 
+    *list-style: decimal; 
+    font: 30px; 
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+#lista3 ol {
+    margin: 0 0 0 2em; 
+}
+
+#lista3 li{
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em .8em;
+    *padding: .4em;
+    margin: .5em 0 .5em 2.5em;
+    background: #ddd;
+    color: white;
+    text-decoration: none;
+    transition: all .3s ease-out;   
+}
+
+#lista3 li:hover{
+    background: #eee;
+}   
+
+#lista3 li:before{
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    border-radius:100%;
+    left: -2.5em;
+    top: 50%;
+    margin-top: -1em;
+    background: black;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+#lista3 li:after{
+    position: absolute; 
+    content: '';
+    border: .5em solid transparent;
+    left: -1em;
+    top: 50%;
+    margin-top: -.5em;
+    transition: all .3s ease-out;               
+}
+
+#lista3 li:hover:after{
+    left: -.5em;
+    border-left-color: black;             
+}
+	     </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="formulario_menu_principal.html">Tecnopresta</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="formulario_menu_principal.html"><span class="icon icon-undo2"></span> Principal</a>
+      </li>
+    </ul>
+  </div>  
+</nav>
+<br>
+
+<div class="container">
+
+
+  <div class="row">
+    <div class="col-md-6">
+<h2>Equipo de Desarrollo</h2>
+<br>
+<table class="table table-bordered table-dark">
+  <tbody>
+    <tr>
+      <td><img src="img/grm.png" alt="" width="100px" height="100px" /></td>
+      <td><b>Ingeniera Grettel Celina Romero Morales</b><br>
+          <i>Ingeniera de Sistemas</i><br>
+          Liceo de Pocora<br>
+          <a style="color:white" href="mailto:grettel.romero.morales@mep.go.cr">grettel.romero.morales@mep.go.cr
+          </a><br>
+          <br>
+          Dirección Regional de Guápiles<br>
+          Ministerio de Educación Pública</td>
+    </tr>
+    <tr>
+      <td><img src="img/jm.png" alt="" width="100px" height="100px" /></td>
+      <td><b>Ingeniero Javier Mauricio Bermúdez Vargas</b><br>
+          <i>Ingeniero de Sistemas</i><br>
+          Liceo de las Esperanzas<br>
+          <a style="color:white" href="mailto:mauricio.bermudez.vargas@mep.go.cr">mauricio.bermudez.vargas@mep.go.cr
+          </a><br>
+          <br>
+          Dirección Regional de Perez Zeledón<br>
+          Ministerio de Educación Pública</td>
+    </tr>
+    <tr>
+      <td><img src="img/syv.png" alt="" width="100px" height="100px" /></td>
+      <td><b>Ingeniero Sandro Fernando Yee Vásquez</b><br>
+          <i>Ingeniero de Sistemas </i><br>
+          Liceo Tucurrique<br>
+          <a style="color:white" href="mailto:sandro.yee.vasquez@mep.go.cr">sandro.yee.vasquez@mep.go.cr
+          </a><br>
+          <br>
+          Dirección Regional de Turrialba<br>
+          Ministerio de Educación Pública</td>
+    </tr>
+    <tr>
+      <td><img src="img/fjm.jpg" alt="" width="100px" height="100px" /></td>
+      <td><b>MSc Franklin Jiménez Montero </b><br>
+          <i>Asesor Nacional de Informática</i><br>
+          Departamento de Investigación e Implementación de Proyectos<br>
+          <a style="color:white" href="mailto:franklin.jimenez.montero@mep.go.cr">franklin.jimenez.montero@mep.go.cr
+          </a><br>
+          <br>
+          Direccion de Recursos Tecnológicos<br>
+          Ministerio de Educación Pública</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+        <div class="col-md-6">
+            <br>  <br/> 
+            <br>  <br/> 
+            <br>  <br/> 
+            <br>  <br/> 
+<div class="d-none d-sm-none d-md-block"><center><img src="pruebafinal.png" width="400" height="400"></center></div>
+        </div>
+ </div>   
+</div>
+
+</body>
+</html>

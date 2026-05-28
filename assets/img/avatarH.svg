@@ -1,0 +1,78 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+  <linearGradient id="blueMain" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#2E3E5C"></stop>
+    <stop offset="100%" stop-color="#1F2C45"></stop>
+  </linearGradient>
+
+  <linearGradient id="bgSoft" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#F8FAFC"></stop>
+    <stop offset="100%" stop-color="#E2E8F0"></stop>
+  </linearGradient>
+
+  <linearGradient id="skinTone" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#F4D7C3"></stop>
+    <stop offset="100%" stop-color="#E8BFA6"></stop>
+  </linearGradient>
+
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.14"></feDropShadow>
+  </filter>
+</defs>
+
+<!-- Background Circle -->
+<g filter="url(#shadow)">
+  <circle cx="256" cy="256" r="210" fill="url(#bgSoft)"></circle>
+</g>
+
+<!-- Shoulders -->
+<path d="M138 418C138 352 188 316 256 316C324 316 374 352 374 418V438H138V418Z" fill="url(#blueMain)"></path>
+
+<!-- Neck -->
+<rect x="228" y="280" width="56" height="52" rx="18" fill="url(#skinTone)"></rect>
+
+<!-- Face -->
+<g filter="url(#shadow)">
+  <ellipse cx="256" cy="210" rx="96" ry="112" fill="url(#skinTone)"></ellipse>
+</g>
+
+<!-- Hair -->
+<path d="M170 208C170 124 212 92 256 92C300 92 342 124 342 208
+         C330 178 308 164 282 160
+         C256 156 226 164 208 180
+         C194 192 182 202 170 208Z" fill="url(#blueMain)"></path>
+
+<!-- Ears -->
+<ellipse cx="164" cy="220" rx="12" ry="22" fill="url(#skinTone)"></ellipse>
+<ellipse cx="348" cy="220" rx="12" ry="22" fill="url(#skinTone)"></ellipse>
+
+<!-- Eyes -->
+<ellipse cx="220" cy="220" rx="8" ry="8" fill="#24324A"></ellipse>
+<ellipse cx="292" cy="220" rx="8" ry="8" fill="#24324A"></ellipse>
+
+<!-- Eyebrows -->
+<path d="M204 198C214 192 226 192 236 198" stroke="#24324A" stroke-width="5" stroke-linecap="round"></path>
+<path d="M276 198C286 192 298 192 308 198" stroke="#24324A" stroke-width="5" stroke-linecap="round"></path>
+
+<!-- Nose -->
+<path d="M256 226V252" stroke="#D9A98C" stroke-width="5" stroke-linecap="round"></path>
+<path d="M248 252C252 256 260 256 264 252" stroke="#D9A98C" stroke-width="4" stroke-linecap="round"></path>
+
+<!-- Mouth -->
+<path d="M226 276C242 290 270 290 286 276" stroke="#B86C6C" stroke-width="5" stroke-linecap="round"></path>
+
+<!-- Collar -->
+<path d="M220 340L256 374L292 340" fill="white"></path>
+
+<!-- Badge Optional -->
+<g filter="url(#shadow)">
+  <circle cx="396" cy="396" r="34" fill="url(#blueMain)" stroke="white" stroke-width="4"></circle>
+  <path d="M396 378L378 387H414L396 378Z" fill="white"></path>
+  <rect x="384" y="390" width="6" height="16" rx="2" fill="white"></rect>
+  <rect x="394" y="390" width="6" height="16" rx="2" fill="white"></rect>
+  <rect x="404" y="390" width="6" height="16" rx="2" fill="white"></rect>
+  <rect x="380" y="408" width="32" height="4" rx="2" fill="white"></rect>
+</g>
+
+</svg>

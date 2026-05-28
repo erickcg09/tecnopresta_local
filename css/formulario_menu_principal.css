@@ -1,0 +1,372 @@
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+  #statusBar {
+    font-size: 1rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+  #statusBar {
+    font-size: 1rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  #statusBar {
+    font-size: 1rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  #statusBar {
+    font-size: 1rem;
+  }
+}
+
+/*CODIGO NUEVO*/
+/*# sourceMappingURL=formulario_menu_principal.css.map */
+/* ====== Branding MEP ====== */
+/* ====== VARIABLES ====== */
+:root {
+    --mep-blue: #003876;
+    --mep-gold: #C8A951;
+    --mep-blue2:#114c91;
+}
+
+/* ====== BODY ====== */
+body {
+    /*background-color: #f4f6f9;*/
+    background:linear-gradient(180deg,#f4f7fb 0%,#eef2f7 100%);
+    min-height:100vh;
+}
+
+/* ====== NAVBAR ====== */
+.navbar-mep {
+    background-color: var(--mep-blue) !important;
+    border-bottom: 3px solid var(--mep-gold);
+}
+
+/* Texto navbar */
+.navbar-mep .nav-link,
+.navbar-mep .navbar-brand {
+    color: #fff !important;
+}
+
+/* Hover navbar */
+.navbar-mep .nav-link:hover {
+    color: var(--mep-gold) !important;
+}
+/*para que el navbar no corte el droptown del avatar*/
+.navbar-mep {
+    overflow: visible !important;
+}
+
+/* ====== CARDS ====== */
+.card {
+    /*border-radius: 12px;*/
+    /*border-top-color: 4px solid transparent #C8A951;*/
+    border:none;
+    border-bottom: 3px solid var(--mep-blue) !important;
+    border-top: 3px solid transparent;
+    /*border-left-color: var(--mep-blue) !important;
+    border-right-color: var(--mep-blue) !important;
+    */
+    border-radius: 10px; 
+    overflow: hidden;
+    /*transition: border-color .2s, transform .2s, box-shadow .2s;*/
+    transition: all 0.25s ease;
+    background:rgba(255,255,255,.92);
+    backdrop-filter: blur(10px);
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+
+
+/* Hover elegante */
+.card:hover {
+    /*border-bottom-color: var(--mep-gold, var(--mep-gold));*/
+    border-top: 3px solid transparent;
+    border-top-color: var(--mep-gold, var(--mep-blue));
+    border-left-color: var(--mep-gold);
+    border-right-color: var(--mep-gold);
+    transform: translateY(-4px);
+    /*box-shadow: 0 10px 25px rgba(0, 56, 118, 0.15);*/
+    box-shadow: 0 8px 24px rgba(0, 56, 118, .10) !important;
+    /*box-shadow:0 18px 35px rgba(0,0,0,.12);*/
+    cursor: pointer;
+}
+
+.card:hover .img-container img {
+    transform: scale(1.08);
+}
+
+/* ===== Imagen dentro de card ===== */
+.img-container {
+    width: 170px;
+    height: 170; /* Tamaño fijo uniforme */
+    margin: 0 auto 8px auto; /* Centrado horizontal + separación inferior 8px es pacio inferior */
+    
+    display: flex; /* Centrado interno */
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden; /* evita desbordes */
+
+    /*para que SVG se vean más elegantes*/
+    background: #f4f7fb;
+    border-radius: 3px;
+    padding: 1px;
+
+}
+
+/* Imagen dentro del contenedor */
+.img-container img {
+    max-width: 100%; /*coupa todo el ancho*/
+    max-height: 100%;
+
+    object-fit: contain; /*No se deforma*/
+     transition: transform 0.3s ease;
+    /*padding: 10px; */
+}
+
+
+.card-body {
+    padding-left: 1rem;
+    /*border-left: 4px solid var(--mep-blue);*/
+}
+
+/* Botón */
+.btn-primary {
+    background-color: var(--mep-blue);
+    border-color: var(--mep-blue);
+}
+
+.btn-primary:hover {
+    background-color: var(--mep-gold);
+    border-color: var(--mep-gold);
+}
+
+/* ====== FOOTER ====== */
+#statusBar {
+    background-color: var(--mep-blue) !important;
+}
+
+.dropdown-menu {
+    border-radius: 10px;
+    border: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f4f6f9;
+}
+
+.dropdown-menu {
+    min-width: 200px;
+    max-width: calc(100vw - 20px);
+}
+
+.contenido-principal {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.barra-contexto { 
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.row > [class*="col"] {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.badge-modulo{
+    background: #eef4f8;
+    color: #1f3b57;
+    padding: 6px 10px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid #d7e4ee;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.badge-modulo:hover{
+    background: #dcecf7;
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+.hero-box{
+    background:linear-gradient(135deg,var(--mep-blue), var(--mep-blue2));
+    color:#fff;
+    border-radius:24px;
+    padding:32px;
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+}
+
+.hero-icon{
+    width:80px;
+    height:80px;
+    border-radius:18px;
+    background:rgba(255,255,255,.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    backdrop-filter: blur(8px);
+}
+
+.breadcrumb{ 
+    background:rgba(255,255,255,.85); 
+    border-radius:14px; 
+    padding:12px 18px; 
+    box-shadow:0 8px 20px rgba(0,0,0,.05); 
+}
+
+.empty-box{ 
+    border-radius:18px; 
+    background:#fff; 
+    padding:40px; 
+    text-align:center; 
+    box-shadow:0 8px 25px rgba(0,0,0,.06); 
+}
+
+.fade-enter{ 
+    animation:fadeIn .4s ease;
+} 
+
+@keyframes fadeIn{ 
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    } 
+    to{
+        opacity:1;
+        transform:translateY(0);
+    } 
+}
+
+/* ── RESPONSIVE BREAKPOINTS ───────────────────────────────── */
+    /*
+      1024px (tablet): grid de módulos pasa a 2 columnas.
+                        Bottom row pasa a 1 columna apilada.
+      640px (móvil):   grid de módulos pasa a 1 columna.
+                        Topbar simplificado: oculta subtítulo MEP,
+                        info del usuario y contexto de centro.
+    */
+    @media (max-width: 1024px) {
+      .modules-grid { grid-template-columns: repeat(2, 1fr); }
+      .bottom-row   { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar       { padding: 0 1rem; }
+      .brand-sep,
+      .brand-mep    { display: none; }        /* Simplifica topbar en móvil */
+      .user-info    { display: none; }         /* Solo avatar en móvil */
+      .user-menu    { padding: 4px 6px; }
+      .context-bar  { padding: 0 1rem; }
+      .main         { padding: 1.25rem 1rem 2rem; }
+      .modules-grid { grid-template-columns: 1fr; gap: 12px; }
+      .ctx-stats    { gap: 5px; }
+      .footer       { flex-direction: column; gap: 6px; text-align: center; }
+      .footer-right { flex-wrap: wrap; justify-content: center; }
+    }
+
+/* ============================================
+    BOTÓN FLOTANTE - VOLVER AL DASHBOARD
+============================================ */
+.btn-disponibilidad {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--mep-primary);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-disponibilidad:hover {
+    transform: scale(1.1);
+    background: var(--mep-secondary);
+    color: white;
+}
+
+.btn-disponibilidad::before {
+    content: "Volver a los módulos del Sistema";
+    position: absolute;
+    right: 70px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    font-family: 'Henderson Sans', Arial, sans-serif;
+}
+        
+.btn-disponibilidad:hover::before {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .btn-disponibilidad {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .btn-disponibilidad::before {
+        display: none;
+    }        
+}        
+        
+/* Tooltip del botón volver */
+a[href="navegar.php?ruta=formulario_menu_principal.php"].btn-disponibilidad::before {
+    content: "Volver a Módulos del Sistema";
+}
+
+/* Estilo de Resaldo en Busqueda */
+.mep-highlight {
+    /*background-color: #D1FAE5; /* verde pastel suave */
+    /*color: #065F46;           /* verde oscuro elegante */
+    background-color: #cfe5ff;
+    color: #1f3b57;
+    padding: 2px 5px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+} 
+     /*
+      [x-cloak] oculta los elementos Alpine.js antes de que
+      el framework se inicialice, evitando el "parpadeo"
+      de contenido sin renderizar.
+    */
+    [x-cloak] { display: none !important; }

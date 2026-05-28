@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="manifest" href="manifest.json" />
+    <!-- Alpine js -- Defer es para utilizar alpine antes de definrlo -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" href="css/formulario_menu_principal.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css_reportes/ico_reportes.css"
+    />
+    <link rel="stylesheet" href="css/loader.css" />
+    <title>TecnoPresta// Menú Principal</title>
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <link rel="stylesheet" href="carrusel/css/font-awesome.min.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+      a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      /* CSS link color */
+    </style>
+  </head>
+  <!-- x-data="menuApp()" Esto es para asegurar que que menuAPP exista -->
+
+  <body x-data="menuApp()" x-init="init()">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <img
+        src="img/logomep2020.png"
+        width="45"
+        height="30"
+        alt=""
+        loading="lazy"
+      /><a class="navbar-brand" href="#">TecnoPresta</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapsibleNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="portal_perfil.php"
+              ><span class="icon icon-profile"></span> Mi Perfil</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portal_soporte_tecnico.php"
+              ><span class="icon icon-envelop"></span> Cont&aacute;ctenos o
+              solicitar cita</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tarjetero.php"
+              ><span class="icon icon-lifebuoy"></span> Ayuda</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gameover.php"
+              ><span class="icon icon-enter"></span>
+              <b>Cerrar Sesi&oacute;n </b></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- MENSAJES -->
+    <div class="container mt-3">
+      <div x-show="error" class="alert alert-danger" x-text="error"></div>
+    </div>
+    <!-- LOADER -->
+    <div class="text-center mt-5" x-show="loading">
+      <div class="spinner-border text-primary"></div>
+      <p class="mt-2">Cargando módulos...</p>
+    </div>
+    <!-- Contenedor Principal -->
+    <div class="container mt-4" x-show="!loading">
+      <div class="row">
+        <template x-for="subsistema in subsistemas" :key="subsistema.nombre">
+          <div class="col-md-6 col-lg-6 col-sm-12 mb-4">
+            <div class="card h-100 shadow-sm">
+              <!-- <div class="row no-gutters"> -->
+              <div class="card-body text-center">
+                <img
+                  :src="subsistema.imagen"
+                  width="80"
+                  height="80"
+                  class="card-img"
+                  alt="Imagen del subsistema"
+                />
+                <h5
+                  class="card-title font-weight-bold"
+                  x-text="subsistema.nombre"
+                ></h5>
+                <p class="text-muted small" x-text="subsistema.descripcion"></p>
+                <!-- <a :href="subsistema.modulos[0].ruta" class="btn btn-primary btn-block mt-3">Ingresar</a> -->
+                <a
+                  :href="subsistema.modulos.length ? subsistema.modulos[0].ruta : '#'"
+                  class="btn btn-primary btn-block mt-3"
+                ></a>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <nav
+      id="statusBar"
+      class="navbar fixed-bottom bg-dark navbar-dark justify-content-between"
+    >
+      <div class="col-md-6">
+        <i
+          ><a href="ed.html"
+            >Conocer el Equipo Desarrollador de TecnoPresta
+          </a></i
+        >
+      </div>
+    </nav>
+    <!-- SCRIPT -->
+    <script>
+    window.menuApp = function () {
+        return {
+            usuario: '',
+            loading: true,
+            error: '',
+            subsistemas: [],
+
+            init() {
+                this.cargaSesion();
+                this.cargaModulos();
+            },
+
+            cargaSesion() {
+                const sesion = sessionStorage.getItem('sesion');
+
+                if (!sesion) {
+                    window.location.href = "index.html";
+                    return;
+                }
+
+                const data = JSON.parse(sesion);
+                this.usuario = data.nombre || data.correo || 'Usuario';
+            },
+
+            async cargaModulos() {
+                try {
+                    const response = await fetch('sql/formulario_principal.php');
+                    const data = await response.json();
+
+                    if (data.error) {
+                        this.error = data.error;
+                    } else {
+                        this.subsistemas = data; // ✅ CORREGIDO
+                    }
+
+                } catch (e) {
+                    this.error = "Error al cargar los módulos";
+                    console.error(e);
+                } finally {
+                    this.loading = false;
+                }
+            }
+        }
+    }
+    </script>
+  </body>
+</html>

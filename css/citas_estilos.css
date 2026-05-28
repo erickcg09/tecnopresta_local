@@ -1,0 +1,85 @@
+/* Estilos específicos para módulo de citas */
+.required:after {
+    content: " *";
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0078d4;
+    box-shadow: 0 0 0 0.25rem rgba(0, 120, 212, 0.25);
+}
+
+.btn-primary {
+    background-color: #0078d4;
+    border-color: #0078d4;
+}
+
+.btn-primary:hover {
+    background-color: #106ebe;
+    border-color: #106ebe;
+}
+
+.btn-primary:disabled {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.card-header.bg-primary {
+    background: linear-gradient(135deg, #0078d4, #106ebe);
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+/* Spinner personalizado */
+.spinner-border.text-primary {
+    color: #0078d4 !important;
+}
+
+/* Badges */
+.badge.bg-success {
+    background-color: #28a745 !important;
+}
+
+.badge.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-card {
+        margin: 10px;
+    }
+    
+    .teams-status {
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-section {
+    animation: fadeIn 0.3s ease-out;
+}

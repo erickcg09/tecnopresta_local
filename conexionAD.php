@@ -1,0 +1,3 @@
+<?php
+echo "MENU PRINCIPAL DE TECNOPRESTA"
+?>

@@ -1,0 +1,28 @@
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  #statusBar {
+    font-size: 1.2rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+  #statusBar {
+    font-size: 1.4rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  #statusBar {
+    font-size: 1.6rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  #statusBar {
+    font-size: 1.8rem;
+  }
+}
+/*# sourceMappingURL=formulario_menu_principal.css.map */

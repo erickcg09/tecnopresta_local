@@ -1,0 +1,69 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+  <linearGradient id="blueMain" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#192952"></stop>
+    <stop offset="100%" stop-color="#0035A0"></stop>
+  </linearGradient>
+
+  <linearGradient id="goldAccent" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#CFAC65"></stop>
+    <stop offset="100%" stop-color="#F2DAB1"></stop>
+  </linearGradient>
+
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity="0.12"></feDropShadow>
+  </filter>
+</defs>
+
+<!-- CLIPBOARD -->
+<g filter="url(#shadow)">
+  <rect x="150" y="110" width="210" height="270" rx="26" fill="url(#blueMain)"></rect>
+  <rect x="170" y="130" width="170" height="230" rx="18" fill="white"></rect>
+</g>
+
+<!-- CLIP -->
+<rect x="215" y="80" width="100" height="60" rx="16" fill="url(#blueMain)"></rect>
+<circle cx="265" cy="100" r="8" fill="white"></circle>
+
+<!-- TEXTO -->
+<rect x="190" y="170" width="120" height="10" rx="5" fill="#CFAC65"></rect>
+<rect x="190" y="195" width="90" height="10" rx="5" fill="#E5E7EB"></rect>
+
+<!-- PORTÁTIL CENTRAL (activo) -->
+<g filter="url(#shadow)">
+  <rect x="215" y="220" width="90" height="60" rx="10" fill="url(#blueMain)"></rect>
+  <rect x="225" y="230" width="70" height="40" rx="6" fill="white"></rect>
+  <rect x="200" y="280" width="120" height="12" rx="6" fill="#64748B"></rect>
+</g>
+
+<!-- ICONO BAJA (círculo con línea) -->
+<g filter="url(#shadow)">
+  <circle cx="310" cy="215" r="22" fill="url(#goldAccent)"></circle>
+  <rect x="298" y="213" width="24" height="4" rx="2" fill="#192952"></rect>
+</g>
+
+<!-- FLECHA SALIDA HACIA ABAJO -->
+<g>
+  <path d="M260 300V335" stroke="url(#blueMain)" stroke-width="8" stroke-linecap="round"></path>
+  <path d="M245 320L260 335L275 320" fill="url(#blueMain)"></path>
+</g>
+
+<!-- LÍNEA BASE (salida del sistema) -->
+<rect x="220" y="345" width="80" height="8" rx="4" fill="#E5E7EB"></rect>
+
+<!-- PORTÁTIL DESTINO -->
+<g transform="translate(310,350)" filter="url(#shadow)">
+  
+  <rect x="0" y="0" width="70" height="42" rx="8" fill="url(#goldAccent)"></rect>
+  <rect x="4" y="4" width="62" height="32" rx="6" fill="white"></rect>
+
+  <!-- símbolo fuera -->
+  <path d="M20 20H45" stroke="#192952" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M38 14L45 20L38 26" fill="#192952"></path>
+
+  <rect x="-8" y="42" width="86" height="12" rx="6" fill="#64748B"></rect>
+
+</g>
+
+</svg>

@@ -1,0 +1,48 @@
+body html {
+	margin: 0;
+	padding: 0;
+}
+
+.backgroundimgcentral {
+	background-image: url('img/fondo.png');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100%;
+}
+
+.backgroundimgmantenimiento {
+	background-image: url('img/mantenimiento.png');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100%;
+}
+
+.backgroundimginventario {
+	background-image: url('img/inventario.png');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100%;
+}
+
+.izquierda{
+        height:50%;
+        float:left;
+        width:50%;
+        margin: 5px;
+}
+
+.derecha{
+        height:50%;
+        float:right;
+        width:50%;
+}
+
+#datos {
+
+}

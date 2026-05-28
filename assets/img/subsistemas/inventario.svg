@@ -1,0 +1,89 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="darkBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2E3E5C"></stop>
+      <stop offset="100%" stop-color="#1F2C45"></stop>
+    </linearGradient>
+
+    <linearGradient id="boxGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#94A3B8"></stop>
+      <stop offset="100%" stop-color="#64748B"></stop>
+    </linearGradient>
+
+    <linearGradient id="laptopGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#334155"></stop>
+      <stop offset="100%" stop-color="#0F172A"></stop>
+    </linearGradient>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.15"></feDropShadow>
+    </filter>
+  </defs>
+
+  <!-- Clipboard -->
+  <g filter="url(#shadow)">
+    <rect x="150" y="90" width="210" height="290" rx="18" fill="white" stroke="#24324A" stroke-width="6"></rect>
+    <rect x="215" y="65" width="80" height="38" rx="12" fill="url(#darkBlue)"></rect>
+    <circle cx="255" cy="84" r="7" fill="white"></circle>
+  </g>
+
+  <!-- Title -->
+  <text x="255" y="145" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#22314D">
+    INVENTARIO
+  </text>
+
+  <!-- Checklist -->
+  <g fill="#2F4C7A">
+    <rect x="185" y="175" width="26" height="26" rx="6"></rect>
+    <rect x="185" y="225" width="26" height="26" rx="6"></rect>
+    <rect x="185" y="275" width="26" height="26" rx="6"></rect>
+  </g>
+
+  <!-- Checks -->
+  <g stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M192 188 L198 194 L206 182"></path>
+    <path d="M192 238 L198 244 L206 232"></path>
+    <path d="M192 288 L198 294 L206 282"></path>
+  </g>
+
+  <!-- Lines -->
+  <g stroke="#CBD5E1" stroke-width="6" stroke-linecap="round">
+    <line x1="230" y1="188" x2="315" y2="188"></line>
+    <line x1="230" y1="238" x2="315" y2="238"></line>
+    <line x1="230" y1="288" x2="315" y2="288"></line>
+  </g>
+
+  <!-- Boxes -->
+  <g filter="url(#shadow)">
+    <rect x="95" y="300" width="130" height="105" rx="12" fill="url(#boxGrad)"></rect>
+    <rect x="115" y="245" width="80" height="65" rx="10" fill="url(#boxGrad)"></rect>
+    <rect x="145" y="245" width="18" height="25" rx="3" fill="#334155"></rect>
+    <rect x="165" y="300" width="20" height="30" rx="3" fill="#334155"></rect>
+
+    <rect x="135" y="350" width="55" height="26" rx="4" fill="white"></rect>
+    <g stroke="#1E293B" stroke-width="2">
+      <line x1="145" y1="355" x2="145" y2="372"></line>
+      <line x1="152" y1="355" x2="152" y2="372"></line>
+      <line x1="159" y1="355" x2="159" y2="372"></line>
+      <line x1="166" y1="355" x2="166" y2="372"></line>
+      <line x1="173" y1="355" x2="173" y2="372"></line>
+    </g>
+  </g>
+
+  <!-- Laptop -->
+  <g filter="url(#shadow)">
+    <rect x="290" y="270" width="120" height="92" rx="10" fill="url(#laptopGrad)"></rect>
+    <rect x="275" y="360" width="145" height="18" rx="9" fill="#475569"></rect>
+    <rect x="335" y="276" width="6" height="6" rx="3" fill="#64748B"></rect>
+  </g>
+
+  <!-- Institution Badge -->
+  <g filter="url(#shadow)">
+    <circle cx="395" cy="392" r="42" fill="url(#darkBlue)" stroke="white" stroke-width="4"></circle>
+    <path d="M395 370 L372 382 H418 L395 370Z" fill="white"></path>
+    <rect x="378" y="385" width="7" height="20" rx="2" fill="white"></rect>
+    <rect x="391" y="385" width="7" height="20" rx="2" fill="white"></rect>
+    <rect x="404" y="385" width="7" height="20" rx="2" fill="white"></rect>
+    <rect x="374" y="407" width="42" height="5" rx="2" fill="white"></rect>
+  </g>
+</svg>

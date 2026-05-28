@@ -1,0 +1,10 @@
+.cssCombo {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: "transparente";
+  color: black;
+  font-size: 1.1em;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+/*# sourceMappingURL=css_combo.css.map */
