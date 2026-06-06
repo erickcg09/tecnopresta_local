@@ -7,10 +7,20 @@ require_once("conexion.php");
 
 require_once __DIR__ . '/usuarioAzure.php';
 $usuario_azure = obtenerUsuarioSesion();
+/*
+echo '<pre>';
+print_r($_GET);
+echo '</pre>';
+exit;
+*/
 
-if (!$usuario_azure) {
-    header("Location: index.html");
-    exit();
+// ==== CONSTRUIR RUTA DE REGRESO =====
+$ruta_regreso ='navegar.php?ruta=formulario_menu_principal.php'; // Ruta por defecto si no vienen parámetros
+//Validar que vengan los parámetros necesarios para construir la ruta de regreso a formulario_sub_modulos.php
+if (isset($_GET['subsistema_id'], $_GET['modulo_id'])) {
+    $ruta_regreso = 'navegar.php?ruta=formulario_sub_modulos.php'
+    . '&subsistema_id=' . intval($_GET['subsistema_id'] ?? 0)
+    . '&modulo_id=' . intval($_GET['modulo_id'] ?? 0);
 }
 
 // === Bloquear acceso directo ===
@@ -451,225 +461,225 @@ $fecha = date("d-m-Y", $time); // fecha formato español
         
     </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     
-<?php include 'partials/header.php'; ?>
+    <?php include 'partials/header.php'; ?>
+    
+    <main class="flex-grow-1">
 
-    <div class="container">
-        <!-- <a class="btn btn-light mt-5" href="formulario_menu_principal.php" role="button"><i class="bi bi-arrow-left-circle me-1"></i> Regresar</a> -->
-        <a class="btn btn-light mt-5" href="navegar.php?ruta=formulario_menu_principal.php" role="button"><i class="bi bi-arrow-left-circle me-1"></i> Regresar</a>
-        <a href="#" class="btn-mis-tickets" id="btnMisTickets" title="Ver mis tickets">
-            <i class="bi bi-ticket-perforated-fill"></i>
-            <span class="badge-tickets" id="contadorTickets">0</span>
-        </a>
+        <div class="container">
+            <!-- <a class="btn btn-light mt-5" href="formulario_menu_principal.php" role="button"><i class="bi bi-arrow-left-circle me-1"></i> Regresar</a> -->
+            <!-- Botón Flotante para regresar -->
+            <!-- <a class="btn btn-light mt-5" href="navegar.php?ruta=formulario_menu_principal.php" role="button"><i class="bi bi-arrow-left-circle me-1"></i> Regresar</a> -->
+            <a href="#" class="btn-mis-tickets" id="btnMisTickets" title="Ver mis tickets">
+                <i class="bi bi-ticket-perforated-fill"></i>
+                <span class="badge-tickets" id="contadorTickets">0</span>
+            </a>
 
-        <h1 class="mt-5 text-center">Centro de Soporte</h1>
-        
-
-        <div class="d-flex justify-content-center mt-5" x-data>
+            <h1 class="mt-5 text-center">Centro de Soporte</h1>
             
-            <div class="row g-4 justify-content-center">
-        
-                <!-- 🎟️ TICKET ADMINISTRATIVO -->
-                <div class="col-md-5">
-                    <div class="ticket-card admin"
-                         @click="new bootstrap.Modal(document.getElementById('modalAdmin')).show()">
-        
-                        <svg viewBox="0 0 400 160" class="ticket-svg">
-                            
-                            <!-- fondo -->
-                            <rect x="0" y="0" width="400" height="160" rx="15" fill="#e3f2fd"/>
-        
-                            <!-- corte ticket -->
-                            <circle cx="0" cy="80" r="20" fill="white"/>
-                            <circle cx="400" cy="80" r="20" fill="white"/>
-        
-                            <!-- línea punteada -->
-                            <line x1="200" y1="10" x2="200" y2="150"
-                                  stroke="#90caf9"
-                                  stroke-width="3"
-                                  stroke-dasharray="5,8"/>
-        
-                            <!-- icono -->
-                            <text x="70" y="90" font-size="50">💼</text>
-        
-                            <!-- texto -->
-                            <text x="140" y="70" font-size="18" font-weight="bold" fill="#0d6efd">
-                                Ticket Administrativo
-                            </text>
-        
-                            <text x="140" y="100" font-size="13" fill="#333">
-                                Trámites, solicitudes,
-                            </text>
-                            <text x="140" y="120" font-size="13" fill="#333">
-                                gestiones institucionales
-                            </text>
-        
-                        </svg>
-        
+
+            <div class="d-flex justify-content-center mt-5" x-data>
+                
+                <div class="row g-4 justify-content-center">
+            
+                    <!-- 🎟️ TICKET ADMINISTRATIVO -->
+                    <div class="col-md-5">
+                        <div class="ticket-card admin"
+                            @click="new bootstrap.Modal(document.getElementById('modalAdmin')).show()">
+            
+                            <svg viewBox="0 0 400 160" class="ticket-svg">
+                                
+                                <!-- fondo -->
+                                <rect x="0" y="0" width="400" height="160" rx="15" fill="#e3f2fd"/>
+            
+                                <!-- corte ticket -->
+                                <circle cx="0" cy="80" r="20" fill="white"/>
+                                <circle cx="400" cy="80" r="20" fill="white"/>
+            
+                                <!-- línea punteada -->
+                                <line x1="200" y1="10" x2="200" y2="150"
+                                    stroke="#90caf9"
+                                    stroke-width="3"
+                                    stroke-dasharray="5,8"/>
+            
+                                <!-- icono -->
+                                <text x="70" y="90" font-size="50">💼</text>
+            
+                                <!-- texto -->
+                                <text x="140" y="70" font-size="18" font-weight="bold" fill="#0d6efd">
+                                    Ticket Administrativo
+                                </text>
+            
+                                <text x="140" y="100" font-size="13" fill="#333">
+                                    Trámites, solicitudes,
+                                </text>
+                                <text x="140" y="120" font-size="13" fill="#333">
+                                    gestiones institucionales
+                                </text>
+            
+                            </svg>
+            
+                        </div>
                     </div>
-                </div>
-        
-        
-                <!-- ⚙️ TICKET TECNICO -->
-                <div class="col-md-5">
-                    <div class="ticket-card tecnico"
-                         @click="new bootstrap.Modal(document.getElementById('modalTecnico')).show()">
-        
-                        <svg viewBox="0 0 400 160" class="ticket-svg">
-                            
-                            <!-- fondo -->
-                            <rect x="0" y="0" width="400" height="160" rx="15" fill="#fff3cd"/>
-        
-                            <!-- corte ticket -->
-                            <circle cx="0" cy="80" r="20" fill="white"/>
-                            <circle cx="400" cy="80" r="20" fill="white"/>
-        
-                            <!-- línea punteada -->
-                            <line x1="200" y1="10" x2="200" y2="150"
-                                  stroke="#ffca28"
-                                  stroke-width="3"
-                                  stroke-dasharray="5,8"/>
-        
-                            <!-- icono -->
-                            <text x="70" y="90" font-size="50">⚙️</text>
-        
-                            <!-- texto -->
-                            <text x="140" y="70" font-size="18" font-weight="bold" fill="#e65100">
-                                Ticket Técnico
-                            </text>
-        
-                            <text x="140" y="100" font-size="13" fill="#333">
-                                Equipos, sistemas,
-                            </text>
-                            <text x="140" y="120" font-size="13" fill="#333">
-                                fallas y soporte TI
-                            </text>
-        
-                        </svg>
-        
+            
+            
+                    <!-- ⚙️ TICKET TECNICO -->
+                    <div class="col-md-5">
+                        <div class="ticket-card tecnico"
+                            @click="new bootstrap.Modal(document.getElementById('modalTecnico')).show()">
+            
+                            <svg viewBox="0 0 400 160" class="ticket-svg">
+                                
+                                <!-- fondo -->
+                                <rect x="0" y="0" width="400" height="160" rx="15" fill="#fff3cd"/>
+            
+                                <!-- corte ticket -->
+                                <circle cx="0" cy="80" r="20" fill="white"/>
+                                <circle cx="400" cy="80" r="20" fill="white"/>
+            
+                                <!-- línea punteada -->
+                                <line x1="200" y1="10" x2="200" y2="150"
+                                    stroke="#ffca28"
+                                    stroke-width="3"
+                                    stroke-dasharray="5,8"/>
+            
+                                <!-- icono -->
+                                <text x="70" y="90" font-size="50">⚙️</text>
+            
+                                <!-- texto -->
+                                <text x="140" y="70" font-size="18" font-weight="bold" fill="#e65100">
+                                    Ticket Técnico
+                                </text>
+            
+                                <text x="140" y="100" font-size="13" fill="#333">
+                                    Equipos, sistemas,
+                                </text>
+                                <text x="140" y="120" font-size="13" fill="#333">
+                                    fallas y soporte TI
+                                </text>
+            
+                            </svg>
+            
+                        </div>
                     </div>
+            
                 </div>
-        
             </div>
-        </div>
 
 
 
-        
- 
-        <div class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+            
+    
+            <div class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
 
-        <svg width="440" height="340" viewBox="0 0 440 340" xmlns="http://www.w3.org/2000/svg">
-        
-        <style>
-        
-        @keyframes typing {
-        0%{opacity:.2}
-        50%{opacity:1}
-        100%{opacity:.2}
-        }
-        
-        @keyframes floatChat {
-        0%{transform:translateY(0)}
-        50%{transform:translateY(-6px)}
-        100%{transform:translateY(0)}
-        }
-        
-        .key{animation:typing 1.2s infinite}
-        .key:nth-child(2){animation-delay:.2s}
-        .key:nth-child(3){animation-delay:.4s}
-        .key:nth-child(4){animation-delay:.6s}
-        
-        .chat{animation:floatChat 3s ease-in-out infinite}
-        
-        </style>
-        
-        <!-- OPERADORA -->
-        
-        <rect x="175" y="160" width="90" height="70" rx="20" fill="#6fa8dc"/>
-        
-        <rect x="205" y="135" width="24" height="20" fill="#f1c27d"/>
-        
-        <circle cx="217" cy="105" r="35" fill="#f1c27d"/>
-        
-        <!-- Cabello -->
-        <path d="M182 100 Q217 50 252 100 L252 125 Q217 90 182 125 Z" fill="#f4d03f"/>
-        
-        <rect x="178" y="100" width="15" height="45" rx="7" fill="#f4d03f"/>
-        <rect x="246" y="100" width="15" height="45" rx="7" fill="#f4d03f"/>
-        
-        <!-- Headset -->
-        <path d="M182 95 Q217 65 252 95" stroke="#444" stroke-width="4" fill="none"/>
-        
-        <circle cx="182" cy="103" r="8" fill="#444"/>
-        <circle cx="252" cy="103" r="8" fill="#444"/>
-        
-        <!-- Micrófono -->
-        <path d="M252 105 Q272 120 247 135" stroke="#444" stroke-width="3" fill="none"/>
-        
-        <circle cx="245" cy="135" r="4" fill="red">
-        <animate attributeName="opacity" values="1;.2;1" dur="1.2s" repeatCount="indefinite"/>
-        </circle>
-        
-        <!-- Brazos -->
-        <rect x="155" y="185" width="45" height="12" rx="6" fill="#f1c27d"/>
-        <rect x="235" y="185" width="45" height="12" rx="6" fill="#f1c27d"/>
-        
-        <!-- LAPTOP -->
-        
-        <rect x="120" y="175" width="200" height="115" rx="10" fill="#2f2f2f"/>
-        
-        <rect x="115" y="290" width="210" height="12" rx="4" fill="#1f1f1f"/>
-        
-        <!-- Logo -->
-        <text x="220" y="235" text-anchor="middle" font-family="Arial" font-size="18" fill="#00d4ff" font-weight="bold">
-        TecnoPresta
-        </text>
-        
-        <!-- Teclado -->
-        <g transform="translate(150 270)">
-        <rect class="key" x="0" y="0" width="6" height="3" fill="#888"/>
-        <rect class="key" x="10" y="0" width="6" height="3" fill="#888"/>
-        <rect class="key" x="20" y="0" width="6" height="3" fill="#888"/>
-        <rect class="key" x="30" y="0" width="6" height="3" fill="#888"/>
-        </g>
-        
-        <!-- CHATS / TICKETS -->
-        
-        <g class="chat">
-        <rect x="330" y="70" width="70" height="35" rx="8" fill="#ffffff" stroke="#ddd"/>
-        <circle cx="345" cy="88" r="3" fill="#00bcd4"/>
-        <circle cx="355" cy="88" r="3" fill="#00bcd4"/>
-        <circle cx="365" cy="88" r="3" fill="#00bcd4"/>
-        </g>
-        
-        <g class="chat" style="animation-delay:1s">
-        <rect x="40" y="90" width="70" height="35" rx="8" fill="#ffffff" stroke="#ddd"/>
-        <circle cx="55" cy="108" r="3" fill="#00bcd4"/>
-        <circle cx="65" cy="108" r="3" fill="#00bcd4"/>
-        <circle cx="75" cy="108" r="3" fill="#00bcd4"/>
-        </g>
-        
-        <g class="chat" style="animation-delay:2s">
-        <rect x="330" y="130" width="70" height="35" rx="8" fill="#ffffff" stroke="#ddd"/>
-        <circle cx="345" cy="148" r="3" fill="#00bcd4"/>
-        <circle cx="355" cy="148" r="3" fill="#00bcd4"/>
-        <circle cx="365" cy="148" r="3" fill="#00bcd4"/>
-        </g>
-        
-        </svg>
+            <svg width="440" height="340" viewBox="0 0 440 340" xmlns="http://www.w3.org/2000/svg">
+            
+            <style>
+            
+            @keyframes typing {
+            0%{opacity:.2}
+            50%{opacity:1}
+            100%{opacity:.2}
+            }
+            
+            @keyframes floatChat {
+            0%{transform:translateY(0)}
+            50%{transform:translateY(-6px)}
+            100%{transform:translateY(0)}
+            }
+            
+            .key{animation:typing 1.2s infinite}
+            .key:nth-child(2){animation-delay:.2s}
+            .key:nth-child(3){animation-delay:.4s}
+            .key:nth-child(4){animation-delay:.6s}
+            
+            .chat{animation:floatChat 3s ease-in-out infinite}
+            
+            </style>
+            
+            <!-- OPERADORA -->
+            
+            <rect x="175" y="160" width="90" height="70" rx="20" fill="#6fa8dc"/>
+            
+            <rect x="205" y="135" width="24" height="20" fill="#f1c27d"/>
+            
+            <circle cx="217" cy="105" r="35" fill="#f1c27d"/>
+            
+            <!-- Cabello -->
+            <path d="M182 100 Q217 50 252 100 L252 125 Q217 90 182 125 Z" fill="#f4d03f"/>
+            
+            <rect x="178" y="100" width="15" height="45" rx="7" fill="#f4d03f"/>
+            <rect x="246" y="100" width="15" height="45" rx="7" fill="#f4d03f"/>
+            
+            <!-- Headset -->
+            <path d="M182 95 Q217 65 252 95" stroke="#444" stroke-width="4" fill="none"/>
+            
+            <circle cx="182" cy="103" r="8" fill="#444"/>
+            <circle cx="252" cy="103" r="8" fill="#444"/>
+            
+            <!-- Micrófono -->
+            <path d="M252 105 Q272 120 247 135" stroke="#444" stroke-width="3" fill="none"/>
+            
+            <circle cx="245" cy="135" r="4" fill="red">
+            <animate attributeName="opacity" values="1;.2;1" dur="1.2s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Brazos -->
+            <rect x="155" y="185" width="45" height="12" rx="6" fill="#f1c27d"/>
+            <rect x="235" y="185" width="45" height="12" rx="6" fill="#f1c27d"/>
+            
+            <!-- LAPTOP -->
+            
+            <rect x="120" y="175" width="200" height="115" rx="10" fill="#2f2f2f"/>
+            
+            <rect x="115" y="290" width="210" height="12" rx="4" fill="#1f1f1f"/>
+            
+            <!-- Logo -->
+            <text x="220" y="235" text-anchor="middle" font-family="Arial" font-size="18" fill="#00d4ff" font-weight="bold">
+                TecnoPresta
+            </text>
+            
+            <!-- Teclado -->
+            <g transform="translate(150 270)">
+            <rect class="key" x="0" y="0" width="6" height="3" fill="#888"/>
+            <rect class="key" x="10" y="0" width="6" height="3" fill="#888"/>
+            <rect class="key" x="20" y="0" width="6" height="3" fill="#888"/>
+            <rect class="key" x="30" y="0" width="6" height="3" fill="#888"/>
+            </g>
+            
+            <!-- CHATS / TICKETS -->
+            
+            <g class="chat">
+            <rect x="330" y="70" width="70" height="35" rx="8" fill="#ffffff" stroke="#ddd"/>
+            <circle cx="345" cy="88" r="3" fill="#00bcd4"/>
+            <circle cx="355" cy="88" r="3" fill="#00bcd4"/>
+            <circle cx="365" cy="88" r="3" fill="#00bcd4"/>
+            </g>
+            
+            <g class="chat" style="animation-delay:1s">
+            <rect x="40" y="90" width="70" height="35" rx="8" fill="#ffffff" stroke="#ddd"/>
+            <circle cx="55" cy="108" r="3" fill="#00bcd4"/>
+            <circle cx="65" cy="108" r="3" fill="#00bcd4"/>
+            <circle cx="75" cy="108" r="3" fill="#00bcd4"/>
+            </g>
+            
+            <g class="chat" style="animation-delay:2s">
+            <rect x="330" y="130" width="70" height="35" rx="8" fill="#ffffff" stroke="#ddd"/>
+            <circle cx="345" cy="148" r="3" fill="#00bcd4"/>
+            <circle cx="355" cy="148" r="3" fill="#00bcd4"/>
+            <circle cx="365" cy="148" r="3" fill="#00bcd4"/>
+            </g>
+            
+            </svg>
 
-
-        </div> 
-        
-
-        
-    </div> <!-- Cierre del container -->
-
+            </div> 
+            
+        </div> <!-- Cierre del container -->
+    </main>
 <?php include 'partials/footer.php'; ?>
 <!-- Botón flotante Volver al Dashboard -->
-<a href="navegar.php?ruta=formulario_menu_principal.php" class="btn-disponibilidad" 
+<a href="<?= htmlspecialchars($ruta_regreso) ?>" class="btn-disponibilidad" 
     style="bottom: 100px;" title="Volver a Módulos del Sistema">
     <i class="bi bi-arrow-left-circle-fill"></i>
 </a>

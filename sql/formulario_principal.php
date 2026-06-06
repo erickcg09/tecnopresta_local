@@ -320,7 +320,8 @@ function obtenerRolesUsuario(PDO $conexionBD, int $usuarioId, string $codigoPres
             FROM usuarios_roles u
             INNER JOIN t_roles r ON r.id_rol = u.rol_id
             WHERE usuario_id = ?
-            AND codigo_presu = ?";
+            AND codigo_presu = ?
+            AND u.eliminado = 0";
             //AND subsistema_id = ?
 
     $consulta = $conexionBD->prepare($sql);
@@ -502,6 +503,7 @@ function consultaMenuUsuarios(PDO $conexionBD, int $usuario_id, string $codigo_p
         WHERE
             ur.usuario_id = ?
             AND ur.codigo_presu = ?
+            AND ur.eliminado = 0
 
             AND s.eliminado = 0
             AND m.eliminado = 0
