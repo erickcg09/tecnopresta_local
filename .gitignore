@@ -1,2 +1,39 @@
-Plaintext
+# PHP / Composer
+vendor/
+
+# XAMPP / Server logs
 error_log
+*.log
+
+# Backup / copy files
+*copia*
+*.bak
+*.old
+*~
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+nbproject/
+
+# OS metadata
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Node.js
+node_modules/
+
+# Temp files
+*.tmp
+temp_*
+
+# User uploads
+subidos/
+
+# SQL config files
+sql/bd.php
+sql/conexion.php
+sql/conexionAzure.php
