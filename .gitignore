@@ -7,6 +7,7 @@ error_log
 
 # Backup / copy files
 *copia*
+*Copia*
 *.bak
 *.old
 *~
