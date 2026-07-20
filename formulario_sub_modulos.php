@@ -188,7 +188,7 @@ if (!defined('ACCESO_SEGURO')) {
     <a :href="volverUrl" 
         class="btn-disponibilidad"
         style="bottom: 100px;" 
-        title="Volver a Módulos del Sistema">
+        data-tooltip="Regresar">
 
         <i class="bi bi-arrow-left-circle-fill"></i>
     </a>

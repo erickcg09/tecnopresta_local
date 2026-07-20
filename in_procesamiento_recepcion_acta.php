@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $archivoNombre = basename($_FILES['archivo']['name']);
         $archivoTmpNombre = $_FILES['archivo']['tmp_name'];
         
-        // Generar un nombre ¨²nico para el archivo
+        // Generar un nombre ï¿½ï¿½nico para el archivo
         $archivoNuevoNombre = time() . '_' . $archivoNombre;
         $archivoDestino = 'in_recepcion_actas/' . $archivoNuevoNombre;
 
@@ -75,13 +75,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 } else {
     echo '<script language="javascript">
-    alert("No se ha enviado ning¨²n formulario.");
+    alert("No se ha enviado ningï¿½ï¿½n formulario.");
     window.location.href = "in_formulario_recibir_acta_recepcion.php";
     </script>';
     exit(); 
 }
 
-// Cerrar la conexi¨®n
+// Cerrar la conexiï¿½ï¿½n
 $link->close();
 ?>
 

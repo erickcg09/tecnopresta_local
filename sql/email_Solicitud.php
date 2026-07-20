@@ -3,11 +3,6 @@
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-
-require "/home/tecnopresta/PHPMailer/src/SMTP.php";
-require "/home/tecnopresta/PHPMailer/src/PHPMailer.php";
-require "/home/tecnopresta/PHPMailer/src/Exception.php";
-
 header('Content-Type: text/html; charset=UTF-8');
 
 class Email_Solicitud
@@ -38,6 +33,13 @@ class Email_Solicitud
                                     $arraySoftwareDescripcion,
                                     $seccionDescripcion, $arrayActivos) 
     {
+        try {
+            require "/home/tecnopresta/PHPMailer/src/SMTP.php";
+            require "/home/tecnopresta/PHPMailer/src/PHPMailer.php";
+            require "/home/tecnopresta/PHPMailer/src/Exception.php";
+        } catch (\Throwable $th) {
+            return false;
+        }
 
         $txtNombresActivos = "";
 

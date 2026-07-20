@@ -1,0 +1,165 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+  <!-- Paleta Institucional MEP -->
+
+  <linearGradient id="mepBlue" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#164687"></stop>
+    <stop offset="100%" stop-color="#021A53"></stop>
+  </linearGradient>
+
+  <linearGradient id="mepBlueSoft" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#2D67B1"></stop>
+    <stop offset="100%" stop-color="#164687"></stop>
+  </linearGradient>
+
+  <linearGradient id="mepGold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#CFAC65"></stop>
+    <stop offset="100%" stop-color="#B89243"></stop>
+  </linearGradient>
+
+  <linearGradient id="mepGray" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#D7DBDF"></stop>
+    <stop offset="100%" stop-color="#BCC4CC"></stop>
+  </linearGradient>
+
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.15"></feDropShadow>
+  </filter>
+
+</defs>
+
+<!-- Marco principal -->
+
+<g filter="url(#shadow)">
+  <rect x="108" y="78" width="296" height="214" rx="22" fill="white" stroke="#021A53" stroke-width="6"></rect>
+</g>
+
+<!-- Encabezado -->
+
+<g filter="url(#shadow)">
+  <rect x="198" y="46" width="116" height="42" rx="14" fill="url(#mepBlue)"></rect>
+  <circle cx="256" cy="67" r="7" fill="white"></circle>
+</g>
+
+<!-- Panel principal -->
+
+<g filter="url(#shadow)">
+
+  <rect x="148" y="122" width="216" height="122" rx="16" fill="url(#mepBlue)"></rect>
+
+  <!-- Calendario -->
+
+  <rect x="166" y="142" width="70" height="78" rx="10" fill="white"></rect>
+
+  <rect x="166" y="142" width="70" height="18" rx="10" fill="url(#mepGold)"></rect>
+
+  <circle cx="184" cy="151" r="3" fill="white"></circle>
+  <circle cx="218" cy="151" r="3" fill="white"></circle>
+
+  <!-- Día bloqueado -->
+
+  <path d="M186 180L214 206" stroke="#164687" stroke-width="4" stroke-linecap="round"></path>
+
+  <path d="M214 180L186 206" stroke="#164687" stroke-width="4" stroke-linecap="round"></path>
+
+  <!-- Ruta de gira -->
+
+  <path d="M248 196
+           C270 176 292 176 316 160" stroke="white" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 8"></path>
+
+  <!-- Vehículo -->
+
+  <rect x="250" y="184" width="36" height="16" rx="4" fill="white"></rect>
+
+  <rect x="258" y="176" width="16" height="10" rx="2" fill="white"></rect>
+
+  <circle cx="260" cy="203" r="4" fill="url(#mepGold)"></circle>
+  <circle cx="278" cy="203" r="4" fill="url(#mepGold)"></circle>
+
+  <!-- Centro educativo -->
+
+  <path d="M318 148
+           L296 162
+           V210
+           H340
+           V162
+           Z" fill="white"></path>
+
+  <rect x="313" y="184" width="10" height="22" rx="2" fill="url(#mepBlueSoft)"></rect>
+
+  <!-- Check planificación -->
+
+  <circle cx="332" cy="146" r="12" fill="url(#mepGold)"></circle>
+
+  <path d="M327 146L331 150L337 142" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+
+</g>
+
+<!-- Gestión de Giras -->
+
+<g filter="url(#shadow)">
+
+  <circle cx="120" cy="360" r="52" fill="url(#mepBlueSoft)"></circle>
+
+  <circle cx="120" cy="360" r="22" fill="white"></circle>
+
+  <text x="112" y="367" font-family="Arial" font-size="18" font-weight="bold" fill="#164687">₡</text>
+
+  <path d="M104 330
+           C118 318 132 318 144 330" stroke="white" stroke-width="3" stroke-linecap="round"></path>
+
+</g>
+
+<!-- Planificación -->
+
+<g filter="url(#shadow)">
+
+  <rect x="214" y="312" width="84" height="122" rx="16" fill="url(#mepGray)"></rect>
+
+  <circle cx="256" cy="344" r="9" fill="white"></circle>
+  <circle cx="256" cy="376" r="9" fill="white"></circle>
+  <circle cx="256" cy="408" r="9" fill="url(#mepGold)"></circle>
+
+  <path d="M256 353V367" stroke="#164687" stroke-width="3" stroke-linecap="round"></path>
+
+  <path d="M256 385V399" stroke="#164687" stroke-width="3" stroke-linecap="round"></path>
+
+</g>
+
+<!-- Soportistas en sitio -->
+
+<g filter="url(#shadow)">
+
+  <circle cx="392" cy="360" r="52" fill="url(#mepBlueSoft)"></circle>
+
+  <circle cx="392" cy="340" r="11" fill="white"></circle>
+
+  <circle cx="376" cy="376" r="8" fill="white"></circle>
+
+  <circle cx="408" cy="376" r="8" fill="white"></circle>
+
+  <path d="M392 352L376 368" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+
+  <path d="M392 352L408 368" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+
+  <!-- Indicador disponibilidad -->
+
+  <circle cx="420" cy="330" r="10" fill="url(#mepGold)"></circle>
+
+  <path d="M416 330L419 333L424 326" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+
+</g>
+
+<!-- Base institucional -->
+
+<g filter="url(#shadow)">
+  <rect x="168" y="448" width="176" height="28" rx="12" fill="url(#mepBlue)"></rect>
+</g>
+
+<!-- Franja corporativa -->
+
+<rect x="108" y="112" width="14" height="150" rx="7" fill="url(#mepGold)" opacity="0.28"></rect>
+
+</svg>

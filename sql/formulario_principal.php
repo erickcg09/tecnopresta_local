@@ -159,6 +159,16 @@ try {
         $usuario_id = (int)$usuario['id'];
     }
 
+    // === 8.1 CORREGIR NOMBRE SI SE GUARDÓ UN CORREO ====
+    if ($usuario && str_contains($usuario['nombre'] ?? '', '@')) {
+        $nombre_real = trim((string)($usuario_azure['nombre'] ?? ''));
+        if ($nombre_real !== '') {
+            $sqlCorregir = "UPDATE usuarios SET nombre = ? WHERE id = ?";
+            $stmtCorregir = $conexionBD->prepare($sqlCorregir);
+            $stmtCorregir->execute([$nombre_real, $usuario_id]);
+        }
+    }
+
     // === 9. ACTUALIZA EL ÚLTIMO INICIO DE SESIÓN DEL USUARIO ====
     $sql = "UPDATE usuarios 
             SET ultimo_acceso = NOW() 

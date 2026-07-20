@@ -33,13 +33,13 @@ if (!$usuario_azure) {
 }
 
 // ==== CONSTRUIR RUTA DE REGRESO =====
-$ruta_regreso ='navegar.php?ruta=formulario_menu_principal.php'; // Ruta por defecto si no vienen parámetros
+$ruta_regreso ='navegar.php?ruta=in_formulario_agregar_placa_serie_N.php,'; // Ruta por defecto si no vienen parámetros
 //Validar que vengan los parámetros necesarios para construir la ruta de regreso a formulario_sub_modulos.php
-if (isset($_GET['subsistema_id'], $_GET['modulo_id'])) {
+/*if (isset($_GET['subsistema_id'], $_GET['modulo_id'])) {
     $ruta_regreso = 'navegar.php?ruta=formulario_sub_modulos.php'
     . '&subsistema_id=' . intval($_GET['subsistema_id'] ?? 0)
     . '&modulo_id=' . intval($_GET['modulo_id'] ?? 0);
-}
+}*/
 
 // === Bloquear acceso directo ===
 /*if (!defined('ACCESO_SEGURO')) {

@@ -32,7 +32,7 @@ $logcodigo = $_SESSION['codigo'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eliminar activos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
     <style>
             .card-custom {
                 background-color: #f0f4f8; /* Color frío y suave */
@@ -60,6 +60,33 @@ $logcodigo = $_SESSION['codigo'];
             }
             .icon-large {
             font-size: 2em; /* Ajusta el tamaño del ícono */
+            }
+            .motivo-container {
+                background-color: #f8f9fa;
+                border-radius: 10px;
+                padding: 20px;
+                margin: 20px 0;
+                border-left: 4px solid #007bff;
+            }
+            .radio-group {
+                display: flex;
+                gap: 30px;
+                flex-wrap: wrap;
+                margin-top: 15px;
+            }
+            .radio-option {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .radio-option input[type="radio"] {
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+            .radio-option label {
+                font-size: 1.1rem;
+                cursor: pointer;
+                color: #333;
             }
     </style>
 </head>
@@ -105,6 +132,26 @@ $logcodigo = $_SESSION['codigo'];
         <form action="actualizar_marcado_a_eliminar.php" method="POST">
             <div id="mostraractivos">
                 <!-- Aquí se cargará dinámicamente la tabla y el botón submit -->
+            </div>
+            
+            <!-- NUEVA SECCIÓN: Motivos de eliminación -->
+            <div class="motivo-container">
+                <h5 class="mb-3"><i class="bi bi-question-circle"></i> Motivo por el cual se eliminan estos activos:</h5>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="baja_obsolescencia" name="motivo" value="baja_por_obsolescencia" checked required>
+                        <label for="baja_obsolescencia">Baja por obsolescencia</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="duplicidad" name="motivo" value="duplicidad">
+                        <label for="duplicidad">Duplicidad</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="error_digitacion" name="motivo" value="error_de_digitacion">
+                        <label for="error_digitacion">Error de digitación</label>
+                    </div>
+                </div>
+                <small class="text-muted mt-2 d-block">* Seleccione el motivo principal para la eliminación de los activos marcados</small>
             </div>
         </form>
 

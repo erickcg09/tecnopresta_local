@@ -29,7 +29,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-        <link rel="stylesheet" href="css/formulario_menu_principal.css" />
+        <link rel="stylesheet" href="css/formulario_menu_principal.css?v=2" />
 
         <!-- Alpine js -- Defer es para utilizar alpine antes de definrlo -->
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

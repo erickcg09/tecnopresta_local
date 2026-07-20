@@ -125,8 +125,9 @@ $(document).ready(function () {
                                   <option value="0">Seleccione:</option>   
             			<?php  
         
-             			 $regres1=mysqli_query($link,"select * from t_roles order by id_rol") or
-              			 die(mysqli_error($link));
+             			 // MODIFICACIÓN: Solo se muestran los roles con id_rol 1,2,3,4 y se ordenan por id_rol
+                         $regres1 = mysqli_query($link, "SELECT * FROM t_roles WHERE id_rol IN (1,2,3,4) ORDER BY id_rol") or
+                               die(mysqli_error($link));
         
          
             			while ($regr1=mysqli_fetch_array($regres1))   

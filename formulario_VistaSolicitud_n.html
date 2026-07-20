@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Solicitudes</title>
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  </head>
+  <body>
+             
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <img src="img/logomep2020.png" width="45" height="30" alt="" loading="lazy"><a class="navbar-brand" href="formulario_menu_principal.html">Tecnopresta</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="formulario_menu_prestamo.html"><span class="icon icon-undo2"></span>Menú de Préstamo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portal_planificador.php"><span class="icon icon-calendar"></span>Planificador</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="gameover.php"><span class="icon icon-enter"></span> Cerrar Sesi&oacute;n</a>
+          </li>         -->
+        </ul>
+      </div>  
+    </nav>
+
+    <div class="container">        
+      <br> <br/>
+      <h3> <b> Solicitudes Pendientes de Revisión  </b> </h3><a href="ayuda.html#prethree">[ <span class="icon icon-lifebuoy"></span> Ayuda ]</a><a>&nbsp;&nbsp;</a> <a href="contactenos.php?rep=Error en formulario vista solicitud html">[ <span class="icon icon-envelop"></span> Reportar Incidencia / Error ]</a>
+      <br><br>
+    </div>   
+
+    <div class="container-sm container-md container-lg">
+      <div class="row justify-content-center"> 
+        <div id="contenedorError" class="form-group row"></div>
+      </div>
+    </div>
+   
+    <!-- Contenedor Principal -->
+    <div class="container-sm container-md container-lg" style="padding: 1em;">
+
+      <!-- Cards de Solicitud -->        
+
+     <div class="row" id="fila">
+
+       <!-- <div class="col-md-6">
+            
+           <div class="card">  
+                        
+             <div class="row no-gutters">
+
+              <div class="col">
+                  <div class="card-header">solicitud_nombre_funcionario</div>
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                          <h6 class="card-title">solicitud_fechaRetiro</h6>
+                        </div>
+                        <div class="col">
+                          <h6 class="card-title">solicitud_horaRetiro</h6>
+                        </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                        <h6 class="card-title">solicitud_fechaDevolucion</h6>
+                    </div>
+                    <div class="col">
+                      <h6 class="card-title">solicitud_horavolucion</h6>
+                    </div>  
+                  </div> 
+                  
+                
+                    <p class="card-text">solicitud_uso</p>
+                    <div class="form-group">                    
+                      <a href="#" class="btn btn-dark">Aceptar</a>
+                      <a href="#" class="btn btn-danger">Rechazar</a>
+                    </div>  
+                  </div>
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="col-3">
+                  <img src="img/inventario.png" class="card-img">
+                  <span class="badge badge-pill badge-info" id="contador">1</span>
+                  <span class="font-italic">Impresora askdjh lj</span>
+                </div>
+
+                <div class="col-3">
+                  <img src="img/inventario1.png" class="card-img">
+                  <span class="badge badge-pill badge-info" id="contador">1</span>
+                  <span class="font-italic">Impresora fafa afas asd</span>
+                </div>
+
+                <div class="col-3">
+                  <img src="img/inventario2.png" class="card-img">
+                  <span class="badge badge-pill badge-info" id="contador">1</span>
+                  <span class="font-italic">Impresora fafa afas asd</span>
+                </div>
+
+                <div class="col-3">
+                  <img src="img/inventario3.png" class="card-img">
+                  <span class="badge badge-pill badge-info" id="contador">1</span>
+                  <span class="font-italic">Impresora fafa afas asd</span>
+
+                </div>
+                <div class="col-3">
+                  <img src="img/inventario.png" class="card-img">
+                  <span class="badge badge-pill badge-info" id="contador">1</span>
+                  <h5 class="font-italic">Impresora fafa afas asd</h5>
+
+                </div>
+
+
+
+              </div>
+            </div> -->
+
+            </div>
+
+            <div class="card" style="border-style:none;"> 
+              <!-- <div class="card-header" id="almacenllenoTitulo"></div> -->
+              <div class="card-body"> 
+                <div class="col">
+                  <img class="card-img" id="almacenlleno">
+                </div>
+              </div>
+          </div>
+             
+        </div>
+    </div>
+
+ 
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->    
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/formulario_VistaSolicitud.js?version=9"></script>
+    
+  </body>
+</html>

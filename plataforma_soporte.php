@@ -7,14 +7,13 @@ require_once("conexion.php");
 
 require_once __DIR__ . '/usuarioAzure.php';
 $usuario_azure = obtenerUsuarioSesion();
-/*
-echo '<pre>';
-print_r($_GET);
-echo '</pre>';
-exit;
-*/
 
-// ==== CONSTRUIR RUTA DE REGRESO =====
+if (!$usuario_azure) {
+    header("Location: index.html");
+    exit();
+}
+
+// ==== CONSTRUIR RUTA DE REGRESO ===== Para el botón regresar
 $ruta_regreso ='navegar.php?ruta=formulario_menu_principal.php'; // Ruta por defecto si no vienen parámetros
 //Validar que vengan los parámetros necesarios para construir la ruta de regreso a formulario_sub_modulos.php
 if (isset($_GET['subsistema_id'], $_GET['modulo_id'])) {
@@ -28,6 +27,7 @@ if (isset($_GET['subsistema_id'], $_GET['modulo_id'])) {
         http_response_code(403);
         exit('Acceso directo no permitido');
     }
+
 //session_start();
 /*$tienellave = in_array($_SESSION['tipo'], [1, 2, 3, 4, 5, 7]);
 
@@ -72,12 +72,13 @@ $fecha = date("d-m-Y", $time); // fecha formato español
     <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
     <!-- Nueva Identidad Gráfica Gobierno de Costa Rica CSS -->
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/nueva-identidad.css">
     <link rel="stylesheet" href="css/formulario_menu_principal.css" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+    
     <script src="bootstrap5/js/bootstrap.bundle.min.js"></script>
 
     <script defer src="js/cdn.min.js"></script>
@@ -461,6 +462,7 @@ $fecha = date("d-m-Y", $time); // fecha formato español
         
     </style>
 </head>
+
 <body class="d-flex flex-column min-vh-100">
     
     <?php include 'partials/header.php'; ?>
@@ -469,16 +471,15 @@ $fecha = date("d-m-Y", $time); // fecha formato español
 
         <div class="container">
             <!-- <a class="btn btn-light mt-5" href="formulario_menu_principal.php" role="button"><i class="bi bi-arrow-left-circle me-1"></i> Regresar</a> -->
-            <!-- Botón Flotante para regresar -->
-            <!-- <a class="btn btn-light mt-5" href="navegar.php?ruta=formulario_menu_principal.php" role="button"><i class="bi bi-arrow-left-circle me-1"></i> Regresar</a> -->
-            <a href="#" class="btn-mis-tickets" id="btnMisTickets" title="Ver mis tickets">
+    
+            <a href="dashboard_tickets.php" class="btn-mis-tickets" id="btnMisTickets" title="Ver mis tickets">
                 <i class="bi bi-ticket-perforated-fill"></i>
-                <span class="badge-tickets" id="contadorTickets">0</span>
+                <span class="badge-tickets" id="contadorTickets" style="display: none;">0</span>
             </a>
-
+    
             <h1 class="mt-5 text-center">Centro de Soporte</h1>
             
-
+    
             <div class="d-flex justify-content-center mt-5" x-data>
                 
                 <div class="row g-4 justify-content-center">
@@ -486,7 +487,7 @@ $fecha = date("d-m-Y", $time); // fecha formato español
                     <!-- 🎟️ TICKET ADMINISTRATIVO -->
                     <div class="col-md-5">
                         <div class="ticket-card admin"
-                            @click="new bootstrap.Modal(document.getElementById('modalAdmin')).show()">
+                             @click="new bootstrap.Modal(document.getElementById('modalAdmin')).show()">
             
                             <svg viewBox="0 0 400 160" class="ticket-svg">
                                 
@@ -499,9 +500,9 @@ $fecha = date("d-m-Y", $time); // fecha formato español
             
                                 <!-- línea punteada -->
                                 <line x1="200" y1="10" x2="200" y2="150"
-                                    stroke="#90caf9"
-                                    stroke-width="3"
-                                    stroke-dasharray="5,8"/>
+                                      stroke="#90caf9"
+                                      stroke-width="3"
+                                      stroke-dasharray="5,8"/>
             
                                 <!-- icono -->
                                 <text x="70" y="90" font-size="50">💼</text>
@@ -527,7 +528,7 @@ $fecha = date("d-m-Y", $time); // fecha formato español
                     <!-- ⚙️ TICKET TECNICO -->
                     <div class="col-md-5">
                         <div class="ticket-card tecnico"
-                            @click="new bootstrap.Modal(document.getElementById('modalTecnico')).show()">
+                             @click="new bootstrap.Modal(document.getElementById('modalTecnico')).show()">
             
                             <svg viewBox="0 0 400 160" class="ticket-svg">
                                 
@@ -540,9 +541,9 @@ $fecha = date("d-m-Y", $time); // fecha formato español
             
                                 <!-- línea punteada -->
                                 <line x1="200" y1="10" x2="200" y2="150"
-                                    stroke="#ffca28"
-                                    stroke-width="3"
-                                    stroke-dasharray="5,8"/>
+                                      stroke="#ffca28"
+                                      stroke-width="3"
+                                      stroke-dasharray="5,8"/>
             
                                 <!-- icono -->
                                 <text x="70" y="90" font-size="50">⚙️</text>
@@ -566,13 +567,13 @@ $fecha = date("d-m-Y", $time); // fecha formato español
             
                 </div>
             </div>
-
-
-
-            
     
+    
+    
+            
+     
             <div class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
-
+    
             <svg width="440" height="340" viewBox="0 0 440 340" xmlns="http://www.w3.org/2000/svg">
             
             <style>
@@ -637,7 +638,7 @@ $fecha = date("d-m-Y", $time); // fecha formato español
             
             <!-- Logo -->
             <text x="220" y="235" text-anchor="middle" font-family="Arial" font-size="18" fill="#00d4ff" font-weight="bold">
-                TecnoPresta
+            TecnoPresta
             </text>
             
             <!-- Teclado -->
@@ -672,18 +673,23 @@ $fecha = date("d-m-Y", $time); // fecha formato español
             </g>
             
             </svg>
-
+    
+    
             </div> 
             
+    
+            
         </div> <!-- Cierre del container -->
+    
     </main>
+
 <?php include 'partials/footer.php'; ?>
+
 <!-- Botón flotante Volver al Dashboard -->
 <a href="<?= htmlspecialchars($ruta_regreso) ?>" class="btn-disponibilidad" 
-    style="bottom: 100px;" title="Volver a Módulos del Sistema">
+    style="bottom: 100px;" data-tooltip="Regresar">
     <i class="bi bi-arrow-left-circle-fill"></i>
 </a>
-
 
     <!-- MODALES -->
     <!-- Modal Administrativo -->
@@ -790,26 +796,19 @@ $fecha = date("d-m-Y", $time); // fecha formato español
         </div>
     </div>
     <script>
-        document.getElementById('btnMisTickets').addEventListener('click', function(e) {
-            e.preventDefault();
-            // Por ahora solo una alerta, luego redirigirá al dashboard
-            alert('🚧 Funcionalidad en construcción\n\nPróximamente podrá ver el historial y estado de sus tickets.');
-        });
-        
-        // Opcional: Mostrar un contador de tickets abiertos (si tienes datos)
-        // Esto se puede activar después cuando tengamos el dashboard
-        /*
-        fetch('contar_tickets_abiertos.php')
+        // Mostrar un contador de tickets activos excluyendo los resueltos/cerrados y valorados
+        fetch('ajax/tickets_contar.php')
             .then(response => response.json())
             .then(data => {
+                const badge = document.getElementById('contadorTickets');
                 if (data.total > 0) {
-                    document.getElementById('contadorTickets').textContent = data.total;
-                    document.getElementById('contadorTickets').style.display = 'flex';
+                    badge.textContent = data.total;
+                    badge.style.display = 'flex';
                 } else {
-                    document.getElementById('contadorTickets').style.display = 'none';
+                    badge.style.display = 'none';
                 }
-            });
-        */
+            })
+            .catch(err => console.error("Error cargando contador:", err));
     </script>
 </body>
 </html>

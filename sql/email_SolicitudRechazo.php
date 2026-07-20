@@ -48,10 +48,10 @@ class Email_SolicitudRechazo
             }
         }
         
-        $txtMotivo_rechazo = utf8_decode($solicitud_motivo_rechazo);
+        $txtMotivo_rechazo = utf8_decode($solicitud_motivo_rechazo ?? '');
         date_default_timezone_set('America/Costa_Rica');
         $rechazo_Fecha_formato = date_create('now')->format('d/m/Y H:i:s');
-        $txtNombresFormato = utf8_decode($txtNombres);
+        $txtNombresFormato = utf8_decode($txtNombres ?? '');
       
         $the_subject = "Rechazado Solicitud de Equipo";
         $address_to = $solicitud_email_funcionario;

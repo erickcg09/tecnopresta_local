@@ -352,7 +352,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buscar'])) {
                   <td><?= htmlspecialchars($row['modelo']) ?></td>
                   <td><?= htmlspecialchars($row['color']) ?></td>
                   <td>
-                      <a href="in_formulario_agregar_placa_serie_v2.php?idx=<?= $row['id_activo'] ?>" 
+                      <a href="in_formulario_agregar_placa_serie_v2_N.php?idx=<?= $row['id_activo'] ?>&subsistema_id=<?= intval($_GET['subsistema_id'] ?? 0) ?>&modulo_id=<?= intval($_GET['modulo_id'] ?? 0) ?>" 
                         class="btn btn-sm btn-outline-primary">
                         <i class="bi bi-check-circle"></i> Seleccionar
                       </a>

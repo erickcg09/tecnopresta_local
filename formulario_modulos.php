@@ -37,7 +37,7 @@ if (!defined('ACCESO_SEGURO')) {
 
     <!-- ICONOS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-     <link href="css/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
 
     <!-- ESTILOS INSTITUCIONALES -->
     <link rel="stylesheet" href="assets/css/nueva-identidad.css">
@@ -164,7 +164,9 @@ pero al main también se debe ajustar se agrega la clase contenido-principal
                                 <div class="d-flex flex-wrap gap-2">
 
                                     <template x-for="formulario in (modulo.formularios || [])" :key="formulario.id">
-                                        <a :href="'navegar.php?ruta=' + formulario.ruta"
+                                        <a :href="'navegar.php?ruta=' + formulario.ruta
+                                                + '&subsistema_id=' + subsistema.id
+                                                + '&modulo_id=' + modulo.id"
 
                                             class="badge badge-modulo text-decoration-none"
                                             :title="'Abrir formulario: ' + formulario.nombre"
@@ -209,7 +211,7 @@ pero al main también se debe ajustar se agrega la clase contenido-principal
 
 <!-- Botón flotante Volver al Dashboard -->
 <a href="navegar.php?ruta=formulario_menu_principal.php" class="btn-disponibilidad" 
-    style="bottom: 100px;" title="Volver a Módulos del Sistema">
+    style="bottom: 100px;" data-tooltip="Regresar">
     <i class="bi bi-arrow-left-circle-fill"></i>
 </a>
 

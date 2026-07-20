@@ -1,6 +1,14 @@
 
 let codigoPresupuestario;
 
+function mostrarModal(id) {
+  var el = document.getElementById(id);
+  if (el) {
+    var modal = new bootstrap.Modal(el);
+    modal.show();
+  }
+}
+
 window.onload = function() {
   
   let boologin = login();
@@ -68,7 +76,7 @@ function guardar() {
     contenedorError.innerText ='No has iniciado sesión';
     mensajeModalParrafo.innerText ='O probablemente ha expirado la sesión. Ingresa de nuevo a TecnoPresta';   
     
-    $('#modalMensaje').modal('show');
+    mostrarModal('modalMensaje');
 
     return false;
   }
@@ -95,7 +103,7 @@ function guardar() {
     contenedorError.innerText ='No ha seleccionado el Origen de los Fondos';
     mensajeModalParrafo.innerText ='Por favor seleccione un Origen Presupuestario';
 
-    $('#modalMensaje').modal('show');
+    mostrarModal('modalMensaje');
 
     return false;
 
@@ -185,7 +193,7 @@ function guardar() {
                 tituloMensaje.innerText = 'Ok!';
                 contenedorError.innerText ='Se registró la informarcaión correctamente!';      
                 
-                $('#modalMensajeGuardar').modal('show');
+                mostrarModal('modalMensajeGuardar');
 
             }        
                             
@@ -208,7 +216,7 @@ function guardar() {
           contenedorError.innerText ='Intente de nuevo!';
           mensajeModalParrafo.innerText ='No hubo respuesta del servidor MEP.';  
         
-          $('#modalMensaje').modal('show');
+          mostrarModal('modalMensaje');
 
         })
   
@@ -231,7 +239,7 @@ function guardar() {
               contenedorError.innerText ='No hay respuesta del servidor MEP!';
               mensajeModalParrafo.innerText ='Verifique su conexión de internet.';  
             
-              $('#modalMensaje').modal('show');
+              mostrarModal('modalMensaje');
 
       }
   
@@ -255,7 +263,7 @@ function guardar() {
             contenedorError.innerText ='Error al guardar la información!';
             mensajeModalParrafo.innerText = error.message;
             
-            $('#modalMensaje').modal('show');
+            mostrarModal('modalMensaje');
 
     })
     .then();
@@ -280,7 +288,7 @@ function guardar() {
     mensajeModalParrafo.innerText = 'Marca los artículos que vas a actualizar ' + 
                                     'haciendo click en el cuadro pequeño junto al nombre del Artículo';
     
-    $('#modalMensaje').modal('show');
+    mostrarModal('modalMensaje');
 
     return false;   
   }
@@ -341,160 +349,70 @@ function cargaDatosBd(id_fondos) {
 }
 
 function cargaDatosPantalla(rs) {
-  
-  rs.forEach(obj => {
-      
-      let plantilla = document.getElementById("plantilla");
-      
-      let row = document.createElement('div');
-      row.className = "form-group row";
-      row.id = "item";
-             
-      let colCheck = document.createElement('div');
-      colCheck.className = "col-1";
-      colCheck.innerHTML='<div class="form-check">'+
-                            '<input class="form-check-input position-static" ' +
-                            'type="checkbox" data-id="' + obj.id_placa  + '">' +
-                          '</div>';
-            
-      let colNombre = document.createElement('div');
-      colNombre.className = "col-3";
-      colNombre.style="font-size: 1.3em;";
-      let nombreArticulo = obj.clase + " " + obj.modelo + " " + obj.marca;
-      let createATextNombre = document.createTextNode(nombreArticulo);
-      colNombre.appendChild(createATextNombre);
-                   
-      //Placa
-      let colPlaca = document.createElement('div');
-      colPlaca.className = "col-2";
-      colPlaca.style="font-size: 1.3em;";
-      let createATextPlaca = document.createTextNode(obj.placa);
-      colPlaca.appendChild(createATextPlaca);      
 
-      //Estado
-      let colEstado = document.createElement('div');
-      colEstado.className = "col-2";
-     
-      switch (obj.id_estado) {
-        case 1:                   
-            colEstado.innerHTML='<div class="row">'+
-                                  '<input value="1" checked="true" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Muy Buena</span></div>'+
-                                  '<div class="row">'+
-                                  '<input value="2" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Bueno</span></div>'+
-                                  '<div class="row">'+
-                                  '<input value="3" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Regular</span></div>'+
-                                  '<div class="row">'+
-                                  '<input value="4" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Malo</span></div>' +
-                                  '<div class="row">'+
-                                  '<input value="5" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Robado o Hurtado</span></div>';
-  
-              break;
-        case 2:
-            colEstado.innerHTML='<div class="row">'+
-                                '<input value="1" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Muy Buena</span></div>'+
-                                '<div class="row">'+
-                                '<input value="2" checked="true" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Bueno</span></div>'+
-                                '<div class="row">'+
-                                '<input value="3" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Regular</span></div>'+
-                                '<div class="row">'+
-                                '<input value="4" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Malo</span></div>' +
-                                '<div class="row">'+
-                                '<input value="5" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Robado o Hurtado</span></div>';
+  var colEstadoHtml = function(idPlaca, idEstado) {
+    var estados = [
+      { v: 1, l: 'Muy Buena' },
+      { v: 2, l: 'Bueno' },
+      { v: 3, l: 'Regular' },
+      { v: 4, l: 'Malo' },
+      { v: 5, l: 'Robado o Hurtado' }
+    ];
+    return '<div class="estado-list">' +
+      estados.map(function(e) {
+        var checked = (e.v === idEstado) ? 'checked' : '';
+        return '<label class="radio-label-mep">' +
+                 '<input value="' + e.v + '" ' + checked + ' type="radio" class="radio-mep" name="est-' + idPlaca + '">' +
+                 e.l +
+               '</label>';
+      }).join('') +
+      '</div>';
+  };
 
-            break;                        
-        case 3:
-            colEstado.innerHTML='<div class="row">'+
-                                '<input value="1" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Muy Buena</span></div>'+
-                                '<div class="row">'+
-                                '<input value="2" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Bueno</span></div>'+
-                                '<div class="row">'+
-                                '<input value="3" checked="true" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Regular</span></div>'+
-                                '<div class="row">'+
-                                '<input value="4" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Malo</span></div>' +
-                                '<div class="row">'+
-                                '<input value="5" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Robado o Hurtado</span></div>';
+  rs.forEach(function(obj) {
 
+    var plantilla = document.getElementById("plantilla");
 
-            break;
-        case 4:
-            colEstado.innerHTML='<div class="row">'+
-                                '<input value="1" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Muy Buena</span></div>'+
-                                '<div class="row">'+
-                                '<input value="2" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Bueno</span></div>'+
-                                '<div class="row">'+
-                                '<input value="3" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Regular</span></div>'+
-                                '<div class="row">'+
-                                '<input value="4" checked="true" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Malo</span></div>' +
-                                '<div class="row">'+
-                                '<input value="5" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Robado o Hurtado</span></div>';
+    var row = document.createElement('div');
+    row.className = "activos-row";
 
-            break;
-         case 5:
-            colEstado.innerHTML='<div class="row">'+
-                                '<input value="1" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Muy Buena</span></div>'+
-                                '<div class="row">'+
-                                '<input value="2" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Bueno</span></div>'+
-                                '<div class="row">'+
-                                '<input value="3" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Regular</span></div>'+
-                                '<div class="row">'+
-                                '<input value="4" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Malo</span></div>' +
-                                '<div class="row">'+
-                                '<input value="5" checked="true" type="radio" class="p-1" name="est-' + obj.id_placa  + '"><span style="font-size: 1.3em;">Robado o Hurtado</span></div>';
-              break;                                                      
-                      
-      } 
-            
-     //Se usa si no
-      let colCheckusosino = document.createElement('div');
-      colCheckusosino.className = "col-1 form-check text-center";  
-      
-      switch (obj.enuso) {
-        case 1:
-                colCheckusosino.innerHTML=  '<div class="form-check">'+
-                                            '<input value="1" checked id="usoSINO" name="usoSINO-' + obj.id_placa  + '" class="form-check-input position-static" ' +
-                                            'type="checkbox">' +
-                                            '</div>';          
-          break;
-      
-        default:
-                colCheckusosino.innerHTML=  '<div class="form-check">'+
-                                            '<input value="1" id="usoSINO" name="usoSINO-' + obj.id_placa  + '" class="form-check-input position-static" ' +
-                                            'type="checkbox">' +
-                                            '</div>';
-          break;
-      }     
+    var colCheck = document.createElement('div');
+    colCheck.className = "col-check";
+    colCheck.innerHTML = '<input type="checkbox" class="check-mep" data-id="' + obj.id_placa + '">';
 
-      //Donacion
-      let colCheckdonar = document.createElement('div');
-      colCheckdonar.className = "col form-check text-center";
-      switch (obj.donar) {
-        case 1:
-              colCheckdonar.innerHTML=  '<div class="form-check">'+
-                                        '<input value="1" checked id="donar" name="donar-' + obj.id_placa  + '" class="form-check-input position-static" ' +
-                                        'type="checkbox">' +
-                                        '</div>';                    
-          break;
-      
-        default:
-              colCheckdonar.innerHTML=  '<div class="form-check">'+
-                                        '<input value="1" id="donar" name="donar-' + obj.id_placa  + '" class="form-check-input position-static" ' +
-                                        'type="checkbox">' +
-                                        '</div>';
-          break;
-      }
-      
-     
-      row.appendChild(colCheck);
-      row.appendChild(colNombre);
-      row.appendChild(colPlaca);
-      row.appendChild(colEstado);
-      row.appendChild(colCheckusosino);
-      row.appendChild(colCheckdonar);            
-      plantilla.appendChild(row);            
- 
-    });      
+    var colNombre = document.createElement('div');
+    colNombre.className = "col-nombre";
+    colNombre.textContent = obj.clase + " " + obj.modelo + " " + obj.marca;
 
-    return false;
+    var colPlaca = document.createElement('div');
+    colPlaca.className = "col-placa";
+    colPlaca.textContent = obj.placa;
+
+    var colEstado = document.createElement('div');
+    colEstado.className = "col-estado";
+    colEstado.innerHTML = colEstadoHtml(obj.id_placa, obj.id_estado);
+
+    var colCheckusosino = document.createElement('div');
+    colCheckusosino.className = "col-uso";
+    var usoChecked = (obj.enuso === 1) ? 'checked' : '';
+    colCheckusosino.innerHTML = '<input type="checkbox" class="check-mep" value="1" ' + usoChecked + ' id="usoSINO" name="usoSINO-' + obj.id_placa + '">';
+
+    var colCheckdonar = document.createElement('div');
+    colCheckdonar.className = "col-donar";
+    var donarChecked = (obj.donar === 1) ? 'checked' : '';
+    colCheckdonar.innerHTML = '<input type="checkbox" class="check-mep" value="1" ' + donarChecked + ' id="donar" name="donar-' + obj.id_placa + '">';
+
+    row.appendChild(colCheck);
+    row.appendChild(colNombre);
+    row.appendChild(colPlaca);
+    row.appendChild(colEstado);
+    row.appendChild(colCheckusosino);
+    row.appendChild(colCheckdonar);
+    plantilla.appendChild(row);
+
+  });
+
+  return false;
 }
 
 function login() {
@@ -549,8 +467,7 @@ function cargaComboFondos() {
 
           });
           
-          $("#cboFondos").selectpicker("refresh");
-    
+     
       });
   
     }
@@ -575,7 +492,7 @@ function checkAll(source) {
 
 function muestraEstadoDescripcion() {
 
-  $('#modalMensajeEstado').modal('show');
+  mostrarModal('modalMensajeEstado');
   return true;
   
 }

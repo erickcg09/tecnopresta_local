@@ -27,6 +27,9 @@ $lognombre = $_SESSION['nombre'];
 $logtipo = $_SESSION['tipo'];
 $logcodigo = $_SESSION['codigo'];
 
+// Obtener el motivo seleccionado del formulario
+$motivo = isset($_POST['motivo']) ? $_POST['motivo'] : '';
+
 if (empty($_POST['idsplacas'])) {
     echo '<script language="javascript">
     alert("No hay ningún activo seleccionado");
@@ -50,8 +53,8 @@ if (empty($_POST['idsplacas'])) {
                 $codigo = $row['codigo'];
                 $id_activo = $row['id_activo'];
 
-                // Insertar los detalles en la tabla de bitácora
-                $insert = "INSERT INTO bitacora_eliminados (id_placa, placa, serial, codigo, id_activo, usuario) VALUES ('$idplaca', '$placa', '$serial', '$codigo', '$id_activo', '$logusuario')";
+                // Insertar los detalles en la tabla de bitácora incluyendo el motivo
+                $insert = "INSERT INTO bitacora_eliminados (id_placa, placa, serial, codigo, id_activo, usuario, motivo) VALUES ('$idplaca', '$placa', '$serial', '$codigo', '$id_activo', '$logusuario', '$motivo')";
                 if ($link->query($insert) !== TRUE) {
                     echo "Error al insertar en la bitácora: " . $link->error;
                 }
