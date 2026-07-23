@@ -28,7 +28,7 @@ require_once __DIR__ . '/sql/bd.php';
 $usuario_azure = obtenerUsuarioSesion();
 if (!$usuario_azure) {
     http_response_code(401);
-    echo json_encode(['success' => false, 'message' => 'Sesion invalida']);
+    echo json_encode(['success' => false, 'message' => 'Sesión inválida']);
     exit;
 }
 
@@ -39,10 +39,17 @@ if (!esUsuarioRoot()) {
 }
 
 $action = isset($_POST['action']) ? $_POST['action'] : '';
+if (!$action) {
+    $json = json_decode(file_get_contents('php://input'), true);
+    if ($json && isset($json['action'])) {
+        $action = $json['action'];
+        $_POST = array_merge($_POST, $json);
+    }
+}
 
 if (!$action) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Peticion invalida: se requiere accion']);
+    echo json_encode(['success' => false, 'message' => 'Petición inválida: se requiere acción']);
     exit;
 }
 

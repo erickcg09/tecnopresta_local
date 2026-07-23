@@ -36,7 +36,6 @@
 ## Capturas
 
 <!-- Agregar capturas de pantalla aquí -->
-<!-- ![Panel Principal](docs/screenshots/dashboard.png) -->
 
 ---
 

@@ -54,7 +54,7 @@ if (!defined('ACCESO_SEGURO')) {
 
     <!-- MEP Institutional Styles -->
     <link rel="stylesheet" href="assets/css/nueva-identidad.css">
-    <link rel="stylesheet" href="css/formulario_menu_principal.css?v=3" />
+    <link rel="stylesheet" href="css/formulario_menu_principal.css?v=9" />
 
     <!-- Bootstrap JS -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
@@ -256,7 +256,7 @@ if (!defined('ACCESO_SEGURO')) {
     <script src="js/jquery-3.5.1.min.js"></script>
 
     <!-- js del formulario -->
-    <script src="js/formulario_inventario_por_fuente_financiamiento.js?v=3"></script>
+    <script src="js/formulario_inventario_por_fuente_financiamiento.js?v=4"></script>
 
   </main>
   <?php include 'partials/footer.php'; ?>
